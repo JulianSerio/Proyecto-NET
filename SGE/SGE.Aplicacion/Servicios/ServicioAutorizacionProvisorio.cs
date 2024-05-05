@@ -1,8 +1,9 @@
-﻿namespace SGE.Aplicacion;
+﻿
+namespace SGE.Aplicacion;
 
 public class ServicioAutorizacionProvisorio : IServicioAutorizacion
 {
-    public bool PoseeElPermiso(int idUsuario, Permiso permiso) {
+    public bool PoseeElPermiso(int idUsuario) {
         try
         {
             if (idUsuario == 1) return true;
@@ -14,5 +15,4 @@ public class ServicioAutorizacionProvisorio : IServicioAutorizacion
             return false;
         }
     }
-
 }
