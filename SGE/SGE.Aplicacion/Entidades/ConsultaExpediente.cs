@@ -9,4 +9,7 @@ public class ConsultaExpediente{
         this._listaTramites = tramites;
     }
 
+    public ConsultaExpediente(){
+        
+    }
 }
