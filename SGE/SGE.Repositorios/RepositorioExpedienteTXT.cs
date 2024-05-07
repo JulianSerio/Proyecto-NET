@@ -48,7 +48,9 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio{
                 string[]datos = contenido.ElementAt(pos).Split(','); //guardo cada elemento del archivo en un vector y lo sepero por comas
                 if (datos[0] == idExpediente.ToString()){ //busco la coincidencia en el id
                     contenido.RemoveAt(pos); //borro el elemento
-                    encontre = true; 
+                    encontre = true;
+                    RepositorioTramiteTXT repositorioTramites = new RepositorioTramiteTXT();
+                    repositorioTramites.TramiteBajaPorExpediente(int.Parse(datos[0]));
                     File.WriteAllLines(_nameArch,contenido); //escribo todo el contenido del archivo menos el registro buscado
                 }
                 pos++;
@@ -103,6 +105,11 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio{
 
     public void ExpedienteModificacion(Expediente expediente)
     {
+        //buscar expediente en archivo
+        //si lo encontre tomo los datos nuevos
+        //si lo encontre guardo el expediente actualizado en la pos actual
+        //actualizo archivo
+        //si no lo encontre tiro la exception
         throw new NotImplementedException();
     }
 
