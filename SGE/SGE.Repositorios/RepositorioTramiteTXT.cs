@@ -1,6 +1,6 @@
 ﻿namespace SGE.Repositorios;
 using SGE.Aplicacion;
-public class RepositorioTramiteTXT
+public class RepositorioTramiteTXT //: ITramiteRepositorio
 {
     private readonly string _nameArch = "tramites.txt";
     private int _ultimoID;
@@ -10,9 +10,14 @@ public class RepositorioTramiteTXT
             if (contenido.Length > 0){
                 int.TryParse(contenido[0],out _ultimoID);
             }
+            else{
+                File.WriteAllText(_nameArch, "0");
+            }
         }
         else{
-            using (var sw = new StreamWriter(_nameArch)){}
+            using (var sw = new StreamWriter(_nameArch)){
+                sw.WriteLine("0");
+            }
             _ultimoID = 0;
         }
     }
@@ -61,7 +66,7 @@ public class RepositorioTramiteTXT
             Console.WriteLine(ex.Message);
         }
     }
-    public void TramiteBajaPorExpediente(int idExpediente)
+    public void TramiteBajaPorExpediente(int idExpediente) //no hace falta hacer un copy paste del mismo metodo de arriba, con el metodo de baja se hace lo mismo
     {
         List<String> contenido = File.ReadAllLines(_nameArch).ToList(); //guardo todo el contenido en un vector
         int pos = 1;
@@ -96,6 +101,15 @@ public class RepositorioTramiteTXT
             File.WriteAllLines(_nameArch,contenido); //escribo el contenido actualizado 
 
         } 
+    }
+
+    public List<Tramite>? TramitesExpediente(int idExpediente){
+        return null;
+    }
+
+    public EtiquetaTramite.Etiquetas? EtiquetaUltimoTramiteDeExpediente(int idExpediente){ //esta nulleado por el return
+        //usar el metodo tramitesExpediente si lo ven conveniente
+        return null;
     }
 }
 

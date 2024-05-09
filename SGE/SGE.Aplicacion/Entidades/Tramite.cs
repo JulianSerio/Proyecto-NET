@@ -4,7 +4,7 @@ namespace SGE.Aplicacion;
 
 public class Tramite {
     private int _id {get;}
-    public int expedienteID {get;set;} 
+    public int ExpedienteID {get;set;} 
     private EtiquetaTramite? _etiquetaTramite;
     private string? _contenido;
     private DateTime _fechaCreacion;

@@ -1,9 +1,9 @@
 ﻿namespace SGE.Aplicacion;
 
-public class CasoDeUsoExpedienteModificacion (ServicioActualizacionEstado actualizacion, ServicioAutorizacionProvisorio autorizacion){
-    public void Ejecutar(int idExpediente, int idUsuario){
+public class CasoDeUsoExpedienteModificacion (ServicioAutorizacionProvisorio autorizacion, IExpedienteRepositorio repositorio){
+    public void Ejecutar(int idExpediente, int idUsuario, string? caratula){
         if (autorizacion.PoseeElPermiso(idUsuario)){
-            actualizacion.ModificarExpediente(idExpediente,DateTime.Now);
+           repositorio.ExpedienteModificacion(idExpediente, DateTime.Now, caratula, idUsuario);
         }
     }
 

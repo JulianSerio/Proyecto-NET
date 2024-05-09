@@ -9,5 +9,6 @@ public interface IExpedienteRepositorio{
 
     List<Expediente> ExpedienteBusquedaTodos();
 
-    void ExpedienteModificacion(Expediente expediente);
+    void ExpedienteModificacion(int idExpediente, DateTime fechaModificacion, string? caratula, int idUsuario);
+    void ActualziarEstado(int idExpediente, EstadoExpediente.Estados? estado);
 }
