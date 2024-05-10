@@ -179,7 +179,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio{
         return repositorioTramites.TramitesExpediente(idExpediente);//retorna la lista obtenida del repositorio de tramites
     }
 
-    public void ActualizarEstado(int idExpediente, EstadoExpediente.Estados? estado){
+    public void ActualizarEstado(int idExpediente, EstadoExpediente.Estados estado){
         try{
             List<String> contenido = File.ReadAllLines(_nameArch).ToList(); //guardo todo el contenido en un vector
             bool encontre = false;

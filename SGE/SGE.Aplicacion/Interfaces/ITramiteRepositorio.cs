@@ -2,14 +2,10 @@
 
 public interface ITramiteRepositorio
 {
-    void TramiteAlta(string? caratula, DateTime fecha, int idUsuarioModificador);
+    void TramiteAlta(int expedienteID, EtiquetaTramite.Etiquetas etiqueta, String? contenido, DateTime creacion, int idUsuario);
     void TramiteBaja(int idTramite);
-    
-    //ConsultaTramite TramiteBusquedaEtiqueta(String etiquetaTramite);  //esto devuelve una lista, no hace falta hacer una clase al pedo
-
-    List<Tramite> TramiteBusquedaTodos();
-
-    void TramiteModificacion(Tramite tramite);
-
-    EtiquetaTramite.Etiquetas EtiquetaUltimoTramiteDeExpediente(int idExpediente);
+    List<Tramite>? TramiteBusquedaTodos();
+    void TramiteModificacion(Tramite tramite, string nuevoContenido, int idUsuario, EtiquetaTramite.Etiquetas etiqueta);
+    EtiquetaTramite.Etiquetas? EtiquetaUltimoTramiteDeExpediente(int idExpediente);
+    void ActualizarEtiqueta(int idTramite, EtiquetaTramite.Etiquetas etiqueta);
 }
