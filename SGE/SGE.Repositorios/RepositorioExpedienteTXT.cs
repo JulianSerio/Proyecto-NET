@@ -174,12 +174,12 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio{
         //} 
     }
 
-    
-    private List<Tramite>? ObtenerTramitesExpediente(int idExpediente){ //FALTA HACER ESTO
-        return null; //retorna la lista obtenida del repositorio de tramites
+    public List<Tramite>? ObtenerTramitesExpediente(int idExpediente){
+        RepositorioTramiteTXT repositorioTramites = new RepositorioTramiteTXT(); //instancio el repositorio
+        return repositorioTramites.TramitesExpediente(idExpediente);//retorna la lista obtenida del repositorio de tramites
     }
 
-    public void ActualziarEstado(int idExpediente, EstadoExpediente.Estados? estado){
+    public void ActualizarEstado(int idExpediente, EstadoExpediente.Estados? estado){
         try{
             List<String> contenido = File.ReadAllLines(_nameArch).ToList(); //guardo todo el contenido en un vector
             bool encontre = false;
