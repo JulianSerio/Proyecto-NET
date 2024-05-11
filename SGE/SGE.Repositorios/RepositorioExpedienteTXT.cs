@@ -166,12 +166,9 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio{
     }
 
     private void GuardarIDs(){
-        //using (var sw = new StreamWriter(_nameArch,false)){//abro el archivo 
             string[] contenido = File.ReadAllLines(_nameArch); //extraigo todas las lineas del archivo
             contenido[0] = _ultimoID.ToString(); //pongo en la primera posicion los id
             File.WriteAllLines(_nameArch,contenido); //escribo el contenido actualizado 
-
-        //} 
     }
 
     public List<Tramite>? ObtenerTramitesExpediente(int idExpediente){
@@ -179,7 +176,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio{
         return repositorioTramites.TramitesExpediente(idExpediente);//retorna la lista obtenida del repositorio de tramites
     }
 
-    public void ActualizarEstado(int idExpediente, EstadoExpediente.Estados estado){
+    public void ActualizarEstado(int idExpediente, EstadoExpediente.Estados? estado, DateTime fechaDeModificacion){
         try{
             List<String> contenido = File.ReadAllLines(_nameArch).ToList(); //guardo todo el contenido en un vector
             bool encontre = false;
@@ -187,7 +184,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio{
             while ((pos <= contenido.Count-1) && (!encontre)){ //mientras no llegue al final del archivo y no encontre el archivo
                 string[]datos = contenido.ElementAt(pos).Split(','); //guardo cada elemento del archivo en un vector y lo sepero por comas
                 if (datos[0] == idExpediente.ToString()){ //busco la coincidencia en el id
-                    contenido[pos]=$"{datos[0]},{datos[1]},{datos[2]},{datos[3]},{datos[4]},{estado}"; //se vuelve a cargar el expediente en la linea con los datos alterados
+                    contenido[pos]=$"{datos[0]},{datos[1]},{datos[2]},{fechaDeModificacion},{datos[4]},{estado}"; //se vuelve a cargar el expediente en la linea con los datos alterados
                     encontre = true;
                 }
                 pos++;

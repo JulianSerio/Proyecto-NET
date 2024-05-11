@@ -9,8 +9,7 @@ public class Tramite {
         get => _id;
     }
     private int _expedienteId {get;set;} 
-    public int expedienteId 
-    {
+    public int ExpedienteId{
         get => _expedienteId;
     }
     private EtiquetaTramite.Etiquetas _etiquetaTramite {get;}

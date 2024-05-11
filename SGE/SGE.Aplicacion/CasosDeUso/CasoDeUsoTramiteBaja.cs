@@ -1,10 +1,19 @@
 ﻿namespace SGE.Aplicacion;
 
-public class CasoDeUsoTramiteBaja(ITramiteRepositorio repo,ServicioAutorizacionProvisorio servicio)
+public class CasoDeUsoTramiteBaja(ITramiteRepositorio repo,ServicioAutorizacionProvisorio autorizacion, ServicioActualizacionEstado actualizacion)
 {
     public void Ejecutar(int id, int idUsuario){
-        if (servicio.PoseeElPermiso(idUsuario)) {//Verifico si el usuario tiene permisos
-            repo.TramiteBaja(id);
-        } 
+        try
+        {
+            if (autorizacion.PoseeElPermiso(idUsuario)) {//Verifico si el usuario tiene permisos
+                repo.TramiteBaja(id);
+                int idExpediente= repo.BuscarIdExpediente(id);
+                if(idExpediente != -1){
+                    actualizacion.ModificarExpediente(idExpediente);
+                }  
+            } 
+        }
+        catch (RepositorioException){
+        }
     }
 }
