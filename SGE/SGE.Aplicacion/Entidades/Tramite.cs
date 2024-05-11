@@ -14,10 +14,6 @@ public class Tramite {
     }
     private EtiquetaTramite.Etiquetas _etiquetaTramite {get;}
     private string? _contenido;
-    public string? contenido
-    {
-        get => _contenido;
-    }
     private DateTime _fechaCreacion;
     private DateTime _fechaModificacion;
     private int _idUsuarioModificador;
@@ -38,5 +34,9 @@ public class Tramite {
     }
     public EtiquetaTramite.Etiquetas Etiqueta {
         get => _etiquetaTramite;
+    }
+
+    public DateTime FechaDeModificacion{
+        get => _fechaModificacion;
     }
 }

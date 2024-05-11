@@ -38,4 +38,8 @@ public class Expediente{
     public EstadoExpediente.Estados Estado{
         get => _estado;
     }
+
+    public int IdExpediente{
+        get => _id;
+    }
 }

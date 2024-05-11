@@ -40,13 +40,12 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
             throw new ValidacionException();
         }
     }
-    public void TramiteBaja(int idTramite){
-        try
-        {
+    public int TramiteBaja(int idTramite){
+        int idExpediente = -1;
+        try{
             List<String> contenido = File.ReadAllLines(_nameArch).ToList(); //guardo todo el contenido en un vector
             bool encontre = false;
             int pos = 1;
-            int idExpediente = 0;
             while ((pos < contenido.Count) && (!encontre))//recorro el vector de tramites
             {
                 string[]datos = contenido.ElementAt(pos).Split(','); //guardo cada elemento del archivo en un vector y lo sepero por comas
@@ -62,13 +61,17 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
             if (!encontre) { //si no lo encontre 
                 throw new RepositorioException(); //tiro la excepcion
             }
+            else{
+                return idExpediente;
+            }
         }
         catch(RepositorioException ex){
             Console.WriteLine(ex.Message);
-            throw new RepositorioException();
+            return idExpediente;
         }
     }
-    public void TramiteModificacion(int idTramite, string nuevoContenido, int idModificador,EtiquetaTramite.Etiquetas etiqueta, DateTime fechaDeModificacion){
+    public int TramiteModificacion(int idTramite, string? nuevoContenido, int idModificador,EtiquetaTramite.Etiquetas etiqueta, DateTime fechaDeModificacion){
+        int idExpediente = -1;
         try{
             if(TramiteValidador.validar(nuevoContenido, idModificador)){ //si el tramite pasa la validacion
                 try{
@@ -80,6 +83,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
                         if (dato[0] == idTramite.ToString()){ //busco la coincidencia en el id
                             datos[pos]=$"{dato[0]},{dato[1]},{nuevoContenido},{dato[3]},{fechaDeModificacion},{idModificador},{etiqueta}"; //se vuelve a cargar el expediente en la linea con el dato alterado
                             encontre = true;
+                            idExpediente=int.Parse(dato[1]);
                         }
                         pos++;
                     }
@@ -88,11 +92,12 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
                     }
                     else{
                         File.WriteAllLines(_nameArch, datos);
+                        return idExpediente;
                     }
                 }
                 catch(RepositorioException ex){
                     Console.WriteLine(ex.Message);
-                    throw new RepositorioException();
+                    return idExpediente;
                 }
             }
             else{
@@ -101,6 +106,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         }
         catch (ValidacionException ex){
             Console.WriteLine(ex.Message);
+            return idExpediente;
         }
     }
     public List<Tramite>? BusquedaPorEtiqueta(EtiquetaTramite.Etiquetas etiqueta){
@@ -221,22 +227,5 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         string[] contenido = File.ReadAllLines(_nameArch); //extraigo todas las lineas del archivo
         contenido[0] = _ultimoID.ToString(); //pongo en la primera posicion los id
         File.WriteAllLines(_nameArch,contenido); //escribo el contenido actualizado 
-    }
-    public int BuscarIdExpediente(int idTramite){
-         using (var reader = new StreamReader(_nameArch)){ //abro el archivo
-            int idExpediente=-1;
-            bool encontre=false;
-            string? line;
-            reader.ReadLine(); //saltea la posicion 0
-            while (((line = reader.ReadLine()) != null)&&(!encontre)) { //mientras que queden lineas sin leer
-                string[] datos = line.Split(','); //divido todos los elementos separados por "," y los guardo en un vector
-                if(datos[0] == idTramite.ToString())//si encuentro un tramite que coincida con el idExpediente
-                {
-                    encontre=true;
-                    idExpediente = int.Parse(datos[0]);
-                }
-            }
-            return idExpediente;
-        }
     }
 }
