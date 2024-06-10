@@ -1,7 +1,6 @@
 ﻿namespace SGE.Repositorios;
 using SGE.Aplicacion;
-public class RepositorioTramiteTXT : ITramiteRepositorio
-{
+public class RepositorioTramiteTXT : ITramiteRepositorio{
     private readonly string _nameArch = "tramites.txt";
     private int _ultimoID;
     public RepositorioTramiteTXT(){
