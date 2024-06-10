@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Clon\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Facultad\\licenciatura en sistemas\\Segundo anio\\Primer Semestre\\Seminario de Lenguajes (.Net)\\trabajoDotNet\\Ciolfi - Serio - Piva - Gauna Rubio\\Ciolfi - Serio - Piva - Gauna Rubio\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
       "projectName": "SGE.Repositorios",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\Clon\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\Facultad\\licenciatura en sistemas\\Segundo anio\\Primer Semestre\\Seminario de Lenguajes (.Net)\\trabajoDotNet\\Ciolfi - Serio - Piva - Gauna Rubio\\Ciolfi - Serio - Piva - Gauna Rubio\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\Clon\\Proyecto-NET\\SGE\\SGE.Repositorios\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\Facultad\\licenciatura en sistemas\\Segundo anio\\Primer Semestre\\Seminario de Lenguajes (.Net)\\trabajoDotNet\\Ciolfi - Serio - Piva - Gauna Rubio\\Ciolfi - Serio - Piva - Gauna Rubio\\SGE\\SGE.Repositorios\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -51,8 +51,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Usuario\\Desktop\\Clon\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\Desktop\\Clon\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+            "C:\\Users\\Usuario\\Desktop\\Facultad\\licenciatura en sistemas\\Segundo anio\\Primer Semestre\\Seminario de Lenguajes (.Net)\\trabajoDotNet\\Ciolfi - Serio - Piva - Gauna Rubio\\Ciolfi - Serio - Piva - Gauna Rubio\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\Facultad\\licenciatura en sistemas\\Segundo anio\\Primer Semestre\\Seminario de Lenguajes (.Net)\\trabajoDotNet\\Ciolfi - Serio - Piva - Gauna Rubio\\Ciolfi - Serio - Piva - Gauna Rubio\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
             }
           }
         }
