@@ -1,6 +1,7 @@
 ﻿namespace SGE.Aplicacion;
 
-public class CasoDeUsoUsuarioBaja
-{
-
+public class CasoDeUsoUsuarioBaja(IUsuarioRepositorio repo){
+    public void Ejecutar(string email, int idUsuario){ //no hace falta validar porque esta opcion sola la puede ver el ADMIN
+        repo.UsuarioBaja(email); //si no existe el email en el repo tira RepositorioExcepcion
+    }
 }
