@@ -1,0 +1,62 @@
+/* _content/SGE.UI/Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-k716zha75e] {
+    display: flex;
+    flex-direction:column;
+}
+
+main[b-k716zha75e] {
+    flex: 1;
+}
+
+.navbar[b-k716zha75e] {
+    background-color: grey;
+    .container {
+        display: flex;
+        .navbar-brand {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        .navbar-nav[b-k716zha75e] {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            .nav-item {
+                margin-right: 10px;
+                .nav-link {
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }   
+    }
+}
+
+
+/* Media queries para el navbar responsive */
+@media (max-width: 768px) {
+    .navbar-toggler[b-k716zha75e] {
+        display: block; /* Muestra el botón en pantallas pequeñas */
+    }
+
+    .navbar-nav[b-k716zha75e] {
+        display: none; /* Oculta la lista de navegación en pantallas pequeñas */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-item[b-k716zha75e] {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .navbar-toggler:checked + .navbar-nav[b-k716zha75e] {
+        display: flex; /* Muestra la lista de navegación cuando se activa el botón en pantallas pequeñas */
+    }
+}
