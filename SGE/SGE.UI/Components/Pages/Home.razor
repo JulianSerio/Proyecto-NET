@@ -1,19 +1,26 @@
 ﻿@page "/"
 <PageTitle>Iniciar Sesion | SGE</PageTitle>
-
-<div class="estilo-formulario">
-    <div class="title">
-        <h1>Iniciar Sesion</h1>
-    </div>
-    <div class="container-form">
+<section class="seccion-formulario">
+    <div class="contenedor-formulario">
+        <h1 class="titulo">Iniciar Sesion</h1>
         <form action="GET" class="form">
-            <input type="email" name="email" id="input-email" placeholder="Email">
-            <input type="password" name="password" id="input-password" placeholder="Contraseña">
-            <input value="Iniciar Sesion" class="boton-inicio" type="submit">
+            <div class="elemento-input">
+                <input type="email" name="email" id="input-email" placeholder="Email">
+            </div>
+            <div class="elemento-input">
+                <input type="password" name="password" id="input-password" placeholder="Contraseña">
+            </div>
+            <div>
+                <input value="Iniciar Sesion" class="boton-inicio" type="submit">
+            </div>
+            <div>
+                <a href="registrarusuario">¿Olvidaste la contraseña?</a>
+            </div>
+            <div>
+                <a href="registrarusuario">Registrarse</a>
+            </div>
         </form>
-        <a href="registrarusuario">¿Olvidaste la contraseña?</a>
-        <a href="registrarusuario">Registrarse</a>
     </div>
-</div>
+</section>
 
 

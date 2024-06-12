@@ -1,23 +1,19 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGE.UI.bundle.scp.css",
-      "PackagePath": "staticwebassets\\SGE.UI.bundle.scp.css"
-    },
-    {
-      "Id": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\app.css",
+      "Id": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {

@@ -91,3 +91,36 @@ C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\n
 C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.pdb
 C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\ref\SGE.UI.dll
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\appsettings.json
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.staticwebassets.runtime.json
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.exe
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.deps.json
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.runtimeconfig.json
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.dll
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.pdb
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\SGE.Aplicacion.dll
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\SGE.Repositorios.dll
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\SGE.Aplicacion.pdb
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\bin\Debug\net8.0\SGE.Repositorios.pdb
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.AssemblyReference.cache
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.AssemblyInfoInputs.cache
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.AssemblyInfo.cs
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.CoreCompileInputs.cache
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.sourcelink.json
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.SGE.UI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.build.SGE.UI.props
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SGE.UI.props
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SGE.UI.props
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\bundle\SGE.UI.styles.css
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.Up2Date
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.dll
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\refint\SGE.UI.dll
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.pdb
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.genruntimeconfig.cache
+C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.UI\obj\Debug\net8.0\ref\SGE.UI.dll
