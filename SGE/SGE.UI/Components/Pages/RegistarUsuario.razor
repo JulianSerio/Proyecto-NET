@@ -2,18 +2,29 @@
 @attribute [StreamRendering]
 
 <PageTitle>Registrar Usuario | SGE</PageTitle>
+<section class="seccion-formulario">
+    <div class="contenedor-formulario">
+        <h1 class="titulo">Registrarse</h1>
 
-<div class="estilo-formulario">
-    <div class="title">
-        <h1>Registrarse</h1>
-    </div>
-    <div class="container-form">
         <form action="GET" class="form">
-            <input type="text" name="nombre" id="input-nombre" placeholder=" Nombre">
-            <input type="text" name="apellido" id="input-apellido" placeholder=" Apellido">
-            <input type="email" name="email" id="input-email" placeholder=" Email">
-            <input type="password" name="password" id="input-password" placeholder=" Contraseña">
-            <input value="Registrarse" class="boton-inicio" type="submit">
+            <div class="elemento-input">
+                <input type="text" name="nombre" id="input-nombre" placeholder=" Nombre">
+            </div>
+            <div class="elemento-input">
+                <input type="text" name="apellido" id="input-apellido" placeholder=" Apellido">
+            </div>
+            <div class="elemento-input">
+                <input type="email" name="email" id="input-email" placeholder=" Email">
+            </div>
+            <div class="elemento-input">
+                <input type="password" name="password" id="input-password" placeholder=" Contraseña">
+            </div>
+            <div>
+                <input value="Registrarse" class="boton-inicio" type="submit">
+            </div>
+            <div>
+                <a href="/">¿Ya tenes cuenta?</a>
+            </div>
         </form>
     </div>
-</div>
+</section>
