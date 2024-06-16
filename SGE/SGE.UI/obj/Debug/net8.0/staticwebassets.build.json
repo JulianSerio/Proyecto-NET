@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WLQ4C3VTA8F2LiUIcgHQOS6121cxzQGEayTQSoXYTQ0=",
+  "Hash": "AxMDJyFdAn7yTNQ18oq1G4nCfqTcu2QwE5nL3CZ459w=",
   "Source": "SGE.UI",
   "BasePath": "_content/SGE.UI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "SGE.UI\\wwwroot",
       "Source": "SGE.UI",
-      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\app.css",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\favicon.png",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Proyecto-Net\\Proyecto-Net - por las dudas\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

@@ -18,6 +18,14 @@ public class Tramite {
     private DateTime _fechaModificacion;
     private int _idUsuarioModificador;
 
+    public Tramite(int id, int expedienteID, string? contenido, int idUsuarioModificador, EtiquetaTramite.Etiquetas etiquetaTramite){
+        _id = id;
+        _expedienteId = expedienteID;
+        _contenido = contenido;
+        _idUsuarioModificador = idUsuarioModificador;
+        _etiquetaTramite = etiquetaTramite;
+    }
+
     public Tramite(int id, int expedienteID, string? contenido, DateTime creacion, DateTime modificacion, int idUsuarioModificador, EtiquetaTramite.Etiquetas etiquetaTramite){
 
         _id = id;

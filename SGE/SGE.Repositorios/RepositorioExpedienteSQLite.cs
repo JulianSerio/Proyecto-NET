@@ -8,7 +8,7 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
         throw new NotImplementedException();
     }
 
-    public void ExpedienteAlta(string? caratula, DateTime fecha, int idUsuarioModificador)
+    public void ExpedienteAlta(Expediente expediente, DateTime fecha)
     {
         throw new NotImplementedException();
     }
@@ -28,7 +28,7 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
         throw new NotImplementedException();
     }
 
-    public void ExpedienteModificacion(int idExpediente, DateTime fechaModificacion, string? caratula, int idUsuario)
+    public void ExpedienteModificacion(int idExpediente, DateTime fechaModificacion, Expediente expediente)
     {
         throw new NotImplementedException();
     }

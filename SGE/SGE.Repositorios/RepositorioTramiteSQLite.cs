@@ -14,7 +14,7 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
         throw new NotImplementedException();
     }
 
-    public void TramiteAlta(int expedienteID, EtiquetaTramite.Etiquetas etiqueta, string? contenido, DateTime creacion, int idUsuario)
+    public void TramiteAlta(int expedienteID, Tramite tramite, DateTime creacion, int idUsuario)
     {
         throw new NotImplementedException();
     }
@@ -24,7 +24,7 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
         throw new NotImplementedException();
     }
 
-    public int TramiteModificacion(int idTramite, string? nuevoContenido, int idUsuario, EtiquetaTramite.Etiquetas etiqueta, DateTime fechaDeModificacion)
+    public int TramiteModificacion(int idTramite, Tramite tramite, int idUsuario, DateTime fechaDeModificacion)
     {
         throw new NotImplementedException();
     }

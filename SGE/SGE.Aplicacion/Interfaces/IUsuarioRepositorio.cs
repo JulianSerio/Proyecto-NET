@@ -5,7 +5,7 @@ public interface IUsuarioRepositorio{
     void UsuarioBaja(string email);
     Usuario UsuarioInicioDeSesion(string email, string password); //devuelve true si es ADMIN, sino false. Si el usuario no existe se lanza una excepcion
     void UsuarioModicacion(Usuario user, List<string> permisos);
-    bool EmailRepetido(string email);
+    bool EmailRepetido(string? email);
     List<Usuario> UsuarioBusquedaTodos();
-    bool UsuarioValidarPermiso(string permiso);
+    bool UsuarioValidarPermiso(string permiso, int idUsuario);
 }

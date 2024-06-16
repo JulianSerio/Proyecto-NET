@@ -8,6 +8,11 @@ public class Expediente{
     private int? _idUsuarioModificador {get;set;}
     private EstadoExpediente.Estados _estado {get;}
 
+    public Expediente(string? caratula, string apellido, int idUsuarioModificador){
+        _caratula = caratula;
+        _idUsuarioModificador = idUsuarioModificador;
+        _estado = EstadoExpediente.Estados.RecienIniciado;  
+    }
     public Expediente(int id, string? caratula, DateTime fecha, int idUsuarioModificador){
         _id = id;
         _caratula = caratula;

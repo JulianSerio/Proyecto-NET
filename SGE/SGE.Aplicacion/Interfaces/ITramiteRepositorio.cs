@@ -2,9 +2,9 @@
 
 public interface ITramiteRepositorio
 {
-    void TramiteAlta(int expedienteID, EtiquetaTramite.Etiquetas etiqueta, String? contenido, DateTime creacion, int idUsuario);
+    void TramiteAlta(int expedienteID, Tramite tramite, DateTime creacion, int idUsuario);
     int TramiteBaja(int idTramite);
     List<Tramite>? BusquedaPorEtiqueta(EtiquetaTramite.Etiquetas etiqueta);
-    int TramiteModificacion(int idTramite, string? nuevoContenido, int idUsuario, EtiquetaTramite.Etiquetas etiqueta, DateTime fechaDeModificacion);
+    int TramiteModificacion(int idTramite, Tramite tramite, int idUsuario, DateTime fechaDeModificacion);
     EtiquetaTramite.Etiquetas? EtiquetaUltimoTramiteDeExpediente(int idExpediente);
 }

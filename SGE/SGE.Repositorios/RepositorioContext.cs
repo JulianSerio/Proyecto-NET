@@ -17,7 +17,6 @@ public class RepositorioContext: DbContext{
             entity.Property(e => e.Nombre).IsRequired().HasMaxLength(100);
             entity.Property(e => e.Apellido).IsRequired().HasMaxLength(100);
             entity.Property(e => e.Email).IsRequired().HasMaxLength(100);
-            entity.Property(e => e.Permisos).IsRequired().HasMaxLength(100);
         });
     }
 }

@@ -1,19 +1,25 @@
-﻿using System.Collections;
-using System.Reflection.Emit;
-
-namespace SGE.Aplicacion;
+﻿namespace SGE.Aplicacion;
 
 public class Usuario
 {
-    private string _nombre;
-    private string _apellido;
-    private string _email;
-    private string _password;
-    private List<Permiso> _permisos;
-    private int _idUsuario;
-    private bool _admin;
-    
-    public Usuario(string nombre, string apellido, string email, string password, int idUsuario){
+    private string? _nombre;
+    private string? _apellido;
+    private string? _email;
+    private string? _password;
+    private List<Permiso>? _permisos;
+    private int? _idUsuario;
+    private bool? _admin;
+
+    public Usuario(string nombre, string apellido, string? email, string password)
+    {
+        _permisos = new List<Permiso>(); //se instancian vacios los permisos
+        Nombre = nombre;
+        Apellido = apellido;
+        _email = email;
+        Password = password;
+    }
+
+    public Usuario(string nombre, string apellido, string? email, string password, int idUsuario){
         _permisos = new List<Permiso>(); //se instancian vacios los permisos
         _nombre=nombre;
         _apellido=apellido;
@@ -29,9 +35,7 @@ public class Usuario
         get => _admin;
     }
 
-    public string? Email{
-        get => _email;
-    }
+    public string? Email{get;}
 
     public int? IdUsuario{
         get => _idUsuario;
