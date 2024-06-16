@@ -1,9 +1,14 @@
 ﻿using SGE.Aplicacion;
+using Microsoft.EntityFrameworkCore;
 
 namespace SGE.Repositorios;
 
 public class RepositorioUsuarioSQLite : IUsuarioRepositorio
 {
+    public RepositorioUsuarioSQLite(){
+        using var context = new RepositorioContext();
+        context.Database.EnsureCreated(); //si la base de datos no existe se crea y devuelve true
+    }
     public bool EmailRepetido(string email)
     {
         throw new NotImplementedException();
@@ -18,27 +23,23 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
         throw new NotImplementedException();
     }
 
-    public bool UsuarioInicioDeSesion(string email, string password)
+    public List<Usuario> UsuarioBusquedaTodos()
     {
         throw new NotImplementedException();
     }
 
-    public void UsuarioModicacionContraseña(string password)
+
+    public void UsuarioModicacion(Usuario user, List<string> permisos)
     {
         throw new NotImplementedException();
     }
 
-    public void UsuarioModicacionDatosPersonales(string nombre, string apellido, string email)
+    public bool UsuarioValidarPermiso(string permiso)
     {
         throw new NotImplementedException();
     }
 
-    public void UsuarioModicacionPermisos(string email, List<string> permisos)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UsuarioModicacionUsuarioCompleto(string nombre, string apellido, string email, string password)
+    public Usuario UsuarioInicioDeSesion(string email, string password)
     {
         throw new NotImplementedException();
     }

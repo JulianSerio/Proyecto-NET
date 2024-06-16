@@ -1,9 +1,9 @@
 ﻿namespace SGE.Aplicacion;
 
-public class ServicioAutorizacion : IServicioAutorizacion
+public class ServicioAutorizacion(IUsuarioRepositorio repo) : IServicioAutorizacion
 {
-    public bool PoseeElPermiso(int IdUsuario){
-        throw new NotImplementedException();
+    public bool PoseeElPermiso(string permiso){
+        return repo.UsuarioValidarPermiso(permiso); //si el usuario posee X permiso devuelve true, sino false
     }
 
     public bool EsAdmin(int idUsuario){
