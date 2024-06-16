@@ -4,14 +4,7 @@ namespace SGE.Aplicacion;
 
 public class Tramite {
     private int _id;
-    public int id 
-    {
-        get => _id;
-    }
     private int _expedienteId {get;set;} 
-    public int ExpedienteId{
-        get => _expedienteId;
-    }
     private EtiquetaTramite.Etiquetas _etiquetaTramite {get;}
     private string? _contenido;
     private DateTime _fechaCreacion;
@@ -27,7 +20,6 @@ public class Tramite {
     }
 
     public Tramite(int id, int expedienteID, string? contenido, DateTime creacion, DateTime modificacion, int idUsuarioModificador, EtiquetaTramite.Etiquetas etiquetaTramite){
-
         _id = id;
         _expedienteId = expedienteID;
         _contenido = contenido;
@@ -37,14 +29,11 @@ public class Tramite {
         _etiquetaTramite = etiquetaTramite;
     }
 
-    public string? Contenido{
-        get => _contenido;
-    }
-    public EtiquetaTramite.Etiquetas Etiqueta {
-        get => _etiquetaTramite;
-    }
-
-    public DateTime FechaDeModificacion{
-        get => _fechaModificacion;
-    }
+    public string? Contenido{get;}
+    public EtiquetaTramite.Etiquetas Etiqueta {get;}
+    public DateTime FechaDeModificacion{get;}
+    public int ExpedienteId{get;}
+    public int id{get;}
+    public DateTime FechaDeCreacion{get;}
+    public int IdUsuarioModificador{get;}
 }

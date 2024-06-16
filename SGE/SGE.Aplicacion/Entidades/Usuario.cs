@@ -6,13 +6,11 @@ public class Usuario
     private string? _apellido;
     private string? _email;
     private string? _password;
-    private List<Permiso>? _permisos;
+    private List<string>? _permisos;
     private int? _idUsuario;
-    private bool? _admin;
 
-    public Usuario(string nombre, string apellido, string? email, string password)
-    {
-        _permisos = new List<Permiso>(); //se instancian vacios los permisos
+    public Usuario(string nombre, string apellido, string? email, string password){
+        _permisos = new List<string>(); //se instancian vacios los permisos
         Nombre = nombre;
         Apellido = apellido;
         _email = email;
@@ -20,33 +18,18 @@ public class Usuario
     }
 
     public Usuario(string nombre, string apellido, string? email, string password, int idUsuario){
-        _permisos = new List<Permiso>(); //se instancian vacios los permisos
+        _permisos = new List<string>(); //se instancian vacios los permisos
         _nombre=nombre;
         _apellido=apellido;
         _email=email;
         _password=password;//se tiene que evaluar esto
-        if(idUsuario == 1){
-            _admin = true; //si el ID recibido es 1, ese usuario es admin
-        }
-         _idUsuario = idUsuario;
-    }
-    
-    public bool? Admin{
-        get => _admin;
+        _idUsuario = idUsuario;
     }
 
     public string? Email{get;}
-
-    public int? IdUsuario{
-        get => _idUsuario;
-    }
-
+    public int? IdUsuario{get;}
     public string? Apellido {get;}
-
     public string? Password {get;}
-
-    public List<Permiso>? Permisos {get;}
-
-    public string? Nombre {get;}
-    
+    public List<string>? Permisos {get;set;}
+    public string? Nombre {get;}    
 }

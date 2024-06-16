@@ -31,20 +31,16 @@ public class Expediente{
         _estado = estado;  
     }
     
-    public string? Caratula{
-        get => _caratula;
-        set => _caratula = value;
-    }
+    public string? Caratula{get; set;}
 
-    public DateTime FechaModificacion{
-        get => _fechaModificacion;
-    }
+    public DateTime FechaModificacion{get;set;}
 
-    public EstadoExpediente.Estados Estado{
-        get => _estado;
-    }
+    public EstadoExpediente.Estados Estado{get;}
 
-    public int IdExpediente{
-        get => _id;
-    }
+    public int Id{get;}
+    
+    public DateTime FechaCreacion{get;}
+
+    public int IdUsuarioModificador{get;}
+
 }
