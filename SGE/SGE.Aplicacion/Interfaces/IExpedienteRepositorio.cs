@@ -2,10 +2,10 @@
 
 
 public interface IExpedienteRepositorio{
-    void ExpedienteAlta(Expediente expediente, DateTime fecha);
+    void ExpedienteAlta(string caratula, int idUsuario, DateTime fecha);
     void ExpedienteBaja(int idExpediente);
     ConsultaExpediente ExpedienteBusquedaID(int idExpediente);
     List<Expediente> ExpedienteBusquedaTodos();
-    void ExpedienteModificacion(int idExpediente, DateTime fechaModificacion, Expediente expediente);
-    void ActualizarEstado(int idExpediente, EstadoExpediente.Estados? estado, DateTime fechaDeModificacion);
+    void ExpedienteModificacion(int idExpediente, Expediente expediente, int idUsuario);
+    void ActualizarEstado(int idExpediente, EstadoExpediente.Estados estado, int idUsuario);
 }

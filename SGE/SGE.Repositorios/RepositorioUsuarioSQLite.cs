@@ -66,6 +66,8 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
                 usuarioAModificar.Permisos=permisos;
 
                 db.SaveChanges();
+            }else{
+                throw new RepositorioException();
             }
         }
     }

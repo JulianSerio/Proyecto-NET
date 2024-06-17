@@ -14,8 +14,7 @@ public class Expediente{
         IdUsuarioModificador = idUsuarioModificador;
         Estado = EstadoExpediente.Estados.RecienIniciado;  
     }
-    public Expediente(int id, string? caratula, DateTime fecha, int idUsuarioModificador){
-        Id = id;
+    public Expediente(string? caratula, DateTime fecha, int idUsuarioModificador){
         Caratula = caratula;
         FechaCreacion = fecha;
         FechaModificacion = fecha;
