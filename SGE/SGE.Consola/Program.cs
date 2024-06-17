@@ -1,6 +1,28 @@
 ﻿using SGE.Aplicacion;
 using SGE.Repositorios;
 
+GestionSqlite.Inicializar();
+
+//RepositorioTramiteSQLite.Inicializar();
+using (var context = new RepositorioContext())
+{
+    Console.WriteLine("-- Tabla Usuarios --");
+    foreach (var us in context.Usuarios)
+    {
+      Console.WriteLine($"{us.IdUsuario} {us.Nombre} {us.Apellido}");
+    }
+    Console.WriteLine("-- Tabla Expedientes --");
+    foreach (var ex in context.Expedientes)
+    {
+      Console.WriteLine($"{ex.Id} {ex.Caratula} {ex.Estado}");
+    }
+    Console.WriteLine("-- Tabla Tramites --");
+    foreach (var tr in context.Tramites)
+    {
+      Console.WriteLine($"{tr.Id} {tr.Contenido} {tr.EtiquetaTramite}");
+    }
+}
+
 //Repositorios
 IExpedienteRepositorio repositorioExpedientes = new RepositorioExpedienteSQLite();
 ITramiteRepositorio repositorioTramites = new RepositorioTramiteSQLite();

@@ -1207,11 +1207,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+      "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
       "projectName": "SGE.Repositorios",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+      "projectPath": "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\obj\\",
+      "outputPath": "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1226,8 +1226,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+            "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+              "projectPath": "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
             }
           }
         }

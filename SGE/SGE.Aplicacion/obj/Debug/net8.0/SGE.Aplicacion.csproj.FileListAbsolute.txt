@@ -45,3 +45,15 @@ C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.Ap
 C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.Aplicacion\obj\Debug\net8.0\refint\SGE.Aplicacion.dll
 C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.pdb
 C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.Aplicacion\obj\Debug\net8.0\ref\SGE.Aplicacion.dll
+C:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.deps.json
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.dll
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.pdb
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.AssemblyInfoInputs.cache
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.AssemblyInfo.cs
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.csproj.CoreCompileInputs.cache
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.sourcelink.json
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.dll
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\refint\SGE.Aplicacion.dll
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.pdb
+C:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\ref\SGE.Aplicacion.dll
