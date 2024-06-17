@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NnIRRsWD/NhIy157Cu+CdTBcirwJF9OqELoEvg4wCd/P6n+uH7qgqDBmSVBtgeuLL2aDEjCBeHyDUqPao+Z/Dw==",
+  "dgSpecHash": "Yl2aV6g/t9UpPk7OnHptO+4TsrCG6Nc+DOF+r6Lir3uUBqPUcsJhy90J2xqg6XRCo5YT/rs1TanPHUoMNesppQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\SGE.UI.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.UI\\SGE.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.6\\microsoft.data.sqlite.core.8.0.6.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.6\\microsoft.entityframeworkcore.8.0.6.nupkg.sha512",
@@ -29,12 +29,5 @@
     "C:\\Users\\Usuario\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
