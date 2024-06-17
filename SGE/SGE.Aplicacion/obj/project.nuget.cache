@@ -1,14 +1,15 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "0zQs8SkhJSWDYRMs1+el1DQQcLjZxe9qe6N/iRQ82z3iZgEF10fhy0B8lvFXIgKVJwFZBapI6iRDd+jwfCIjbQ==",
+  "dgSpecHash": "wyHFSUfxK4A=",
   "success": true,
-  "projectFilePath": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
-=======
-  "dgSpecHash": "rIgMmWEfW9E71OSig6nhxzGB4BQRZxc0Ie4cGvD5SAWcgQHEZj9+kp25dgoX41QvMf5azsKCBcmN3wfK17nFgw==",
-  "success": true,
-  "projectFilePath": "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
->>>>>>> 22667eb4a299f1ceb9a82f89a5125460fd9958e0
+  "projectFilePath": "C:\\Users\\Licho\\Documents\\DotNet\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Licho\\Documents\\DotNet\\Proyecto-NET\\SGE\\SGE.Aplicacion\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
