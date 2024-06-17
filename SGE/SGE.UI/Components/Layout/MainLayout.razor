@@ -1,25 +1,14 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
+<header>
     <div class="navegacion">
         <a class="navbar-brand" href="">Sistema de Gestion de Expedientes</a>
-        <ul class="nav-list">
-            <li class="list-item">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="list-item">
-                <a class="nav-link" href="counter">Counter</a>
-            </li>
-            <li class="list-item">
-                <a class="nav-link" href="weather">Weather</a>
-            </li>
-        </ul>
     </div>
+</header>
+<main>
+    <article class="content px-4">
+        @Body
+    </article>
+</main>
 
-    <main>
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
 

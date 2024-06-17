@@ -61,3 +61,35 @@ C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.Re
 C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.Repositorios\obj\Debug\net8.0\refint\SGE.Repositorios.dll
 C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.pdb
 C:\Users\Julian\Desktop\NET\Proyecto-Net\Proyecto-Net - por las dudas\SGE\SGE.Repositorios\obj\Debug\net8.0\ref\SGE.Repositorios.dll
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.deps.json
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.dll
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.pdb
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Aplicacion.dll
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Aplicacion.pdb
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.csproj.AssemblyReference.cache
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.AssemblyInfoInputs.cache
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.AssemblyInfo.cs
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.csproj.CoreCompileInputs.cache
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.sourcelink.json
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repo.5B6658F4.Up2Date
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.dll
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\refint\SGE.Repositorios.dll
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.pdb
+c:\Users\Usuario\Desktop\Git\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\ref\SGE.Repositorios.dll
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.deps.json
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.dll
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.pdb
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Aplicacion.dll
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Aplicacion.pdb
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.csproj.AssemblyReference.cache
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.AssemblyInfoInputs.cache
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.AssemblyInfo.cs
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.sourcelink.json
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repo.5B6658F4.Up2Date
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.dll
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\refint\SGE.Repositorios.dll
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.pdb
+C:\Users\Julian\Desktop\NET\Entrega\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\ref\SGE.Repositorios.dll

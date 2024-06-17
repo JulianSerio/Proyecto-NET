@@ -6,6 +6,6 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, ServicioAutori
         if(servicio.PoseeElPermiso(permiso, idUsuario)){ //Verifico si el usuario tiene permisos
             ExpedienteValidador.validar(expediente.Caratula); //si es valido no tira excepcion
             repo.ExpedienteAlta(expediente,DateTime.Now); //envio los datos al repo
-        } 
+        }
     }
 }

@@ -1221,19 +1221,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\Julian\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\SGE.UI.csproj",
+      "projectUniqueName": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\SGE.UI.csproj",
       "projectName": "SGE.UI",
-      "projectPath": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\SGE.UI.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\obj\\",
+      "projectPath": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\SGE.UI.csproj",
+      "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -1245,11 +1245,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+            "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+              "projectPath": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
             },
-            "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj"
+            "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj": {
+              "projectPath": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj"
             }
           }
         }
@@ -1290,13 +1290,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

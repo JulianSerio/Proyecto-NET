@@ -1,10 +1,10 @@
-html, body {
+body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
     height: 100vh;
-    background:linear-gradient(to right top, #ffffff9a,#0000009a);
+    box-sizing: border-box;
+    background: linear-gradient(#0000005a, #0000005a),url('./Images/fondo.png') no-repeat center center fixed;
     background-size: cover;
     background-position: center;
 }
@@ -14,8 +14,6 @@ html, body {
 }
 
 /*ESTILOS DEL NAVBAR*/
-
-
 .navegacion {
     display: flex;
     background-color: rgb(105, 165, 255);
@@ -73,7 +71,6 @@ html, body {
         display: flex; 
     }
 }
-
 
 /*ESTILOS DEL FORMULARIO*/
 .seccion-formulario{

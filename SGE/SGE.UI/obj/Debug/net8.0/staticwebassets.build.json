@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AxMDJyFdAn7yTNQ18oq1G4nCfqTcu2QwE5nL3CZ459w=",
+  "Hash": "SAcCY9Gc9Is2JUSmx+FI4fNOfQnsc3jCKIqPC3oQ2tQ=",
   "Source": "SGE.UI",
   "BasePath": "_content/SGE.UI",
   "Mode": "Default",
@@ -10,17 +10,55 @@
     {
       "Name": "SGE.UI\\wwwroot",
       "Source": "SGE.UI",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\app.css",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SGE.UI.styles.css",
+      "SourceId": "SGE.UI",
+      "SourceType": "Computed",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/SGE.UI",
+      "RelativePath": "SGE.UI.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SGE.UI.styles.css"
+    },
+    {
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGE.UI.bundle.scp.css",
+      "SourceId": "SGE.UI",
+      "SourceType": "Computed",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/SGE.UI",
+      "RelativePath": "SGE.UI.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGE.UI.bundle.scp.css"
+    },
+    {
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\app.css",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -36,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -55,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -74,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\favicon.png",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\favicon.png",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -91,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\Images\\fondo.png",
+      "SourceId": "SGE.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.UI\\wwwroot\\",
+      "BasePath": "_content/SGE.UI",
+      "RelativePath": "Images/fondo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\fondo.png"
     }
   ]
 }

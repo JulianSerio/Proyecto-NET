@@ -1,26 +1,29 @@
 @page "/registrarusuario"
 @attribute [StreamRendering]
+@inject NavigationManager Navigation
+
 
 <PageTitle>Registrar Usuario | SGE</PageTitle>
+<Excepcion @ref="ventanaExcepcion"/>
 <section class="seccion-formulario">
     <div class="contenedor-formulario">
         <h1 class="titulo">Registrarse</h1>
 
-        <form action="GET" class="form">
+        <form class="form" @onsubmit="Ejecutar">
             <div class="elemento-input">
-                <input type="text" name="nombre" id="input-nombre" placeholder=" Nombre">
+                <input type="text" @bind="_nombre" id="input-nombre" placeholder=" Nombre" required>
             </div>
             <div class="elemento-input">
-                <input type="text" name="apellido" id="input-apellido" placeholder=" Apellido">
+                <input type="text" @bind="_apellido" id="input-apellido" placeholder=" Apellido" required>
             </div>
             <div class="elemento-input">
-                <input type="email" name="email" id="input-email" placeholder=" Email">
+                <input type="email" @bind="_email" id="input-email" placeholder=" Email" required>
             </div>
             <div class="elemento-input">
-                <input type="password" name="password" id="input-password" placeholder=" Contraseña">
+                <input type="password" @bind="_password" id="input-password" placeholder=" Contraseña" required>
             </div>
             <div>
-                <input value="Registrarse" class="boton-inicio" type="submit">
+                <button type="submit" class="boton-inicio">Registrarse</button>
             </div>
             <div>
                 <a href="/">¿Ya tenes cuenta?</a>
@@ -28,3 +31,31 @@
         </form>
     </div>
 </section>
+
+@code {
+    private string? _nombre;
+    private string? _apellido;
+    private string? _email;
+    private string? _password;
+    Excepcion ventanaExcepcion = null!;
+
+
+    private void Ejecutar (){
+        RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
+        UsuarioValidador validador = new UsuarioValidador(repo);
+        CasoDeUsoUsuarioAlta registro = new CasoDeUsoUsuarioAlta(repo,validador);
+        try{
+            registro.Ejecutar(_nombre!,_apellido!,_email!,_password!);
+            //Texto que informa que el usuario se registro con exito
+            Navigation.NavigateTo("/iniciarsesion");
+        }
+        catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+        
+
+
+    }
+
+}

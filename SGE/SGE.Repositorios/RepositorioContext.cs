@@ -1,5 +1,4 @@
 ﻿namespace SGE.Repositorios;
-
 using Microsoft.EntityFrameworkCore;
 using SGE.Aplicacion;
 
@@ -14,6 +13,7 @@ public class RepositorioContext: DbContext{
     protected override void OnModelCreating(ModelBuilder modelBuilder){
         //Usuarios
         modelBuilder.Entity<Usuario>().ToTable("Usuarios");
+        modelBuilder.Entity<Usuario>().HasKey(u => u.IdUsuario); // Definiendo la clave primaria
         modelBuilder.Entity<Usuario>()
             .Property(u => u.Nombre) //establece la variable que va a ocupar esa columna
             .HasMaxLength(100) //establece el maximo
@@ -45,12 +45,13 @@ public class RepositorioContext: DbContext{
         modelBuilder.Entity<Tramite>().Property(e=>e.IdUsuarioModificador).IsRequired();
         modelBuilder.Entity<Tramite>().Property(e=>e.Contenido).HasMaxLength(1000).IsRequired();
         modelBuilder.Entity<Tramite>().Property(e=>e.ExpedienteId).IsRequired();
-        modelBuilder.Entity<Tramite>().Property(e=>e.FechaDeCreacion).IsRequired();
-        modelBuilder.Entity<Tramite>().Property(e=>e.FechaDeModificacion).IsRequired();
-        modelBuilder.Entity<Tramite>().HasKey(e=>e.id);
-        modelBuilder.Entity<Tramite>().Property(e=>e.Etiqueta).HasConversion(
+        modelBuilder.Entity<Tramite>().Property(e=>e.FechaCreacion).IsRequired();
+        modelBuilder.Entity<Tramite>().Property(e=>e.FechaModificacion).IsRequired();
+        modelBuilder.Entity<Tramite>().HasKey(e=>e.Id);
+        modelBuilder.Entity<Tramite>().Property(e=>e.EtiquetaTramite).HasConversion(
             v => v.ToString(),
             v => (EtiquetaTramite.Etiquetas)Enum.Parse(typeof(EtiquetaTramite.Etiquetas), v)
         );
     }
 }
+
