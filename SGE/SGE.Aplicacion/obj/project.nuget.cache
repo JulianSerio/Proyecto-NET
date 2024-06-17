@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "0zQs8SkhJSWDYRMs1+el1DQQcLjZxe9qe6N/iRQ82z3iZgEF10fhy0B8lvFXIgKVJwFZBapI6iRDd+jwfCIjbQ==",
   "success": true,
   "projectFilePath": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+=======
+  "dgSpecHash": "rIgMmWEfW9E71OSig6nhxzGB4BQRZxc0Ie4cGvD5SAWcgQHEZj9+kp25dgoX41QvMf5azsKCBcmN3wfK17nFgw==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+>>>>>>> 22667eb4a299f1ceb9a82f89a5125460fd9958e0
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
         "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
         "outputPath": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\obj\\",
+=======
+    "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+        "projectName": "SGE.Aplicacion",
+        "projectPath": "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\obj\\",
+>>>>>>> 22667eb4a299f1ceb9a82f89a5125460fd9958e0
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -58,10 +72,11 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -70,6 +85,16 @@
         "projectPath": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
         "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Repositorios\\obj\\",
+=======
+    "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+        "projectName": "SGE.Repositorios",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\obj\\",
+>>>>>>> 22667eb4a299f1ceb9a82f89a5125460fd9958e0
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -84,8 +109,13 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD
               "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
                 "projectPath": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+=======
+              "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+                "projectPath": "c:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+>>>>>>> 22667eb4a299f1ceb9a82f89a5125460fd9958e0
               }
             }
           }
@@ -126,7 +156,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

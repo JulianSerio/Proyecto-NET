@@ -13,11 +13,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
       "projectName": "SGE.Aplicacion",
       "projectPath": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
       "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Aplicacion\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+      "projectName": "SGE.Aplicacion",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\obj\\",
+>>>>>>> 22667eb4a299f1ceb9a82f89a5125460fd9958e0
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -64,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

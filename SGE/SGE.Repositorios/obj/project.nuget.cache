@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "30+fhYmpUG3f0tZyQz9cztFskGCImMfj6O1L9OoCRygG0G3LMzISM2QT/XMsghJ/fYsOkWkhutF/0QfYhe/OLQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-Net\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+=======
+  "dgSpecHash": "vjKoIUvmt+49N6eH2gMqLjdz+CXE5JdgSApdYTVbP76s6FTrTBJe3whdXg6grQYopNH5KIRu74PxgWrzqUUHOA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+>>>>>>> 22667eb4a299f1ceb9a82f89a5125460fd9958e0
   "expectedPackageFiles": [
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.6\\microsoft.data.sqlite.core.8.0.6.nupkg.sha512",
     "C:\\Users\\Julian\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.6\\microsoft.entityframeworkcore.8.0.6.nupkg.sha512",
