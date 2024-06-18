@@ -33,6 +33,8 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
         using (var db = new RepositorioContext()){
             var expedienteABorrar = db.Expedientes.FirstOrDefault(e => e.Id == idExpediente);
             if (expedienteABorrar != null){
+                var repositorioTramite = new RepositorioTramiteSQLite();
+                repositorioTramite.TramiteBajaPorExpediente(expedienteABorrar.Id);
                 db.Remove(expedienteABorrar);//se borra realmente con el db.SaveChanges()
                 db.SaveChanges();//actualiza la base de datos.
             }else{
