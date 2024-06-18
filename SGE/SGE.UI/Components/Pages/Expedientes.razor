@@ -1,2 +1,200 @@
 ﻿@page "/expedientes/{IdUsuario:Int}"
+@using SGE.Aplicacion
+@using SGE.Repositorios
+
+<div class="container">
+    <h2>Lista de Expedientes</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Carátula</th>
+                <th>Estado</th>
+                <th>Fecha Creación</th>
+                <th>Fecha Modificación</th>
+                <th>Usuario Creador</th>
+                <th>Usuario Modificador</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (expedientes != null && expedientes.Any())
+            {
+                foreach (var expediente in expedientes)
+                {
+                    <tr>
+                        <td>@expediente.Id</td>
+                        <td>@expediente.Caratula</td>
+                        <td>@expediente.Estado</td>
+                        <td>@expediente.FechaCreacion</td>
+                        <td>@expediente.FechaModificacion</td>
+                        <td>@expediente.IdUsuarioCreador</td>
+                        <td>@expediente.IdUsuarioModificador</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7">No se encontraron expedientes.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Dar de Alta un Expediente</h2>
+    <form @onsubmit="DarAltaExpediente">
+        <label for="caratula">Carátula:</label>
+        <input type="text" id="caratula" @bind="caratula" placeholder="Ingrese la Carátula" required><br>
+        <label for="idUsuarioAlta">ID Usuario:</label>
+        <input type="number" id="idUsuarioAlta" @bind="idUsuarioAlta" placeholder="Ingrese el ID del Usuario" required><br>
+        <button type="submit">Dar de Alta</button>
+    </form>
+
+    <h2>Dar de Baja un Expediente</h2>
+    <form @onsubmit="DarBajaExpediente">
+        <label for="bajaId">ID Expediente:</label>
+        <input type="number" id="bajaId" @bind="bajaId" placeholder="Ingrese el ID del Expediente" required><br>
+        <button type="submit">Dar de Baja</button>
+    </form>
+
+    <h2>Modificar Estado de un Expediente</h2>
+    <form @onsubmit="ModificarEstadoExpediente">
+        <label for="modificarId">ID Expediente:</label>
+        <input type="number" id="modificarId" @bind="modificarId" placeholder="Ingrese el ID del Expediente" required><br>
+        <label for="nuevoEstado">Nuevo Estado:</label>
+        <select id="nuevoEstado" @bind="nuevoEstado" required>
+            <option value="EnProceso">En Proceso</option>
+            <option value="Finalizado">Finalizado</option>
+            <option value="Archivado">Archivado</option>
+            <option value="Pendiente">Pendiente</option>
+        </select><br>
+        <label for="idUsuarioModificacion">ID Usuario:</label>
+        <input type="number" id="idUsuarioModificacion" @bind="idUsuarioModificacion" placeholder="Ingrese el ID del Usuario" required><br>
+        <button type="submit">Modificar Estado</button>
+    </form>
+
+    <h2>Consultar Expediente por ID</h2>
+    <form @onsubmit="ConsultarExpedientePorID">
+        <label for="consultaId">ID Expediente:</label>
+        <input type="number" id="consultaId" @bind="consultaId" placeholder="Ingrese el ID del Expediente" required><br>
+        <button type="submit">Consultar</button>
+    </form>
+
+    @if (consultaExpediente != null)
+    {
+        <h3>Detalle del Expediente</h3>
+        <p>ID: @consultaExpediente.Expediente.Id</p>
+        <p>Carátula: @consultaExpediente.Expediente.Caratula</p>
+        <p>Estado: @consultaExpediente.Expediente.Estado</p>
+        <p>Fecha Creación: @consultaExpediente.Expediente.FechaCreacion</p>
+        <p>Fecha Modificación: @consultaExpediente.Expediente.FechaModificacion</p>
+        <p>Usuario Creador: @consultaExpediente.Expediente.IdUsuarioCreador</p>
+        <p>Usuario Modificador: @consultaExpediente.Expediente.IdUsuarioModificador</p>
+
+        <h4>Trámites del Expediente</h4>
+        <ul>
+            @foreach (var tramite in consultaExpediente.ListaTramites)
+            {
+                <li>
+                    @tramite.Contenido - @tramite.EtiquetaTramite
+                </li>
+            }
+        </ul>
+    }
+</div>
+
+@code {
+    private string? caratula;
+    private int idUsuarioAlta;
+    private int bajaId;
+    private int modificarId;
+    private EstadoExpediente.Estados? nuevoEstado;
+    private int idUsuarioModificacion;
+    private int consultaId;
+
+    private List<Expediente> expedientes;
+    private ConsultaExpediente consultaExpediente;
+
+    protected override void OnInitialized() //asegura que los expedientes se carguen desde la base de datos y esten disponibles para ser mostrados en la interfaz ;)
+    {
+        CargarExpedientes();
+    }
+
+    private void CargarExpedientes()
+    {
+        var repo = new RepositorioExpedienteSQLite();
+        try
+        {
+            expedientes = repo.ExpedienteBusquedaTodos();
+        }
+        catch (RepositorioException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
+
+    private void DarAltaExpediente()
+    {
+        var repo = new RepositorioExpedienteSQLite();
+
+        try
+        {
+            repo.ExpedienteAlta(caratula, idUsuarioAlta, DateTime.Now);
+            CargarExpedientes();
+        }
+        catch (RepositorioException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
+
+    private void DarBajaExpediente()
+    {
+        var repo = new RepositorioExpedienteSQLite();
+
+        try
+        {
+            repo.ExpedienteBaja(bajaId);
+            CargarExpedientes();
+        }
+        catch (RepositorioException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
+
+    private void ModificarEstadoExpediente()
+    {
+        var repo = new RepositorioExpedienteSQLite();
+
+        try
+        {
+            repo.ActualizarEstado(modificarId, nuevoEstado, DateTime.Now, idUsuarioModificacion);
+            CargarExpedientes();
+        }
+        catch (RepositorioException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
+
+    private void ConsultarExpedientePorID()
+    {
+        var repo = new RepositorioExpedienteSQLite();
+
+        try
+        {
+            consultaExpediente = repo.ExpedienteBusquedaID(consultaId);
+        }
+        catch (RepositorioException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
+}
 
