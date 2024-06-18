@@ -1,1 +1,135 @@
 ﻿@page "/usuarios/{IdUsuario:Int}"
+@using SGE.Aplicacion
+@using SGE.Repositorios
+
+<div class="container">
+    <h2>Gestión de Usuarios</h2>
+    
+    <!-- Alta de Usuario -->
+    <h3>Dar de Alta Usuario</h3>
+    <form @onsubmit="AltaUsuario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" @bind="nuevoUsuario.Nombre" required><br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" @bind="nuevoUsuario.Apellido" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" @bind="nuevoUsuario.Email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" @bind="nuevoUsuario.Password" required><br>
+
+        <button type="submit">Dar de Alta</button>
+    </form>
+
+    <!-- Baja de Usuario -->
+    <h3>Dar de Baja Usuario</h3>
+    <form @onsubmit="BajaUsuario">
+        <label for="emailBaja">Email:</label>
+        <input type="email" id="emailBaja" @bind="emailBaja" required><br>
+        <button type="submit">Dar de Baja</button>
+    </form>
+
+    <!-- Modificación de Usuario -->
+    <h3>Modificar Usuario</h3>
+    <form @onsubmit="ModificarUsuario">
+        <label for="idUsuarioMod">ID Usuario:</label>
+        <input type="number" id="idUsuarioMod" @bind="usuarioModificar.IdUsuario" required><br>
+
+        <label for="nombreMod">Nombre:</label>
+        <input type="text" id="nombreMod" @bind="usuarioModificar.Nombre"><br>
+
+        <label for="apellidoMod">Apellido:</label>
+        <input type="text" id="apellidoMod" @bind="usuarioModificar.Apellido"><br>
+
+        <label for="emailMod">Email:</label>
+        <input type="email" id="emailMod" @bind="usuarioModificar.Email"><br>
+
+        <label for="passwordMod">Password:</label>
+        <input type="password" id="passwordMod" @bind="usuarioModificar.Password"><br>
+
+        <button type="submit">Modificar</button>
+    </form>
+
+    <!-- Consultar Todos los Usuarios -->
+    <h3>Lista de Usuarios</h3>
+    <button @onclick="CargarUsuarios">Cargar Usuarios</button>
+    <ul>
+        @foreach (var usuario in usuarios)
+        {
+            <li>@usuario.Nombre @usuario.Apellido - @usuario.Email</li>
+        }
+    </ul>
+</div>
+
+@code {
+    private Usuario nuevoUsuario = new Usuario();
+    private Usuario usuarioModificar = new Usuario();
+    private string emailBaja;
+    private List<Usuario> usuarios = new List<Usuario>();
+
+    private void AltaUsuario()
+    {
+        var repo = new RepositorioUsuarioSQLite();
+        try
+        {
+            repo.UsuarioAlta(nuevoUsuario.Nombre, nuevoUsuario.Apellido, nuevoUsuario.Email, nuevoUsuario.Password);
+            CargarUsuarios(); // Actualizar la lista de usuarios después de dar de alta
+        }
+        catch (RepositorioException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
+
+    private void BajaUsuario()
+    {
+        var repo = new RepositorioUsuarioSQLite();
+        try
+        {
+            repo.UsuarioBaja(emailBaja);
+            CargarUsuarios(); // Actualizar la lista de usuarios después de dar de baja
+        }
+        catch (RepositorioException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
+
+    private void ModificarUsuario()
+    {
+        var repo = new RepositorioUsuarioSQLite();
+        try
+        {
+            repo.UsuarioModicacion(usuarioModificar, usuarioModificar.Permisos);
+            CargarUsuarios(); // Actualizar la lista de usuarios después de modificar
+        }
+        catch (RepositorioException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
+
+    private void CargarUsuarios()
+    {
+        var repo = new RepositorioUsuarioSQLite();
+        try
+        {
+            usuarios = repo.UsuarioBusquedaTodos();
+        }
+        catch (RepositorioException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();                           // las excepciones copie y pegue siempre las mismas, checkear que sean correctas 
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        CargarUsuarios(); // Cargar la lista de usuarios al inicializar el componente
+    }
+}
