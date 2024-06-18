@@ -75,7 +75,9 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
             }
         }
     }
-
+    
+    /*
+    ESTO TIRA ERROR 
     public void TramiteBajaPorExpediente(int idExpediente){
         using (var db = new RepositorioContext()){
             var tramitesABorrar = db.Tramites.Where(t => t.ExpedienteId == idExpediente).ToList;
@@ -86,7 +88,7 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
                 db.SaveChanges();
             }
         }
-    }
+    }*/
 
     public int TramiteModificacion(int idTramite, string contenido, EtiquetaTramite.Etiquetas etiqueta, int idUsuario, DateTime fechaModificacion){
         using (var db = new RepositorioContext()){

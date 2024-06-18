@@ -1,42 +1,45 @@
-@page "/home/{IdUsuario:Int}"
+@page "/home/{IdUsuario}"
 @rendermode InteractiveServer
 @inject NavigationManager Navigation
 
-<div class="modificar">
-    <button @onclick="RedirigirModificar">Ver Expedientes</button>
-</div>
+<PageTitle>Home | SGE</PageTitle>
 
-<div class="operaciones">
-    <button @onclick="RedirigirExpedientes">Ver Expedientes</button>
-    <button @onclick="RedirigirTramites">Ver Tramites</button>
-    @if (EsAdmin){
-        <button @onclick="RedirigirUsuarios">Ver Usuarios</button>
-    }
-</div>
-
+<section class="seccion-home">
+    <div class="modificar">
+        <button class="boton-mod" @onclick="RedirigirModificar">Modificar perfil</button>
+    </div>
+    <h1>¿Que operacion queres realizar?</h1>
+    <div class="operaciones">
+        <button class="boton-op" @onclick="RedirigirExpedientes">Ver Expedientes</button>
+        <button class="boton-op" @onclick="RedirigirTramites">Ver Tramites</button>
+        @if (EsAdmin){
+            <button class="boton-op" @onclick="RedirigirUsuarios">Ver Usuarios</button>
+        }
+    </div>
+</section>
 
 @code{
-    [Parameter] public int IdUsuario {get;set;}
+    [Parameter] public string? IdUsuario { get; set; }
     private bool EsAdmin = false;
+    private int userId;
 
     protected override void OnParametersSet(){
+        int.TryParse(IdUsuario, out userId);
         RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
         ServicioAutorizacion autorizacion = new ServicioAutorizacion(repo);
-        if (autorizacion.EsAdmin(IdUsuario)){
-            EsAdmin = true;
-        }
-    }
-    private void RedirigirExpedientes(){
-        Navigation.NavigateTo($"/expedientes/{IdUsuario}");
-    }
-    private void RedirigirTramites(){
-        Navigation.NavigateTo($"/tramites/{IdUsuario}");
-    }
-    private void RedirigirUsuarios(){
-        Navigation.NavigateTo($"/usuarios/{IdUsuario}");
+        EsAdmin = autorizacion.EsAdmin(userId);
     }
 
+    private void RedirigirExpedientes(){
+        Navigation.NavigateTo($"/expedientes/{userId}");
+    }
+    private void RedirigirTramites(){
+        Navigation.NavigateTo($"/tramites/{userId}");
+    }
+    private void RedirigirUsuarios(){
+        Navigation.NavigateTo($"/usuarios/{userId}");
+    }
     private void RedirigirModificar(){
-        Navigation.NavigateTo($"/modificardatos/{IdUsuario}");
+        Navigation.NavigateTo($"/modificardatos/{userId}");
     }
 }

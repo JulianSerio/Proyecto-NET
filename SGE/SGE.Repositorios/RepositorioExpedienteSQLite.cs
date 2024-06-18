@@ -28,8 +28,11 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
         }
     }
 
+    
     public void ExpedienteBaja(int idExpediente)
     {
+        /*
+        ESTO TIRA ERROR
         using (var db = new RepositorioContext()){
             var expedienteABorrar = db.Expedientes.FirstOrDefault(e => e.Id == idExpediente);
             if (expedienteABorrar != null){
@@ -41,6 +44,7 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
                 throw new RepositorioException("El id del expediente ingresado no existe en el repositorio");
             }
         }
+        */
     }
 
     public ConsultaExpediente ExpedienteBusquedaID(int idExpediente)

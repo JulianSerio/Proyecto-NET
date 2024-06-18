@@ -154,3 +154,55 @@ body {
         }
     }
 }
+
+/*ESTILO DEL HOME*/
+.seccion-home{
+    display: flex;
+    flex-direction:column;
+    text-align: center;
+    background-color:rgb(82, 82, 82);
+    width: 70%;
+    margin:0 auto;
+    border-radius: 5px;
+    padding: 40px 20px;
+    height: 70vh;
+    h1{
+        font-size:2.5rem;
+        text-align:center;
+        font-weight: 700;
+        padding: 1rem;
+        color: white;
+    }
+    .modificar{
+        justify-content: end;
+        text-align: end;
+        .boton-mod{
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: 500;
+            background-color:rgb(105, 165, 255);
+            &:hover {
+                background-color:rgb(79, 150, 255);
+                box-shadow: 0 0 10px grey
+            }
+        }
+    }
+    .operaciones{
+        .boton-op{
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            width: 50%;
+            height: 50px;
+            box-sizing: content-box;
+            background-color:rgb(105, 165, 255);
+            color: white;
+            margin-bottom: 1rem; 
+            &:hover {
+                background-color:rgb(79, 150, 255);
+                box-shadow: 0 0 10px grey
+            }
+        }
+    }
+}

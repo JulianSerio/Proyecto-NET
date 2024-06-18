@@ -1,5 +1,4 @@
 using SGE.UI.Components;
-
 using SGE.Repositorios;
 using SGE.Aplicacion;
 
@@ -11,8 +10,7 @@ builder.Services.AddServerSideBlazor();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
+if (!app.Environment.IsDevelopment()) {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
 }
 

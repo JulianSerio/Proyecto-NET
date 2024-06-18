@@ -3,41 +3,36 @@
 @inject NavigationManager Navigation
 
 <PageTitle>Iniciar Sesion | SGE</PageTitle>
-<Excepcion @ref="ventanaExcepcion"/>
-@if (!isLoggedIn){
-    <section class="seccion-formulario">
-        <div class="contenedor-formulario">
-            <h1 class="titulo">Iniciar Sesion</h1>
-            <form class="form" @onsubmit="Ejecutar">
-                <div class="elemento-input">
-                    <input type="email" @bind="_email" id="input-email" placeholder="Email" required>
-                </div>
-                <div class="elemento-input">
-                    <input type="password" @bind="_password" id="input-password" placeholder="Contraseña" required>
-                </div>
-                <div>
-                    <button type="submit" class="boton-inicio">Iniciar Sesion</button>
-                </div>
-                <div>
-                    <a href="registrarusuario">¿Olvidaste la contraseña?</a>
-                </div>
-                <div>
-                    <a href="registrarusuario">Registrarse</a>
-                </div>
-            </form>
-        </div>
-    </section>
-}
-else{
-    Navigation.NavigateTo("/home");
-}
+
+<section class="seccion-formulario">
+    <Excepcion @ref="ventanaExcepcion"/>
+    <div class="contenedor-formulario">
+        <h1 class="titulo">Iniciar Sesion</h1>
+        <form class="form" @onsubmit="Ejecutar">
+            <div class="elemento-input">
+                <input type="email" @bind="_email" id="input-email" placeholder="Email" required>
+            </div>
+            <div class="elemento-input">
+                <input type="password" @bind="_password" id="input-password" placeholder="Contraseña" required>
+            </div>
+            <div>
+                <button type="submit" class="boton-inicio">Iniciar Sesion</button>
+            </div>
+            <div>
+                <a href="registrarusuario">¿Olvidaste la contraseña?</a>
+            </div>
+            <div>
+                <a href="registrarusuario">Registrarse</a>
+            </div>
+        </form>
+    </div>
+</section>
 
 
 @code{
     private string? _email;
     private string? _password;
     private Usuario? usuarioAct;
-    private bool isLoggedIn = false;
     private Excepcion ventanaExcepcion = null!;
 
     private void Ejecutar(){
@@ -45,7 +40,6 @@ else{
         CasoDeUsoUsuarioIniciarSesion iniciarSesion = new CasoDeUsoUsuarioIniciarSesion(repo);
         try{
             usuarioAct = iniciarSesion.Ejecutar(_email!,_password!);
-            isLoggedIn = true;
             Navigation.NavigateTo($"/home/{usuarioAct.IdUsuario}");
         }
         catch(RepositorioException ex){

@@ -1,4 +1,4 @@
-﻿@page "/expedientes/{IdUsuario:Int}"
+﻿@page "/expedientes/{IdUsuario}"
 @rendermode InteractiveServer
 
 <Excepcion @ref="ventanaExcepcion"/>
@@ -114,83 +114,64 @@
     private List<Expediente> expedientes;
     private ConsultaExpediente consultaExpediente;
 
-    protected override void OnInitialized() //asegura que los expedientes se carguen desde la base de datos y esten disponibles para ser mostrados en la interfaz ;)
-    {
+    //asegura que los expedientes se carguen desde la base de datos y esten disponibles para ser mostrados en la interfaz ;)
+    protected override void OnInitialized() {
         CargarExpedientes();
     }
 
-    private void CargarExpedientes()
-    {
+    private void CargarExpedientes(){
         var repo = new RepositorioExpedienteSQLite();
-        try
-        {
+        try{
             expedientes = repo.ExpedienteBusquedaTodos();
         }
-        catch (RepositorioException ex)
-        {
+        catch (RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}";
             ventanaExcepcion.Mostrar();
         }
     }
 
-    private void DarAltaExpediente()
-    {
+    private void DarAltaExpediente(){
         var repo = new RepositorioExpedienteSQLite();
-
-        try
-        {
+        try{
             repo.ExpedienteAlta(caratula, idUsuarioAlta, DateTime.Now);
             CargarExpedientes();
         }
-        catch (RepositorioException ex)
-        {
+        catch (RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}";
             ventanaExcepcion.Mostrar();
         }
     }
 
-    private void DarBajaExpediente()
-    {
+    private void DarBajaExpediente(){
         var repo = new RepositorioExpedienteSQLite();
-
-        try
-        {
+        try{
             repo.ExpedienteBaja(bajaId);
             CargarExpedientes();
         }
-        catch (RepositorioException ex)
-        {
+        catch (RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}";
             ventanaExcepcion.Mostrar();
         }
     }
 
-    private void ModificarEstadoExpediente()
-    {
+    private void ModificarEstadoExpediente(){
         var repo = new RepositorioExpedienteSQLite();
-
-        try
-        {
+        try{
             repo.ActualizarEstado(modificarId, nuevoEstado, DateTime.Now, idUsuarioModificacion);
             CargarExpedientes();
         }
-        catch (RepositorioException ex)
-        {
+        catch (RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}";
             ventanaExcepcion.Mostrar();
         }
     }
 
-    private void ConsultarExpedientePorID()
-    {
+    private void ConsultarExpedientePorID(){
         var repo = new RepositorioExpedienteSQLite();
-
-        try
-        {
+        try{
             consultaExpediente = repo.ExpedienteBusquedaID(consultaId);
         }
-        catch (RepositorioException ex)
-        {
+        catch (RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}";
             ventanaExcepcion.Mostrar();
         }

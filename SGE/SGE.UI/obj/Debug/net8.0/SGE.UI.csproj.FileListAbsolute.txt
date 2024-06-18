@@ -1,64 +1,64 @@
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.AssemblyReference.cache
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.AssemblyInfoInputs.cache
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.AssemblyInfo.cs
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.CoreCompileInputs.cache
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.sourcelink.json
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\appsettings.json
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.staticwebassets.runtime.json
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.exe
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.deps.json
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.runtimeconfig.json
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.pdb
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SQLitePCLRaw.core.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3.a
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-arm\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-arm64\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-armel\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-mips64\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-musl-arm\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-musl-arm64\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-ppc64le\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-s390x\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-x64\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-x86\native\libe_sqlite3.so
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\osx-arm64\native\libe_sqlite3.dylib
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\osx-x64\native\libe_sqlite3.dylib
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\win-arm\native\e_sqlite3.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.Aplicacion.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.Repositorios.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.Aplicacion.pdb
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.Repositorios.pdb
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.SGE.UI.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.build.SGE.UI.props
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SGE.UI.props
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SGE.UI.props
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Excepcion.razor.rz.scp.css
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\bundle\SGE.UI.styles.css
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\projectbundle\SGE.UI.bundle.scp.css
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.Up2Date
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\refint\SGE.UI.dll
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.pdb
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.genruntimeconfig.cache
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\ref\SGE.UI.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\appsettings.Development.json
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\appsettings.json
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.staticwebassets.runtime.json
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.exe
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.deps.json
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.runtimeconfig.json
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.UI.pdb
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SQLitePCLRaw.provider.e_sqlite3.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3.a
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-arm\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-arm64\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-armel\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-mips64\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-musl-arm\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-musl-arm64\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-ppc64le\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-s390x\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-x64\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\linux-x86\native\libe_sqlite3.so
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\osx-arm64\native\libe_sqlite3.dylib
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\osx-x64\native\libe_sqlite3.dylib
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\win-arm\native\e_sqlite3.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.Aplicacion.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.Repositorios.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.Aplicacion.pdb
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\bin\Debug\net8.0\SGE.Repositorios.pdb
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.AssemblyReference.cache
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.AssemblyInfoInputs.cache
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.AssemblyInfo.cs
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.CoreCompileInputs.cache
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.MvcApplicationPartsAssemblyInfo.cache
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.sourcelink.json
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.build.json
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.development.json
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.SGE.UI.Microsoft.AspNetCore.StaticWebAssets.props
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.build.SGE.UI.props
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SGE.UI.props
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SGE.UI.props
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.pack.json
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Excepcion.razor.rz.scp.css
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\bundle\SGE.UI.styles.css
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\projectbundle\SGE.UI.bundle.scp.css
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.Up2Date
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\refint\SGE.UI.dll
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.pdb
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.genruntimeconfig.cache
+c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\ref\SGE.UI.dll
