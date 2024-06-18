@@ -1,6 +1,8 @@
 ﻿@page "/tramites/{IdUsuario:Int}"
-@using global::SGE.Aplicacion
-@using global::SGE.Repositorios 
+
+
+<PageTitle>Tramite | SGE</PageTitle>
+<Excepcion @ref="ventanaExcepcion"/>
 
 <div class="container-lista-tramites">
     <h2> Lista de tramites </h2>
@@ -37,21 +39,24 @@
 
 @code {
     // @using global::SGE.Repositorios  PUEDE QUE ESTO ESTE RE MAL linea 2
-    private int? expedienteID;
+    private int expedienteID;
+    private int id;
     private string? contenido;
     private int idUsuario;
-    private EtiquetaTramite.Etiquetas? etiqueta; 
+    private string? etiqueta; 
+    Excepcion ventanaExcepcion = null!;
     private void DarAltaTramite(){ 
         
         //Copie ejecutar de registrar usuario
-        var repo = new RepositorioTramiteSQLite();
-        TramiteValidador validador = new TramiteValidador(repo);
-        CasoDeUsoTramiteAlta registro = new CasoDeUsoTramiteAlta(repo, validador); 
+        IExpedienteRepositorio repositorioExpedientes = new RepositorioExpedienteSQLite();
+        ITramiteRepositorio repositorioTramites = new RepositorioTramiteSQLite();
+        IUsuarioRepositorio repoUsuarios = new RepositorioUsuarioSQLite();
+        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repoUsuarios);
+        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repositorioExpedientes, repositorioTramites);
+        CasoDeUsoTramiteAlta registro = new CasoDeUsoTramiteAlta(repositorioTramites, autorizacion, actualizacion); 
 
         try{
-            var etiqueta = new EtiquetaTramite();
-            var tramite = new Tramite(expedienteID, contenido,etiqueta);
-            registro.Ejecutar(expedienteID,   ) //Por que pide tramite? habria que mandar los datos de forma campo a campo. ¿Como le mando la id de usuario?
+            registro.Ejecutar(expedienteID, contenido, etiqueta, idUsuario); //Por que pide tramite? habria que mandar los datos de forma campo a campo. ¿Como le mando la id de usuario?
         }
         catch(RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}";

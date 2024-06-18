@@ -1,6 +1,6 @@
 ﻿namespace SGE.Repositorios;
 using SGE.Aplicacion;
-
+using Microsoft.EntityFrameworkCore;
 public class RepositorioContext: DbContext{
     public DbSet<Usuario> Usuarios{get; set;}
     public DbSet<Expediente> Expedientes{get; set;}
@@ -37,7 +37,7 @@ public class RepositorioContext: DbContext{
         modelBuilder.Entity<Expediente>().Property(e=>e.IdUsuarioModificador).IsRequired();
         modelBuilder.Entity<Expediente>().Property(e => e.Estado).IsRequired().HasConversion(
             v => v.ToString(),
-            v => (EstadoExpediente.Estados)Enum.Parse(typeof(EstadoExpediente.Estados), v)
+            v => v != null ? (EstadoExpediente.Estados?)Enum.Parse(typeof(EstadoExpediente.Estados?), v) : default
         );
 
         modelBuilder.Entity<Tramite>().ToTable("Tramites");

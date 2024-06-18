@@ -9,7 +9,7 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
         using (var db = new RepositorioContext()){
             var tramites = db.Tramites.Where(t => t.EtiquetaTramite == etiqueta).ToList();
             if(tramites.Count == 0){
-                throw new RepositorioException();
+                throw new RepositorioException("No se han encontrado tramites con esa etiqueta");
             }
             return tramites;
         }
@@ -18,9 +18,9 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
     {
         using (var db = new RepositorioContext()){
             var tramites = db.Tramites.Where(t => t.ExpedienteId == idExpediente).ToList();
-            if(tramites.Count == 0){
+            /*if(tramites.Count == 0){
                 throw new RepositorioException();
-            }
+            }*/
             return tramites;
         }
     }
@@ -33,7 +33,7 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
         }
     }
 
-    public void actualizarSegunUltimoTramite(int idExpediente, int idUsuario){
+    /*public void actualizarSegunUltimoTramite(int idExpediente, int idUsuario){
         var repositorioExpediente = new RepositorioExpedienteSQLite();
         switch (EtiquetaUltimoTramiteDeExpediente(idExpediente))
         {
@@ -47,46 +47,51 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
             repositorioExpediente.ActualizarEstado(idExpediente,EstadoExpediente.Estados.Finalizado,idUsuario);
             break;
         }
-    }
+    }*/
 
-    public void TramiteAlta(int expedienteID, string contenido, int idUsuario, EtiquetaTramite.Etiquetas etiqueta)
+    public void TramiteAlta(int expedienteID, string contenido, int idUsuario, EtiquetaTramite.Etiquetas etiqueta, DateTime fechaCreacio)
     {
         using (var db = new RepositorioContext()){
-            var tramite = new Tramite(expedienteID,contenido,DateTime.Now,DateTime.Now,idUsuario,etiqueta);
+            var tramite = new Tramite(expedienteID, contenido, fechaCreacio, fechaCreacio, idUsuario, etiqueta);
             db.Add(tramite);//se agregará realmente con el db.SaveChanges()
             db.SaveChanges();//actualiza la base de datos. SQlite establece el valor de usuario.Id
-            actualizarSegunUltimoTramite(tramite.ExpedienteId,idUsuario);
+           //actualizarSegunUltimoTramite(tramite.ExpedienteId,idUsuario);
         }
     }
 
-    public void TramiteBaja(int idTramite, int idUsuario)
-    {
+    public int TramiteBaja(int idTramite){
+        int idExpediente;
         using (var db = new RepositorioContext()){
             var tramiteABorrar = db.Tramites.FirstOrDefault(e => e.Id == idTramite);
             if (tramiteABorrar != null){
+                idExpediente=tramiteABorrar.ExpedienteId;
                 db.Remove(tramiteABorrar);//se borra realmente con el db.SaveChanges()
                 db.SaveChanges();//actualiza la base de datos.
-                actualizarSegunUltimoTramite(tramiteABorrar.ExpedienteId,idUsuario);
+                //actualizarSegunUltimoTramite(tramiteABorrar.ExpedienteId,idUsuario);
+
+                return idExpediente;
             }else{
-                throw new RepositorioException();
+                throw new RepositorioException("El id del tramite ingresado no existe en el repositorio");
             }
         }
     }
 
-    public void TramiteModificacion(int idTramite, Tramite tramite, int idUsuario)
-    {
+    public int TramiteModificacion(int idTramite, string contenido, EtiquetaTramite.Etiquetas etiqueta, int idUsuario, DateTime fechaModificacion){
         using (var db = new RepositorioContext()){
             var tramiteAModificar = db.Tramites.FirstOrDefault(e => e.Id == idTramite);
             if(tramiteAModificar != null){
-                tramiteAModificar = tramite;
-                tramiteAModificar.FechaModificacion = DateTime.Today;
-                tramite.IdUsuarioModificador = idUsuario;
+                tramiteAModificar.Contenido = contenido;
+                tramiteAModificar.FechaModificacion = fechaModificacion;
+                tramiteAModificar.EtiquetaTramite = etiqueta;
+                tramiteAModificar.IdUsuarioModificador = idUsuario;
 
                 db.SaveChanges();
 
-                actualizarSegunUltimoTramite(tramite.ExpedienteId,idUsuario);
+                //actualizarSegunUltimoTramite(tramite.ExpedienteId,idUsuario);
+
+                return tramiteAModificar.ExpedienteId;
             }else{
-                throw new RepositorioException();
+                throw new RepositorioException("El id del tramite ingresado no existe en el repositorio");
             }
         }
     }

@@ -6,7 +6,7 @@ public class Expediente{
     public DateTime FechaCreacion {get;set;}
     public DateTime FechaModificacion {get;set;}
     public int? IdUsuarioModificador {get;set;}
-    public EstadoExpediente.Estados Estado {get;set;}
+    public EstadoExpediente.Estados? Estado {get;set;}
 
     public Expediente(){}
     public Expediente(string? caratula, int idUsuarioModificador){

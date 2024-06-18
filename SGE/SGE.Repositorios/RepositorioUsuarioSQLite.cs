@@ -42,7 +42,7 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
                 db.Remove(usuarioABorrar); //se borra realmente con el db.SaveChanges()
                 db.SaveChanges();//actualiza la base de datos. SQlite establece el valor de usuario.Id
             }else{
-                throw new RepositorioException();    
+                throw new RepositorioException("El email ingresado no existe en el repositorio");    
             }
             
         }
@@ -52,7 +52,7 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
         using (var db = new RepositorioContext()){
             var usuarios = db.Usuarios.ToList();
             if(usuarios.Count == 0){
-                throw new RepositorioException();
+                throw new RepositorioException(); //imposible que este vacia cuando se consulta
             }
             return usuarios;
         }
@@ -67,7 +67,7 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
 
                 db.SaveChanges();
             }else{
-                throw new RepositorioException();
+                throw new RepositorioException("El email ingresado no existe en el repositorio");
             }
         }
     }
@@ -79,11 +79,11 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
                 if (usuario.Password == password){
                     return usuario;
                 }else{
-                    throw new RepositorioException();
+                    throw new RepositorioException("La contraseña ingresada no corresponde con el email ingresado");
                 }
             }
             else{
-                throw new RepositorioException();
+                throw new RepositorioException("El email ingresado no existe en el repositorio");
             }
         }
     }

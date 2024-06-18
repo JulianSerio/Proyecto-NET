@@ -1,18 +1,19 @@
 ﻿using SGE.Aplicacion;
 namespace SGE.Repositorios;
+using Microsoft.EntityFrameworkCore;
 public class RepositorioExpedienteSQLite : IExpedienteRepositorio
 {
-    public void ActualizarEstado(int idExpediente, EstadoExpediente.Estados estado, int idUsuario)
+    public void ActualizarEstado(int idExpediente, EstadoExpediente.Estados? estado, DateTime fechaModificacion, int idUsuario)
     {
         using (var db = new RepositorioContext()){
             var expedienteAActualizar = db.Expedientes.FirstOrDefault(e => e.Id == idExpediente);
             if (expedienteAActualizar != null){
                 expedienteAActualizar.Estado = estado;
-                expedienteAActualizar.FechaModificacion = DateTime.Now;
+                expedienteAActualizar.FechaModificacion = fechaModificacion;
                 expedienteAActualizar.IdUsuarioModificador = idUsuario;
                 db.SaveChanges();
             }else{
-                throw new RepositorioException();
+                throw new RepositorioException(); //este trhow es imposible que se lance
             }
             
         }
@@ -35,7 +36,7 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
                 db.Remove(expedienteABorrar);//se borra realmente con el db.SaveChanges()
                 db.SaveChanges();//actualiza la base de datos.
             }else{
-                throw new RepositorioException();
+                throw new RepositorioException("El id del expediente ingresado no existe en el repositorio");
             }
         }
     }
@@ -45,9 +46,13 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
         using (var db = new RepositorioContext()){
             var consultaExpediente = new ConsultaExpediente();
             consultaExpediente.Expediente = db.Expedientes.FirstOrDefault(e => e.Id == idExpediente);
-            var repositorioTramite = new RepositorioTramiteSQLite();
-            consultaExpediente.ListaTramites = repositorioTramite.BusquedaPorExpediente(idExpediente);
-            return consultaExpediente;
+            if(consultaExpediente.Expediente == null){
+                throw new RepositorioException("El id del expediente ingresado no existe en el repositorio");
+            }else{
+                var repositorioTramite = new RepositorioTramiteSQLite();
+                consultaExpediente.ListaTramites = repositorioTramite.BusquedaPorExpediente(idExpediente); //esto puede estar vacio en teoria
+                return consultaExpediente;
+            }
         }
     }
 
@@ -56,24 +61,24 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
         using (var db = new RepositorioContext()){
             var expedientes = db.Expedientes.ToList();
             if (expedientes.Count == 0){
-                throw new RepositorioException();
+                throw new RepositorioException("No se encuentran Expedientes en el repositorio");
             }
             return expedientes;
         }
     }
 
-    public void ExpedienteModificacion(int idExpediente, Expediente expediente, int idUsuario)
+    public void ExpedienteModificacion(int idExpediente, string caratula, DateTime fechaModificacion, int idUsuario)
     {
         using (var db = new RepositorioContext()){
             var expedienteAModificar = db.Expedientes.FirstOrDefault(e => e.Id == idExpediente);
             if(expedienteAModificar != null){
-                expedienteAModificar = expediente;
-                expedienteAModificar.FechaModificacion = DateTime.Today;
-                expediente.IdUsuarioModificador = idUsuario;
+                expedienteAModificar.Caratula = caratula;
+                expedienteAModificar.FechaModificacion = fechaModificacion;
+                expedienteAModificar.IdUsuarioModificador = idUsuario;
 
                 db.SaveChanges();
             }else{
-                throw new RepositorioException();
+                throw new RepositorioException("El id del expediente ingresado no existe en el repositorio");
             }
         }
     }

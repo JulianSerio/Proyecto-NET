@@ -7,7 +7,9 @@ public class CasoDeUsoExpedienteBaja (IExpedienteRepositorio repositorio,Servici
         string permiso = "ExpedienteBaja";
         if (servicio.PoseeElPermiso(permiso, idUsuario)) {//Verifico si el usuario tiene permisos
             repositorio.ExpedienteBaja(idExpediente); //envio los datos al repo y este envia una excepcion si no lo encuentra
-        } 
+        }else{
+            throw new AutorizacionException("No posee el permiso necesario para borrar un expediente");
+        }
     }
 
 }

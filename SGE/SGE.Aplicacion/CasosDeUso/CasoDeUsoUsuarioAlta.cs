@@ -1,4 +1,6 @@
-﻿namespace SGE.Aplicacion;
+﻿using System.Security;
+
+namespace SGE.Aplicacion;
 
 //
 // Summary:
@@ -9,6 +11,8 @@ public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repo, UsuarioValidador va
         if(validador.Validar(email)){ //valida que el Email no exista en el repositorio
             string passwordPasadaPorHash = ServicioFuncionHash.FuncionHashSHA256(password);
             repo.UsuarioAlta(nombre, apellido, email, passwordPasadaPorHash); 
+        }else{
+            throw new ValidacionException("El email ingresado ya se encuentra registrado en la base de datos");
         }
     }
 }
