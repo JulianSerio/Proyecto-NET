@@ -1,5 +1,5 @@
 @page "/registrarusuario"
-@attribute [StreamRendering]
+@rendermode InteractiveServer
 @inject NavigationManager Navigation
 
 
@@ -46,8 +46,7 @@
         CasoDeUsoUsuarioAlta registro = new CasoDeUsoUsuarioAlta(repo,validador);
         try{
             registro.Ejecutar(_nombre!,_apellido!,_email!,_password!);
-            //Texto que informa que el usuario se registro con exito
-            Navigation.NavigateTo("/iniciarsesion");
+            Navigation.NavigateTo("/");
         }
         catch(RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}";

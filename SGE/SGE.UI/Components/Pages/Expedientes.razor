@@ -1,6 +1,5 @@
 ﻿@page "/expedientes/{IdUsuario:Int}"
-@using SGE.Aplicacion
-@using SGE.Repositorios
+@rendermode InteractiveServer
 
 <Excepcion @ref="ventanaExcepcion"/>
 
@@ -29,7 +28,6 @@
                         <td>@expediente.Estado</td>
                         <td>@expediente.FechaCreacion</td>
                         <td>@expediente.FechaModificacion</td>
-                        <td>@expediente.IdUsuarioCreador</td>
                         <td>@expediente.IdUsuarioModificador</td>
                     </tr>
                 }
@@ -90,7 +88,6 @@
         <p>Estado: @consultaExpediente.Expediente.Estado</p>
         <p>Fecha Creación: @consultaExpediente.Expediente.FechaCreacion</p>
         <p>Fecha Modificación: @consultaExpediente.Expediente.FechaModificacion</p>
-        <p>Usuario Creador: @consultaExpediente.Expediente.IdUsuarioCreador</p>
         <p>Usuario Modificador: @consultaExpediente.Expediente.IdUsuarioModificador</p>
 
         <h4>Trámites del Expediente</h4>
