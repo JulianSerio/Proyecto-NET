@@ -7,7 +7,7 @@ public class Usuario
     public string? Email {get;set;}
     public string? Password {get;set;}
     public List<string>? Permisos {get;set;}
-    public int? IdUsuario{get;}
+    public int? IdUsuario{get;set;}
 
     public Usuario(){}
     public Usuario(string nombre, string apellido, string? email, string password){

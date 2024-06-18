@@ -2,6 +2,8 @@
 @using SGE.Aplicacion
 @using SGE.Repositorios
 
+<Excepcion @ref="ventanaExcepcion"/>
+
 <div class="container">
     <h2>Lista de Expedientes</h2>
     <table class="table">
@@ -111,7 +113,7 @@
     private EstadoExpediente.Estados? nuevoEstado;
     private int idUsuarioModificacion;
     private int consultaId;
-
+    private Excepcion ventanaExcepcion = null!;
     private List<Expediente> expedientes;
     private ConsultaExpediente consultaExpediente;
 
