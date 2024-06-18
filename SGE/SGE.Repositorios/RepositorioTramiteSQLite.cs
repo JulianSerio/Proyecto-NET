@@ -76,6 +76,18 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
         }
     }
 
+    public void TramiteBajaPorExpediente(int idExpediente){
+        using (var db = new RepositorioContext()){
+            var tramitesABorrar = db.Tramites.Where(t => t.ExpedienteId == idExpediente).ToList;
+            foreach(var tramite in tramitesABorrar){
+                db.Remove(tramite);
+            }
+            if (tramitesABorrar.Count > 0){
+                db.SaveChanges();
+            }
+        }
+    }
+
     public int TramiteModificacion(int idTramite, string contenido, EtiquetaTramite.Etiquetas etiqueta, int idUsuario, DateTime fechaModificacion){
         using (var db = new RepositorioContext()){
             var tramiteAModificar = db.Tramites.FirstOrDefault(e => e.Id == idTramite);
