@@ -11,8 +11,7 @@ public class Tramite {
     public DateTime FechaModificacion {get;set;}
     public int IdUsuarioModificador {get;set;}
 
-    public Tramite(int id, int expedienteID, string? contenido, int idUsuarioModificador, EtiquetaTramite.Etiquetas etiquetaTramite){
-        Id = id;
+    public Tramite( int expedienteID, string? contenido, int idUsuarioModificador, EtiquetaTramite.Etiquetas etiquetaTramite){
         ExpedienteId = expedienteID;
         Contenido = contenido;
         IdUsuarioModificador = idUsuarioModificador;
