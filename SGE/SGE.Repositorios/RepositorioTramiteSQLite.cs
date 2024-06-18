@@ -49,10 +49,10 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
         }
     }
 
-    public void TramiteAlta(int id, int expedienteID, string contenido, int idUsuario, EtiquetaTramite.Etiquetas etiqueta)
+    public void TramiteAlta(int expedienteID, string contenido, int idUsuario, EtiquetaTramite.Etiquetas etiqueta)
     {
         using (var db = new RepositorioContext()){
-            var tramite = new Tramite(id,expedienteID,contenido,DateTime.Now,DateTime.Now,idUsuario,etiqueta);
+            var tramite = new Tramite(expedienteID,contenido,DateTime.Now,DateTime.Now,idUsuario,etiqueta);
             db.Add(tramite);//se agregará realmente con el db.SaveChanges()
             db.SaveChanges();//actualiza la base de datos. SQlite establece el valor de usuario.Id
             actualizarSegunUltimoTramite(tramite.ExpedienteId,idUsuario);

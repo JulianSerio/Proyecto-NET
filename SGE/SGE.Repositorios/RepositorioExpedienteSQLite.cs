@@ -1,5 +1,4 @@
 ﻿using SGE.Aplicacion;
-using Microsoft.EntityFrameworkCore;
 namespace SGE.Repositorios;
 public class RepositorioExpedienteSQLite : IExpedienteRepositorio
 {
