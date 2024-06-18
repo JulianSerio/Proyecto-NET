@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wyHFSUfxK4A=",
+  "dgSpecHash": "OAux3WE6AkTO8PZnA2x/SSBoqKulXQpc07hd/h889Np09okcwQV1hhtKiU6HPczeWWgRWVg5FzK6ziVOx7uOHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Licho\\Documents\\DotNet\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Git\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Licho\\Documents\\DotNet\\Proyecto-NET\\SGE\\SGE.Aplicacion\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

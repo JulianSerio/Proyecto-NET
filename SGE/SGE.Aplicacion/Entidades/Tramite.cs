@@ -20,7 +20,7 @@ public class Tramite {
     }
 
     public Tramite(){}
-    public Tramite(int id, int expedienteID, string? contenido, DateTime creacion, DateTime modificacion, int idUsuarioModificador, EtiquetaTramite.Etiquetas etiquetaTramite){
+    public Tramite(int expedienteID, string? contenido, DateTime creacion, DateTime modificacion, int idUsuarioModificador, EtiquetaTramite.Etiquetas etiquetaTramite){
         Id = id;
         ExpedienteId = expedienteID;
         Contenido = contenido;

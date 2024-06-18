@@ -1,5 +1,4 @@
 ﻿namespace SGE.Repositorios;
-using Microsoft.EntityFrameworkCore;
 using SGE.Aplicacion;
 
 public class RepositorioContext: DbContext{
