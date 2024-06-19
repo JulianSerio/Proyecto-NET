@@ -7,4 +7,5 @@ public interface ITramiteRepositorio
     List<Tramite>? BusquedaPorEtiqueta(EtiquetaTramite.Etiquetas etiqueta);
     int TramiteModificacion(int idTramite, string contenido, EtiquetaTramite.Etiquetas etiqueta, int idUsuario, DateTime fechaModificacion);
     EtiquetaTramite.Etiquetas? EtiquetaUltimoTramiteDeExpediente(int idExpediente);
+    List<Tramite> BusquedaTodos();
 }

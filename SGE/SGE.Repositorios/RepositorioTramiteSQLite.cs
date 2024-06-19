@@ -18,9 +18,6 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
     {
         using (var db = new RepositorioContext()){
             var tramites = db.Tramites.Where(t => t.ExpedienteId == idExpediente).ToList();
-            /*if(tramites.Count == 0){
-                throw new RepositorioException();
-            }*/
             return tramites;
         }
     }
@@ -33,29 +30,12 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
         }
     }
 
-    /*public void actualizarSegunUltimoTramite(int idExpediente, int idUsuario){
-        var repositorioExpediente = new RepositorioExpedienteSQLite();
-        switch (EtiquetaUltimoTramiteDeExpediente(idExpediente))
-        {
-        case EtiquetaTramite.Etiquetas.Resolucion:
-            repositorioExpediente.ActualizarEstado(idExpediente,EstadoExpediente.Estados.ConResolucion,idUsuario);
-            break;
-        case EtiquetaTramite.Etiquetas.PaseAEstudio:
-            repositorioExpediente.ActualizarEstado(idExpediente,EstadoExpediente.Estados.ParaResolver,idUsuario);
-            break;
-        case EtiquetaTramite.Etiquetas.PaseAlArchivo:
-            repositorioExpediente.ActualizarEstado(idExpediente,EstadoExpediente.Estados.Finalizado,idUsuario);
-            break;
-        }
-    }*/
-
     public void TramiteAlta(int expedienteID, string contenido, int idUsuario, EtiquetaTramite.Etiquetas etiqueta, DateTime fechaCreacio)
     {
         using (var db = new RepositorioContext()){
             var tramite = new Tramite(expedienteID, contenido, fechaCreacio, fechaCreacio, idUsuario, etiqueta);
             db.Add(tramite);//se agregará realmente con el db.SaveChanges()
             db.SaveChanges();//actualiza la base de datos. SQlite establece el valor de usuario.Id
-           //actualizarSegunUltimoTramite(tramite.ExpedienteId,idUsuario);
         }
     }
 
@@ -67,7 +47,6 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
                 idExpediente=tramiteABorrar.ExpedienteId;
                 db.Remove(tramiteABorrar);//se borra realmente con el db.SaveChanges()
                 db.SaveChanges();//actualiza la base de datos.
-                //actualizarSegunUltimoTramite(tramiteABorrar.ExpedienteId,idUsuario);
 
                 return idExpediente;
             }else{
@@ -101,12 +80,20 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
 
                 db.SaveChanges();
 
-                //actualizarSegunUltimoTramite(tramite.ExpedienteId,idUsuario);
-
                 return tramiteAModificar.ExpedienteId;
             }else{
                 throw new RepositorioException("El id del tramite ingresado no existe en el repositorio");
             }
+        }
+    }
+
+    public List<Tramite> BusquedaTodos(){
+        using (var db = new RepositorioContext()){
+            var tramites = db.Tramites.ToList();
+            if (tramites.Count == 0){
+                throw new RepositorioException("No se encuentran Tramites en el repositorio");
+            }
+            return tramites;
         }
     }
 }

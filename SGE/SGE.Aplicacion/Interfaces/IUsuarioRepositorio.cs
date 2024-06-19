@@ -8,4 +8,5 @@ public interface IUsuarioRepositorio{
     bool EmailRepetido(string? email);
     List<Usuario> UsuarioBusquedaTodos();
     bool UsuarioValidarPermiso(string permiso, int idUsuario);
+    Usuario BusquedaPorId(int idUsuario);
 }

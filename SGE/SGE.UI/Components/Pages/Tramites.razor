@@ -8,18 +8,10 @@
 
 <div class="container-lista-tramites">
     <h2> Lista de tramites </h2>
-    using SGE.Aplicacion;
-#line default
-e default
-e default
-        @foreach (var tramite in tramites)
-                {
-                    <li>@tramite.IdUsuario - @tramite.EtiquetaTramite - @tramite.</li>
-                }
-        </ul>
-    }
-    else
-    {
+
+    @foreach (var tramite in tramites){
+                <li>@tramite.Id - @tramite.EtiquetaTramite - @tramite.ExpedienteId - @tramite.Contenido - @tramite.IdUsuarioModificador</li>
+    }else{
         <p>No se encontraron trámites.</p>
     }
 </div>
@@ -54,7 +46,7 @@ e default
     private string? contenido;
     private string? etiqueta;
     private List<Tramites> tramites;
-    private Tramites tramitex?;
+    private Tramites? tramite;
     private Excepcion ventanaExcepcion = null!;
 
    private void DarAltaTramite(){
@@ -78,17 +70,14 @@ e default
         }
     }
 
-   /* protected override async Task OnInitializedAsync()
-    {
+    protected override async Task OnInitializedAsync(){
         CasoDeUsoTramiteConsultaTodos listatodoslostramites = new CasoDeUsoTramiteConsultaTodos();
         RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
-         userId = int.Parse(IdUsuario); // esto castea de string a integer la variable IdUsuario
-        try
-        {
+        userId = int.Parse(IdUsuario); // esto castea de string a integer la variable IdUsuario
+        try{
             listatodoslostramites.Ejecutar(); 
         }
-        catch (Exception ex)
-        {
+        catch (RepositorioContext ex){
             // Manejo de errores
         }
     }

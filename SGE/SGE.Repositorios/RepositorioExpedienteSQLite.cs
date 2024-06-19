@@ -13,7 +13,7 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
                 expedienteAActualizar.IdUsuarioModificador = idUsuario;
                 db.SaveChanges();
             }else{
-                throw new RepositorioException(); //este trhow es imposible que se lance
+                throw new RepositorioException("El expediente no se encontro en el repositorio"); //este trhow es imposible que se lance
             }
             
         }
@@ -29,22 +29,18 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
     }
 
     
-    public void ExpedienteBaja(int idExpediente)
-    {
-        /*
-        ESTO TIRA ERROR
+    public void ExpedienteBaja(int idExpediente){
         using (var db = new RepositorioContext()){
             var expedienteABorrar = db.Expedientes.FirstOrDefault(e => e.Id == idExpediente);
             if (expedienteABorrar != null){
-                var repositorioTramite = new RepositorioTramiteSQLite();
-                repositorioTramite.TramiteBajaPorExpediente(expedienteABorrar.Id);
+                //var repositorioTramite = new RepositorioTramiteSQLite();
+                //repositorioTramite.TramiteBajaPorExpediente(expedienteABorrar.Id);
                 db.Remove(expedienteABorrar);//se borra realmente con el db.SaveChanges()
                 db.SaveChanges();//actualiza la base de datos.
             }else{
                 throw new RepositorioException("El id del expediente ingresado no existe en el repositorio");
             }
         }
-        */
     }
 
     public ConsultaExpediente ExpedienteBusquedaID(int idExpediente)
@@ -62,8 +58,7 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
         }
     }
 
-    public List<Expediente> ExpedienteBusquedaTodos()
-    {
+    public List<Expediente> ExpedienteBusquedaTodos(){
         using (var db = new RepositorioContext()){
             var expedientes = db.Expedientes.ToList();
             if (expedientes.Count == 0){

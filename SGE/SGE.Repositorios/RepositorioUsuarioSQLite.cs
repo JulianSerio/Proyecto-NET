@@ -101,4 +101,15 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
             return false; //para emergencias 
         }
     }
+
+    public Usuario BusquedaPorId(int idUsuario){
+        using (var db = new RepositorioContext()){
+            var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+            if(usuario != null){
+                return usuario;
+            }else{
+                throw new RepositorioException("El id ingresado no corresponde a un usuario registrado");
+            }
+        }
+    }
 }
