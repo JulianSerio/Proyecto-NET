@@ -19,7 +19,7 @@
                 <button type="submit" class="boton-inicio">Iniciar Sesion</button>
             </div>
             <div>
-                <a href="registrarusuario">¿Olvidaste la contraseña?</a>
+                <a @onclick="OlvidarConstraseña">¿Olvidaste la contraseña?</a>
             </div>
             <div>
                 <a href="registrarusuario">Registrarse</a>
@@ -46,5 +46,10 @@
             ventanaExcepcion.Mensaje = $"{ex.Message}";
             ventanaExcepcion.Mostrar();
         }
+    }
+
+    private void OlvidarConstraseña(){
+        ventanaExcepcion.Mensaje = "Contacta con el administrador.";
+        ventanaExcepcion.Mostrar();
     }
 }

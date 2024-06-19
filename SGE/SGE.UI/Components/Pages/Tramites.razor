@@ -106,25 +106,23 @@
     
     try
     {
-        var resultadoBusqueda = busquedaEtiqueta.Ejecutar(etiquetaABuscar); // ¿Dónde se define 'etiquetaABuscar'?
+        var resultadoBusqueda = busquedaEtiqueta.Ejecutar(etiquetaABuscar); 
         Navigation.NavigateTo($"/home/{IdUsuario}");
-        return resultadoBusqueda; // Devolver el resultado de la búsqueda
+        return resultadoBusqueda; 
     }
     catch (ValidacionException ex)
     {
         ventanaExcepcion.Mensaje = $"{ex.Message}";
         ventanaExcepcion.Mostrar();
-        return null; // Devolver null en caso de ValidacionException
+        return null; 
     }
     catch (AutorizacionException ex)
     {
         ventanaExcepcion.Mensaje = $"{ex.Message}";
         ventanaExcepcion.Mostrar();
-        return null; // Devolver null en caso de AutorizacionException
+        return null;
     }
 
-    // Debes asegurarte de devolver un valor en todas las rutas de ejecución
-    // En este caso, puedes devolver null al final del método si ninguna excepción es lanzada
     return null;
 }
 
@@ -190,11 +188,11 @@
             tramiteBaja.Ejecutar(xtramitebaja,userId);
             Navigation.NavigateTo($"/home/{IdUsuario}"); 
         }
-        catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
-            ventanaExcepcion.Mostrar();  //muestra
+        catch(ValidacionException ex){  
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar();  
         }
-        catch(AutorizacionException ex){ // Valida que tengas autorizacion para crear tramites
+        catch(AutorizacionException ex){ 
             ventanaExcepcion.Mensaje = $"{ex.Message}";
             ventanaExcepcion.Mostrar();
         }
