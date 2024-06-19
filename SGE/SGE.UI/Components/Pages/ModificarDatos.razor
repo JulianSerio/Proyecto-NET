@@ -1,5 +1,61 @@
-﻿<h3>ModificarDatos</h3>
+﻿@page "/modificar-perfil/{IdUsuario}"
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+
+
+<PageTitle>Modificar Perfil | SGE</PageTitle>
+
+<section class="seccion-modificar-datos">
+    <div class="contenedor-formulario">
+        <h1 class="titulo">Modificar datos</h1>
+        <form class="form" @onsubmit="Ejecutar">
+            <div class="elemento-input">
+                <input type="text" @bind="_nombre" id="input-nombre" placeholder=" Nombre" required>
+            </div>
+            <div class="elemento-input">
+                <input type="text" @bind="_apellido" id="input-apellido" placeholder=" Apellido" required>
+            </div>
+            <div class="elemento-input">
+                <input type="email" @bind="_email" id="input-email" placeholder=" Email" required>
+            </div>
+            <div class="elemento-input">
+                <input type="password" @bind="_password" id="input-password" placeholder=" Contraseña" required>
+            </div>
+            <div>
+                <button type="submit" class="boton-inicio">Modificar</button>
+            </div>
+        </form>
+    </div>
+
+</section>
 
 @code {
+    [Parameter] public string? IdUsuario { get; set; }
+    private int userId;
+    private string? _nombre;
+    private string? _apellido;
+    private string? _email;
+    private string? _password;
+    Excepcion ventanaExcepcion = null!;
 
+    protected override void OnParametersSet(){
+        int.TryParse(IdUsuario, out userId);
+    }
+    //Faltaria verificar que cuando se cargue la persona que se modifique 
+    //su campo y no se cree otro usuario
+    private void Ejecutar (){
+        RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
+        UsuarioValidador validador = new UsuarioValidador(repo);
+        CasoDeUsoUsuarioAlta registro = new CasoDeUsoUsuarioAlta(repo,validador);
+        try{
+            registro.Ejecutar(_nombre!,_apellido!,_email!,_password!);
+            Navigation.NavigateTo("/");
+        }
+        catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
 }
+
+

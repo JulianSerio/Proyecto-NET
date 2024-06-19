@@ -6,7 +6,7 @@
 
 <section class="seccion-home">
     <div class="modificar">
-        <button class="boton-mod" @onclick="RedirigirModificar">Modificar perfil</button>
+        <button class="boton-mod" @onclick="RedirigirModificar"><img src="images/config.png" alt="">Modificar perfil</button>
     </div>
     <h1>¿Que operacion queres realizar?</h1>
     <div class="operaciones">
@@ -31,15 +31,15 @@
     }
 
     private void RedirigirExpedientes(){
-        Navigation.NavigateTo($"/expedientes/{userId}");
+        Navigation.NavigateTo($"/expedientes/{IdUsuario}");
     }
     private void RedirigirTramites(){
-        Navigation.NavigateTo($"/tramites/{userId}");
+        Navigation.NavigateTo($"/tramites/{IdUsuario}");
     }
     private void RedirigirUsuarios(){
-        Navigation.NavigateTo($"/usuarios/{userId}");
+        Navigation.NavigateTo($"/usuarios/{IdUsuario}");
     }
     private void RedirigirModificar(){
-        Navigation.NavigateTo($"/modificardatos/{userId}");
+        Navigation.NavigateTo($"/modificar-perfil/{IdUsuario}");
     }
 }
