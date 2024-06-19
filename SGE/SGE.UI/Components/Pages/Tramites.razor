@@ -1,66 +1,96 @@
-﻿@page "/tramites/{IdUsuario:Int}"
+﻿@page "/tramites/{IdUsuario}"
+
 @rendermode InteractiveServer
 
+@inject NavigationManager Navigation
 <PageTitle>Tramite | SGE</PageTitle>
 <Excepcion @ref="ventanaExcepcion"/>
 
 <div class="container-lista-tramites">
     <h2> Lista de tramites </h2>
-        @* aca tendrian que mostrarse todos los tramites (JAJA no se como hacerlo)*@
+    using SGE.Aplicacion;
+#line default
+e default
+e default
+        @foreach (var tramite in tramites)
+                {
+                    <li>@tramite.IdUsuario - @tramite.EtiquetaTramite - @tramite.</li>
+                }
+        </ul>
+    }
+    else
+    {
+        <p>No se encontraron trámites.</p>
+    }
 </div>
 
 <button id="altaButton">Dar de Alta Tramite</button>
-    
-    <form id="altaForm" @onsubmit="DarAltaTramite">
-        <label for="id">ID:</label>
-        <input type="number" id="id" @bind="id" placeholder="Ingrese el ID" required><br>
 
-        <label for="expedienteID">Expediente ID:</label>
-        <input type="number" id="expedienteID" @bind="expedienteID" placeholder="Ingrese el Expediente ID" required><br>
+<form id="altaForm" @onsubmit="DarAltaTramite">
+    <label for="expedienteID">Expediente ID:</label>
+    <input type="number" id="expedienteID" @bind="expedienteID" placeholder="Ingrese el Expediente ID" required><br>
 
-        <label for="contenido">Contenido:</label>
-        <input type="text" id="contenido" @bind="contenido" placeholder="Ingrese el Contenido" required><br>
+    <label for="contenido">Contenido:</label>
+    <input type="text" id="contenido" @bind="contenido" placeholder="Ingrese el Contenido" required><br>
 
-        <label for="idUsuario">ID Usuario:</label>
-        <input type="number" id="idUsuario" @bind="idUsuario" placeholder="Ingrese el ID Usuario" required><br>
+    <label for="etiqueta">Etiqueta:</label>
+    <select id="etiqueta" @bind="etiqueta" required>
+        <option value="EscritoPresentado">Escrito presentado</option>
+        <option value="Despacho">Despacho</option>
+        <option value="Notificacion">Notificacion</option>
+        <option value="Resolucion">Resolución</option>
+        <option value="PaseAEstudio">Pase a Estudio</option>
+        <option value="PaseAlArchivo">Pase al Archivo</option>
+    </select><br>
 
-        <label for="etiqueta">Etiqueta:</label>
-        <select id="etiqueta" @bind="etiqueta" required>
-            <option value="EscritoPresentado">Escrito presentado</option>
-            <option value="Despacho">Despacho</option>
-            <option value="Notificacion">Notificacion</option>
-            <option value="Resolucion">Resolución</option>
-            <option value="PaseAEstudio">Pase a Estudio</option>
-            <option value="PaseAlArchivo">Pase al Archivo</option>
-        </select><br>
-
-        <button type="enviar-tramite-alta-button">Enviar</button>
-    </form>
+    <button type="submit">Enviar</button>
+</form>
 
 @code {
-    // @using global::SGE.Repositorios  PUEDE QUE ESTO ESTE RE MAL linea 2
+    [Parameter]
+    public string? IdUsuario{get; set;}
+    private int userId;
     private int expedienteID;
-    private int id;
     private string? contenido;
-    private int idUsuario;
-    private string? etiqueta; 
-    Excepcion ventanaExcepcion = null!;
-    private void DarAltaTramite(){ 
-        
-        //Copie ejecutar de registrar usuario
-        IExpedienteRepositorio repositorioExpedientes = new RepositorioExpedienteSQLite();
-        ITramiteRepositorio repositorioTramites = new RepositorioTramiteSQLite();
-        IUsuarioRepositorio repoUsuarios = new RepositorioUsuarioSQLite();
-        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repoUsuarios);
-        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repositorioExpedientes, repositorioTramites);
-        CasoDeUsoTramiteAlta registro = new CasoDeUsoTramiteAlta(repositorioTramites, autorizacion, actualizacion); 
+    private string? etiqueta;
+    private List<Tramites> tramites;
+    private Tramites tramitex?;
+    private Excepcion ventanaExcepcion = null!;
 
+   private void DarAltaTramite(){
+        RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
+        RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
+        RepositorioExpedienteSQLite repoexpediente = new RepositorioExpedienteSQLite();
+        CasoDeUsoTramiteAlta tramiteAlta = new CasoDeUsoTramiteAlta(repo,autorizacion,actualizacion);
+        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repouser);
+        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repo,repotramite);
         try{
-            registro.Ejecutar(expedienteID, contenido, etiqueta, idUsuario); //Por que pide tramite? habria que mandar los datos de forma campo a campo. ¿Como le mando la id de usuario?
+            tramitex = tramiteAlta.Ejecutar(expedienteID,contenido,etiqueta,IdUsuario);
+            Navigation.NavigateTo($"/home/{IdUsuario}");
         }
-        catch(RepositorioException ex){
+        catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
+            ventanaExcepcion.Mostrar();  //muestra
+        }
+        catch(AutorizacionException ex){ // Valida que tengas autorizacion para crear tramites
             ventanaExcepcion.Mensaje = $"{ex.Message}";
             ventanaExcepcion.Mostrar();
         }
     }
+
+   /* protected override async Task OnInitializedAsync()
+    {
+        CasoDeUsoTramiteConsultaTodos listatodoslostramites = new CasoDeUsoTramiteConsultaTodos();
+        RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
+         userId = int.Parse(IdUsuario); // esto castea de string a integer la variable IdUsuario
+        try
+        {
+            listatodoslostramites.Ejecutar(); 
+        }
+        catch (Exception ex)
+        {
+            // Manejo de errores
+        }
+    }
+    */
 }
