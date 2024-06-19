@@ -7,12 +7,11 @@
 <Excepcion @ref="ventanaExcepcion"/>
 
 <div class="container-lista-tramites">
-    <h2> Lista de tramites </h2>
+    <h2>Lista de tramites</h2>
 
     @foreach (var tramite in tramites){
         <li>@tramite.Id - @tramite.EtiquetaTramite - @tramite.ExpedienteId - @tramite.Contenido - @tramite.IdUsuarioModificador</li>
     }
-    
 </div>
 
 <form id="altaForm" @onsubmit="DarAltaTramite">
@@ -31,15 +30,57 @@
         <option value="PaseAEstudio">Pase a Estudio</option>
         <option value="PaseAlArchivo">Pase al Archivo</option>
     </select><br>
-    <button type="submit">Enviar</button>
+    <button type="submit">Dar alta</button>
 </form>
 
-    <div class= "containerBaja">
-        <form class="bajaForm" @onsubmit="()=>DarBajaTramite(idAEliminar)">
-            <input type="text" id="idAEliminar" @bind="idAEliminar" placeholder="Ingrese id de tramite a eliminar" required><br>
-            <button type="submit">Dar de baja tramite</button>
-        </form>
-    </div>
+<div class="containerBaja">
+    <form class="bajaForm" @onsubmit="()=>DarBajaTramite(idAEliminar)">
+        <input type="text" id="idAEliminar" @bind="idAEliminar" placeholder="Ingrese id de tramite a eliminar" required><br>
+        <button type="submit">Dar de baja tramite</button>
+    </form>
+</div>
+
+<div class="containerModificacion">
+    <form id="modificacionForm" @onsubmit="ModificarTramite">
+        <h3>Modificar Trámite</h3>
+
+        <div class="form-group">
+            <label for="idTramite">ID del Trámite:</label>
+            <input type="number" id="idTramite" @bind="idTramite" placeholder="Ingrese el ID del trámite" required />
+        </div>
+
+        <div class="form-group">
+            <label for="contenidoModificado">Contenido:</label>
+            <input type="text" id="contenidoModificado" @bind="contenidoModificado" placeholder="Ingrese el nuevo contenido" required />
+        </div>
+
+        <div class="form-group">
+            <label for="etiquetaModificada">Etiqueta:</label>
+            <select id="etiquetaModificada" @bind="etiquetaModificada" required>
+                <option value="EscritoPresentado">Escrito presentado</option>
+                <option value="Despacho">Despacho</option>
+                <option value="Notificacion">Notificación</option>
+                <option value="Resolucion">Resolución</option>
+                <option value="PaseAEstudio">Pase a Estudio</option>
+                <option value="PaseAlArchivo">Pase al Archivo</option>
+            </select>
+        </div>
+
+        <button type="submit">Modificar Trámite</button>
+    </form>
+</div>
+
+<div class="containerBusqueda">
+    <label for="etiquetaABuscar">Buscar por etiqueta:</label>
+    <select id="etiquetaABuscar" @bind="etiquetaABuscar" required>
+        <option value="EscritoPresentado">Escrito presentado</option>
+        <option value="Despacho">Despacho</option>
+        <option value="Notificacion">Notificación</option>
+        <option value="Resolucion">Resolución</option>
+        <option value="PaseAEstudio">Pase a Estudio</option>
+        <option value="PaseAlArchivo">Pase al Archivo</option>
+    </select>
+</div>
 
 @code {
     [Parameter]
@@ -49,11 +90,66 @@
     private string? contenido;
     private string? etiqueta;
     private List<Tramite> tramites;
-
     private Tramites? tramitex;
     private Excepcion ventanaExcepcion = null!;
-
     private int idAEliminar;
+
+    private int idTramite;
+    private string contenidoModificado;
+    private EtiquetaTramite.Etiquetas etiquetaModificada;
+    private EtiquetaTramite.Etiquetas etiquetaABuscar;
+
+    public List<Tramite>? buscarEtiqueta()
+{
+    RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
+    CasoDeUsoTramiteConsultaPorEtiqueta busquedaEtiqueta = new CasoDeUsoTramiteConsultaPorEtiqueta(repotramite);
+    
+    try
+    {
+        var resultadoBusqueda = busquedaEtiqueta.Ejecutar(etiquetaABuscar); // ¿Dónde se define 'etiquetaABuscar'?
+        Navigation.NavigateTo($"/home/{IdUsuario}");
+        return resultadoBusqueda; // Devolver el resultado de la búsqueda
+    }
+    catch (ValidacionException ex)
+    {
+        ventanaExcepcion.Mensaje = $"{ex.Message}";
+        ventanaExcepcion.Mostrar();
+        return null; // Devolver null en caso de ValidacionException
+    }
+    catch (AutorizacionException ex)
+    {
+        ventanaExcepcion.Mensaje = $"{ex.Message}";
+        ventanaExcepcion.Mostrar();
+        return null; // Devolver null en caso de AutorizacionException
+    }
+
+    // Debes asegurarte de devolver un valor en todas las rutas de ejecución
+    // En este caso, puedes devolver null al final del método si ninguna excepción es lanzada
+    return null;
+}
+
+    public void ModificarTramite(){
+        RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
+        RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
+        RepositorioExpedienteSQLite repoexpediente = new RepositorioExpedienteSQLite();
+        
+        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repouser);
+        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repoexpediente,repotramite);
+        CasoDeUsoTramiteModificacion tramiteModificacion = new CasoDeUsoTramiteModificacion(repotramite,autorizacion,actualizacion);
+        
+        try{
+            tramiteModificacion.Ejecutar(idTramite,contenidoModificado,etiquetaModificada,userId);
+            Navigation.NavigateTo($"/home/{IdUsuario}");
+        }
+        catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
+            ventanaExcepcion.Mostrar();  //muestra
+        }
+        catch(AutorizacionException ex){ // Valida que tengas autorizacion para crear tramites
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
 
    private void DarAltaTramite(){
         RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
