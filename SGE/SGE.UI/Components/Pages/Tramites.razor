@@ -3,60 +3,82 @@
 @rendermode InteractiveServer
 
 @inject NavigationManager Navigation
+
 <PageTitle>Tramite | SGE</PageTitle>
 <Excepcion @ref="ventanaExcepcion"/>
 
-<div class="container-lista-tramites">
-    <h2>Lista de tramites</h2>
+<div class="seccion-formulario">
+    <div class="container-lista-tramites">
+        <h2>Lista de tramites</h2>
+        @if(tramites != null){
+            @foreach (var tramite in tramites){
+                <li>@tramite.Id - @tramite.EtiquetaTramite - @tramite.ExpedienteId - @tramite.Contenido - @tramite.IdUsuarioModificador</li>
+            }
+        }else{
+            <h3>No hay Tramites</h3>
+        }
+    </div>
 
-    @foreach (var tramite in tramites){
-        <li>@tramite.Id - @tramite.EtiquetaTramite - @tramite.ExpedienteId - @tramite.Contenido - @tramite.IdUsuarioModificador</li>
-    }
-</div>
+    <form class="altaForm" @onsubmit="DarAltaTramite">
+        <label for="expedienteID">Expediente ID:</label>
+        <input type="number" id="expedienteID" @bind="expedienteID" placeholder="Ingrese el Expediente ID" required><br>
 
-<form id="altaForm" @onsubmit="DarAltaTramite">
-    <label for="expedienteID">Expediente ID:</label>
-    <input type="number" id="expedienteID" @bind="expedienteID" placeholder="Ingrese el Expediente ID" required><br>
+        <label for="contenido">Contenido:</label>
+        <input type="text" id="contenido" @bind="contenido" placeholder="Ingrese el Contenido" required><br>
 
-    <label for="contenido">Contenido:</label>
-    <input type="text" id="contenido" @bind="contenido" placeholder="Ingrese el Contenido" required><br>
-
-    <label for="etiqueta">Etiqueta:</label>
-    <select id="etiqueta" @bind="etiqueta" required>
-        <option value="EscritoPresentado">Escrito presentado</option>
-        <option value="Despacho">Despacho</option>
-        <option value="Notificacion">Notificacion</option>
-        <option value="Resolucion">Resolución</option>
-        <option value="PaseAEstudio">Pase a Estudio</option>
-        <option value="PaseAlArchivo">Pase al Archivo</option>
-    </select><br>
-    <button type="submit">Dar alta</button>
-</form>
-
-<div class="containerBaja">
-    <form class="bajaForm" @onsubmit="()=>DarBajaTramite(idAEliminar)">
-        <input type="text" id="idAEliminar" @bind="idAEliminar" placeholder="Ingrese id de tramite a eliminar" required><br>
-        <button type="submit">Dar de baja tramite</button>
+        <label for="etiqueta">Etiqueta:</label>
+        <select class="etiqueta" @bind="etiqueta" required>
+            <option value="EscritoPresentado">Escrito presentado</option>
+            <option value="Despacho">Despacho</option>
+            <option value="Notificacion">Notificacion</option>
+            <option value="Resolucion">Resolución</option>
+            <option value="PaseAEstudio">Pase a Estudio</option>
+            <option value="PaseAlArchivo">Pase al Archivo</option>
+        </select>
+        <button type="submit">Dar alta</button>
     </form>
-</div>
 
-<div class="containerModificacion">
-    <form id="modificacionForm" @onsubmit="ModificarTramite">
-        <h3>Modificar Trámite</h3>
+    <div class="containerBaja">
+        <form class="bajaForm" @onsubmit="()=>DarBajaTramite(idAEliminar)">
+            <input type="text" id="idAEliminar" @bind="idAEliminar" placeholder="Ingrese id de tramite a eliminar" required><br>
+            <button type="submit">Dar de baja tramite</button>
+        </form>
+    </div>
 
-        <div class="form-group">
-            <label for="idTramite">ID del Trámite:</label>
-            <input type="number" id="idTramite" @bind="idTramite" placeholder="Ingrese el ID del trámite" required />
-        </div>
+    <div class="containerModificacion">
+        <form class="modificacionForm" @onsubmit="ModificarTramite">
+            <h3>Modificar Trámite</h3>
 
-        <div class="form-group">
-            <label for="contenidoModificado">Contenido:</label>
-            <input type="text" id="contenidoModificado" @bind="contenidoModificado" placeholder="Ingrese el nuevo contenido" required />
-        </div>
+            <div class="form-group">
+                <label for="idTramite">ID del Trámite:</label>
+                <input type="number" id="idTramite" @bind="idTramite" placeholder="Ingrese el ID del trámite" required />
+            </div>
 
-        <div class="form-group">
-            <label for="etiquetaModificada">Etiqueta:</label>
-            <select id="etiquetaModificada" @bind="etiquetaModificada" required>
+            <div class="form-group">
+                <label for="contenidoModificado">Contenido:</label>
+                <input type="text" id="contenidoModificado" @bind="contenidoModificado" placeholder="Ingrese el nuevo contenido" required />
+            </div>
+
+            <div class="form-group">
+                <label for="etiquetaModificada">Etiqueta:</label>
+                <select id="etiquetaModificada" @bind="etiquetaModificada" required>
+                    <option value="EscritoPresentado">Escrito presentado</option>
+                    <option value="Despacho">Despacho</option>
+                    <option value="Notificacion">Notificación</option>
+                    <option value="Resolucion">Resolución</option>
+                    <option value="PaseAEstudio">Pase a Estudio</option>
+                    <option value="PaseAlArchivo">Pase al Archivo</option>
+                </select>
+            </div>
+
+            <button type="submit">Modificar Trámite</button>
+        </form>
+    </div>
+
+    <div class="containerBusqueda">
+        <form action="">
+            <label for="etiquetaABuscar">Buscar por etiqueta:</label>
+            <select id="etiquetaABuscar" @bind="etiquetaABuscar" required>
                 <option value="EscritoPresentado">Escrito presentado</option>
                 <option value="Despacho">Despacho</option>
                 <option value="Notificacion">Notificación</option>
@@ -64,22 +86,9 @@
                 <option value="PaseAEstudio">Pase a Estudio</option>
                 <option value="PaseAlArchivo">Pase al Archivo</option>
             </select>
-        </div>
-
-        <button type="submit">Modificar Trámite</button>
-    </form>
-</div>
-
-<div class="containerBusqueda">
-    <label for="etiquetaABuscar">Buscar por etiqueta:</label>
-    <select id="etiquetaABuscar" @bind="etiquetaABuscar" required>
-        <option value="EscritoPresentado">Escrito presentado</option>
-        <option value="Despacho">Despacho</option>
-        <option value="Notificacion">Notificación</option>
-        <option value="Resolucion">Resolución</option>
-        <option value="PaseAEstudio">Pase a Estudio</option>
-        <option value="PaseAlArchivo">Pase al Archivo</option>
-    </select>
+            <button type="submit">Buscar Tramites</button>
+        </form>
+    </div>
 </div>
 
 @code {
@@ -90,40 +99,36 @@
     private string? contenido;
     private string? etiqueta;
     private List<Tramite> tramites;
-    private Tramites? tramitex;
     private Excepcion ventanaExcepcion = null!;
     private int idAEliminar;
-
     private int idTramite;
     private string contenidoModificado;
     private EtiquetaTramite.Etiquetas etiquetaModificada;
     private EtiquetaTramite.Etiquetas etiquetaABuscar;
 
-    public List<Tramite>? buscarEtiqueta()
-{
+    public List<Tramite>? BuscarEtiqueta(){
     RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
     CasoDeUsoTramiteConsultaPorEtiqueta busquedaEtiqueta = new CasoDeUsoTramiteConsultaPorEtiqueta(repotramite);
     
-    try
-    {
+    try{
         var resultadoBusqueda = busquedaEtiqueta.Ejecutar(etiquetaABuscar); 
         Navigation.NavigateTo($"/home/{IdUsuario}");
         return resultadoBusqueda; 
     }
-    catch (ValidacionException ex)
-    {
-        ventanaExcepcion.Mensaje = $"{ex.Message}";
-        ventanaExcepcion.Mostrar();
-        return null; 
+    catch(RepositorioException ex){
+        ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
+        ventanaExcepcion.Mostrar();  //muestra
     }
-    catch (AutorizacionException ex)
-    {
+    catch (ValidacionException ex){
         ventanaExcepcion.Mensaje = $"{ex.Message}";
         ventanaExcepcion.Mostrar();
-        return null;
+    }
+    catch (AutorizacionException ex){
+        ventanaExcepcion.Mensaje = $"{ex.Message}";
+        ventanaExcepcion.Mostrar();
     }
 
-    return null;
+    return null; 
 }
 
     public void ModificarTramite(){
@@ -137,7 +142,10 @@
         
         try{
             tramiteModificacion.Ejecutar(idTramite,contenidoModificado,etiquetaModificada,userId);
-            Navigation.NavigateTo($"/home/{IdUsuario}");
+        }
+        catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
+            ventanaExcepcion.Mostrar();  //muestra
         }
         catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
             ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
@@ -148,7 +156,6 @@
             ventanaExcepcion.Mostrar();
         }
     }
-
    private void DarAltaTramite(){
         RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
         RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
@@ -160,8 +167,10 @@
         CasoDeUsoTramiteAlta tramiteAlta = new CasoDeUsoTramiteAlta(repotramite,autorizacion,actualizacion);
         try{
             tramiteAlta.Ejecutar(expedienteID,contenido,etiqueta,userId);
-            Navigation.NavigateTo($"/home/{IdUsuario}");
-            
+        }
+        catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
+            ventanaExcepcion.Mostrar();  //muestra
         }
         catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
             ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
@@ -186,9 +195,8 @@
 
         try{
             tramiteBaja.Ejecutar(xtramitebaja,userId);
-            Navigation.NavigateTo($"/home/{IdUsuario}"); 
         }
-        catch(ValidacionException ex){  
+        catch(RepositorioException ex){  
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
             ventanaExcepcion.Mostrar();  
         }
@@ -205,12 +213,8 @@
         CasoDeUsoTramiteConsultaTodos listatodoslostramites = new CasoDeUsoTramiteConsultaTodos(repotramite);
 
         userId = int.Parse(IdUsuario); // esto castea de string a integer la variable IdUsuario
-        try{
-            tramites = listatodoslostramites.Ejecutar(); 
-        }
-        catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
-            ventanaExcepcion.Mostrar();  //muestra
-        }
+
+        tramites = listatodoslostramites.Ejecutar(); 
+
     }
 }

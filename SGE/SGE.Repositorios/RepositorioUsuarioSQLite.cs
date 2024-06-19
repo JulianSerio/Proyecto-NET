@@ -32,6 +32,10 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
             var usuario = new Usuario(nombre,apellido, email, password);
             db.Add(usuario);//se agregará realmente con el db.SaveChanges()
             db.SaveChanges();//actualiza la base de datos. SQlite establece el valor de usuario.Id
+            if(usuario.IdUsuario == 1){ //se obtiene el id
+                List<string> permisos = new List<string>{"ExpedienteBaja","ExpedienteAlta","ExpedienteModificacion","TramiteAlta","TramiteBaja","TramiteModificacion"};
+                this.UsuarioModicacion(usuario, permisos);
+            }
         }
     }
 
@@ -52,7 +56,7 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
         using (var db = new RepositorioContext()){
             var usuarios = db.Usuarios.ToList();
             if(usuarios.Count == 0){
-                throw new RepositorioException(); //imposible que este vacia cuando se consulta
+                throw new RepositorioException("No existen usuarios en el sistema");
             }
             return usuarios;
         }
@@ -62,8 +66,11 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
         using(var db = new RepositorioContext()){
             var usuarioAModificar = db.Usuarios.FirstOrDefault(u => u.IdUsuario == user.IdUsuario);
             if(usuarioAModificar != null){
-                usuarioAModificar = user;
-                usuarioAModificar.Permisos=permisos;
+                usuarioAModificar.Nombre = user.Nombre;
+                usuarioAModificar.Apellido = user.Apellido;
+                usuarioAModificar.Email = user.Email;
+                usuarioAModificar.Password = user.Password;
+                usuarioAModificar.Permisos = permisos;
 
                 db.SaveChanges();
             }else{

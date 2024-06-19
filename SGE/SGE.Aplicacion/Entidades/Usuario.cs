@@ -27,12 +27,12 @@ public class Usuario
         IdUsuario = idUsuario;
     }
 
-/*
-    public string? Email{get;}
-    public int? IdUsuario{get;}
-    public string? Apellido {get;}
-    public string? Password {get;}
-    public List<string>? Permisos {get;set;}
-    public string? Nombre {get;}    
-    */
+    public Usuario(string nombre, string apellido, string? email, string password, int idUsuario, List<string>? permisos){
+        Permisos = permisos;
+        Nombre=nombre;
+        Apellido=apellido;
+        Email=email;
+        Password=password;
+        IdUsuario = idUsuario;
+    }
 }
