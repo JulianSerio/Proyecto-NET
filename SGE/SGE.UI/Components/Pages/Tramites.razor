@@ -10,13 +10,10 @@
     <h2> Lista de tramites </h2>
 
     @foreach (var tramite in tramites){
-                <li>@tramite.Id - @tramite.EtiquetaTramite - @tramite.ExpedienteId - @tramite.Contenido - @tramite.IdUsuarioModificador</li>
-    }else{
-        <p>No se encontraron trámites.</p>
+        <li>@tramite.Id - @tramite.EtiquetaTramite - @tramite.ExpedienteId - @tramite.Contenido - @tramite.IdUsuarioModificador</li>
     }
+    
 </div>
-
-<button id="altaButton">Dar de Alta Tramite</button>
 
 <form id="altaForm" @onsubmit="DarAltaTramite">
     <label for="expedienteID">Expediente ID:</label>
@@ -34,9 +31,15 @@
         <option value="PaseAEstudio">Pase a Estudio</option>
         <option value="PaseAlArchivo">Pase al Archivo</option>
     </select><br>
-
     <button type="submit">Enviar</button>
 </form>
+
+    <div class= "containerBaja">
+        <form class="bajaForm" @onsubmit="()=>DarBajaTramite(idAEliminar)">
+            <input type="text" id="idAEliminar" @bind="idAEliminar" placeholder="Ingrese id de tramite a eliminar" required><br>
+            <button type="submit">Dar de baja tramite</button>
+        </form>
+    </div>
 
 @code {
     [Parameter]
@@ -45,20 +48,26 @@
     private int expedienteID;
     private string? contenido;
     private string? etiqueta;
-    private List<Tramites> tramites;
-    private Tramites? tramite;
+    private List<Tramite> tramites;
+
+    private Tramites? tramitex;
     private Excepcion ventanaExcepcion = null!;
+
+    private int idAEliminar;
 
    private void DarAltaTramite(){
         RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
         RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
         RepositorioExpedienteSQLite repoexpediente = new RepositorioExpedienteSQLite();
-        CasoDeUsoTramiteAlta tramiteAlta = new CasoDeUsoTramiteAlta(repo,autorizacion,actualizacion);
+        
         ServicioAutorizacion autorizacion = new ServicioAutorizacion(repouser);
-        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repo,repotramite);
+        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repoexpediente,repotramite);
+
+        CasoDeUsoTramiteAlta tramiteAlta = new CasoDeUsoTramiteAlta(repotramite,autorizacion,actualizacion);
         try{
-            tramitex = tramiteAlta.Ejecutar(expedienteID,contenido,etiqueta,IdUsuario);
+            tramiteAlta.Ejecutar(expedienteID,contenido,etiqueta,userId);
             Navigation.NavigateTo($"/home/{IdUsuario}");
+            
         }
         catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
             ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
@@ -70,16 +79,44 @@
         }
     }
 
-    protected override async Task OnInitializedAsync(){
-        CasoDeUsoTramiteConsultaTodos listatodoslostramites = new CasoDeUsoTramiteConsultaTodos();
+    private void DarBajaTramite(int xtramitebaja){
+        //CasoDeUsoTramiteBaja(ITramiteRepositorio repo,ServicioAutorizacion autorizacion, ServicioActualizacionEstado actualizacion)
         RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
-        userId = int.Parse(IdUsuario); // esto castea de string a integer la variable IdUsuario
+        RepositorioUsuarioSQLite repouser = new RepositorioUsuarioSQLite();
+        RepositorioExpedienteSQLite repoexpediente = new RepositorioExpedienteSQLite();
+
+        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repouser);
+        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repoexpediente,repotramite);
+        
+        CasoDeUsoTramiteBaja tramiteBaja = new CasoDeUsoTramiteBaja(repotramite,autorizacion,actualizacion);
+
         try{
-            listatodoslostramites.Ejecutar(); 
+            tramiteBaja.Ejecutar(xtramitebaja,userId);
+            Navigation.NavigateTo($"/home/{IdUsuario}"); 
         }
-        catch (RepositorioContext ex){
-            // Manejo de errores
+        catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
+            ventanaExcepcion.Mostrar();  //muestra
+        }
+        catch(AutorizacionException ex){ // Valida que tengas autorizacion para crear tramites
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
         }
     }
-    */
+
+   protected override async Task OnInitializedAsync(){
+        
+        RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
+
+        CasoDeUsoTramiteConsultaTodos listatodoslostramites = new CasoDeUsoTramiteConsultaTodos(repotramite);
+
+        userId = int.Parse(IdUsuario); // esto castea de string a integer la variable IdUsuario
+        try{
+            tramites = listatodoslostramites.Ejecutar(); 
+        }
+        catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
+            ventanaExcepcion.Mostrar();  //muestra
+        }
+    }
 }

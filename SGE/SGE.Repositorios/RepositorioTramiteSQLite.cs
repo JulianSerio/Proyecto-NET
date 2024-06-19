@@ -91,7 +91,7 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
         using (var db = new RepositorioContext()){
             var tramites = db.Tramites.ToList();
             if (tramites.Count == 0){
-                throw new RepositorioException("No se encuentran Tramites en el repositorio");
+               // throw new RepositorioException("No se encuentran Tramites en el repositorio");
             }
             return tramites;
         }
