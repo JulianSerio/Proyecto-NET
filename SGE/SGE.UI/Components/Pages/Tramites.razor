@@ -74,7 +74,26 @@
                     </form>
                 </div>    
             }
+        @if (operacion == "ConsultarE"){
+                <div class="container-consultaEtiqueta">
+                    <form class="form-expedientes" @onsubmit="ConsultarEtiqueta">
+                        <div>
+                            <label for="etiqueta">Etiqueta:</label>
+                            <select class="etiqueta" @bind="_etiquetaConsultada" required>
+                                <option value="EscritoPresentado">Escrito presentado</option>
+                                <option value="Despacho">Despacho</option>
+                                <option value="Notificacion">Notificacion</option>
+                                <option value="Resolucion">Resolución</option>
+                                <option value="PaseAEstudio">Pase a Estudio</option>
+                                <option value="PaseAlArchivo">Pase al Archivo</option>
+                            </select>
+                            <button type="submit" class="boton-inicio">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            }
         </div> 
+        
         <div class="contenedor-expedientes">
             @foreach (var tramite in tramites)
             {
@@ -89,8 +108,6 @@
                 </div>
             }
         </div>
-
-
     </div>
     
     <div class="contendor-botones">
@@ -103,7 +120,24 @@
         @if (permisoModificacionTramite) {
             <button class="boton-inicio" @onclick="SetModificarTramite">Modificar</button>
         }
+        <button class="boton-inicio" @onclick="SetConsultarE">Consultar por etiqueta</button>
     </div>
+    
+    @if((operacion == "ConsultarE") && (TramitesConsultados != null)){
+        <div>
+            @foreach (var x in TramitesConsultados){
+                <div class="detalle-tramite">
+                    <span>Id del trámite: @x.Id</span>
+                    <span>|Id del expediente: @x.ExpedienteId</span>
+                    <span>|Etiqueta del trámite: @x.EtiquetaTramite</span>
+                    <span>|Contenido: @x.Contenido</span>
+                    <span>|Fecha de creación: @x.FechaCreacion</span>
+                    <span>|Fecha de modificación: @x.FechaModificacion</span>
+                    <span>|Id del usuario modificador: @x.IdUsuarioModificador |</span>
+                </div>
+            }
+        </div>
+    }
 
 </section>
 
@@ -124,10 +158,12 @@
     private EtiquetaTramite.Etiquetas _etiquetaModificada;
     private int _idTramiteAModificar;
     private string? _contenidoAModificar;
-
+    private EtiquetaTramite.Etiquetas _etiquetaConsultada;
+    private List<Tramite>? TramitesConsultados;
     private void SetOperacion(string nuevaOperacion) {
         operacion = nuevaOperacion;
     }
+
     protected override void OnInitialized()
     {
         userId = int.Parse(IdUsuario);
@@ -152,6 +188,19 @@
         _idTramite = 0;
         _contenido = null;
     }
+
+    public void ConsultarEtiqueta(){
+        RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
+        CasoDeUsoTramiteConsultaPorEtiqueta busquedaEtiqueta = new CasoDeUsoTramiteConsultaPorEtiqueta(repotramite);
+        try{
+            List<Tramite>? aux = busquedaEtiqueta.Ejecutar(_etiquetaConsultada);
+            TramitesConsultados = aux;
+            
+        }catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar(); 
+        }
+     }
 
     private void DarAltaTramite(){
         RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
@@ -227,6 +276,11 @@
     private void SetModificarTramite()
     {
         operacion = "Modificacion";
+    }
+
+    private void SetConsultarE()
+    {
+        operacion = "ConsultarE";
     }
 
     private void RefreshPage()
