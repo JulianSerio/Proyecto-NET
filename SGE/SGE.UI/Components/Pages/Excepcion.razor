@@ -13,10 +13,14 @@
    private bool visible = false;
    [Parameter] public string Mensaje {get;set;}="";
 
-   public void Mostrar(){
+    public void CargarContenido(string mensaje){
+        Mensaje = mensaje;
+    }
+
+    public void Mostrar(){
         visible=true;
         StateHasChanged();
-   }
+    }
     private void CerrarVentana(){
         visible=false;
         StateHasChanged();

@@ -9,59 +9,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SGE.UI
 build_property.RootNamespace = SGE.UI
-build_property.ProjectDir = C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\
+build_property.ProjectDir = c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI
+build_property.MSBuildProjectDirectory = c:\Users\Julian\Desktop\NET\Entrega\Proyecto-NET\SGE\SGE.UI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/App.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/Layout/MainLayout.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/Pages/Home.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/Pages/Expedientes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFeHBlZGllbnRlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/Pages/IniciarSesion.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/Pages/IniciarSesion.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmljaWFyU2VzaW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/Pages/ModificarDatos.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/Pages/ModificarDatos.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RpZmljYXJEYXRvcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/Pages/RegistarUsuario.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/Pages/RegistarUsuario.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3RhclVzdWFyaW8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/Pages/Tramites.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/Pages/Tramites.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUcmFtaXRlcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/Pages/Usuarios.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/Pages/Usuarios.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc3Vhcmlvcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/Routes.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/_Imports.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/Pages/Excepcion.razor]
+[c:/Users/Julian/Desktop/NET/Entrega/Proyecto-NET/SGE/SGE.UI/Components/Pages/Excepcion.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFeGNlcGNpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ycz7sp5w3f
-
-[C:/Users/Usuario/Desktop/Proyecto net GitHub/Proyecto-NET/SGE/SGE.UI/Components/Pages/Expedientes.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFeHBlZGllbnRlcy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-902wjarx8x

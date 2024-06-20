@@ -61,9 +61,6 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
     public List<Expediente> ExpedienteBusquedaTodos(){
         using (var db = new RepositorioContext()){
             var expedientes = db.Expedientes.ToList();
-            if (expedientes.Count == 0){
-                throw new RepositorioException("No se encuentran Expedientes en el repositorio");
-            }
             return expedientes;
         }
     }

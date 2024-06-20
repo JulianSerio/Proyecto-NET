@@ -30,17 +30,4 @@ public class Expediente{
         IdUsuarioModificador = idUsuarioModificador;
         Estado = estado;  
     }
-    
-    //public string? Caratula{get; set;}
-
-    //public DateTime FechaModificacion{get;set;}
-
-    //public EstadoExpediente.Estados Estado{get;}
-
-    //public int Id{get;}
-    
-    //public DateTime FechaCreacion{get;}
-
-    //public int IdUsuarioModificador{get;}
-
 }

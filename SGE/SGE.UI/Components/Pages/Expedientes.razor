@@ -2,8 +2,98 @@
 @rendermode InteractiveServer
 
 <PageTitle>Expedientes | SGE</PageTitle>
-<Excepcion @ref="ventanaExcepcion"/>
+<section class="seccion-expedientes">
+    <div class="contenedor-expedientes">
+        <h1>Expedientes</h1>
+        @if (expedientes != null){
+            @foreach (var expediente in expedientes){
+                <li>@expediente.Id - @expediente.Caratula - @expediente.FechaCreacion - @expediente.FechaModificacion - @expediente.IdUsuarioModificador - @expediente.Estado</li>
+            }
+        }
+        else{
+            <h3>No hay expedientes</h3>
+        }
+    </div>   
+    <div class="contenedor-formularios">
+        @if (permisoAlta){
+            <form class="form-expedientes" @onsubmit="DarDeAlta">
+                <div class="elemento-input">
+                    <input type="text" @bind="_idExpediente" placeholder="ID Expediente" required>
+                </div>
+                <div class="elemento-input">
+                    <input type="text" @bind="_caratula" placeholder="Caratula" required>
+                </div>
+                <div>
+                    <button type="submit" class="boton-inicio">Dar de alta</button>
+                </div>
+            </form>
+        }
+        @if (permisoBaja){
+           <form class="form-expedientes" @onsubmit="DarDeBaja">
+               <div class="elemento-input">
+                    <input type="text" @bind="_idExpediente" placeholder="ID Expediente" required>
+                </div>
+                
+                <div>
+                    <button type="submit" class="boton-inicio">Dar de baja</button>
+                </div>
+            </form>
+        }
+        @if (permisoModificacion){
+            <form class="form-expedientes" @onsubmit="Modificar">
+                <div class="elemento-input">
+                    <input type="text" @bind="_idExpediente" placeholder="ID Expediente" required>
+                </div>
+                <div class="elemento-input">
+                    <input type="text" @bind="_caratula" placeholder="Caratula" required>
+                </div>
+                <div>
+                    <button type="submit" class="boton-inicio">Modificar</button>
+                </div>
+            </form>
+        }
+    </div>
+</section>
 
 @code{
-    Excepcion ventanaExcepcion;    
+    private List<Expediente> expedientes;
+    private bool permisoAlta = false;
+    private bool permisoBaja = false;
+    private bool permisoModificacion = false;
+    [Parameter] public string? IdUsuario {get;set;}
+    private int userId;
+    private int _idExpediente;
+    private string? _caratula;
+    private EstadoExpediente.Estados _estado;
+
+    protected override void OnInitialized(){
+        userId = int.Parse(IdUsuario);
+        RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
+        CasoDeUsoUsuarioConsultaPorId cu = new CasoDeUsoUsuarioConsultaPorId(repo);
+        Usuario user = cu.Ejecutar(userId);
+        if (user.Permisos.Contains("ExpedienteAlta")) permisoAlta = true;
+        if (user.Permisos.Contains("ExpedienteBaja")) permisoBaja = true;
+        if (user.Permisos.Contains("ExpedienteModificacion"))permisoModificacion = true;
+        cargarExpedientes();
+    }
+
+    private void cargarExpedientes(){ 
+        RepositorioExpedienteSQLite repo = new RepositorioExpedienteSQLite();
+        CasoDeUsoExpedienteConsultaTodos expedientesTodos = new CasoDeUsoExpedienteConsultaTodos(repo);
+        expedientes = expedientesTodos.Ejecutar();
+    }
+
+    private void ResetearDatos(){
+
+    }
+    private void DarDeAlta(){
+        //expedienteAlta.Ejecutar(_caratula!,userId);
+    }
+
+    private void DarDeBaja(){
+        
+    }
+    private void Modificar(){
+        
+    }
 }
