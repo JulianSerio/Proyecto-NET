@@ -1,12 +1,12 @@
 ﻿@page "/usuarios/{IdUsuario:Int}"
 @rendermode InteractiveServer
-<Excepcion @ref="ventanaExcepcion"/>
+<!--<Excepcion @ref="ventanaExcepcion"/>-->
 
-<div class="container">
-    <h2>Gestión de Usuarios</h2>
-    
+<!-- <div class="container">
+    <h2>Gestión de Usuarios</h2> -->
+
     <!-- Alta de Usuario  -->
-    <h3>Dar de Alta Usuario</h3>
+    <!--<h3>Dar de Alta Usuario</h3>
     <form @onsubmit="AltaUsuario">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" @bind="nuevoUsuario.Nombre" required><br>
@@ -21,23 +21,23 @@
         <input type="password" id="password" @bind="nuevoUsuario.Password" required><br>
 
         <button type="submit">Dar de Alta</button>
-    </form>
+    </form>-->
 
     <!-- Baja de Usuario -->
-    <h3>Dar de Baja Usuario</h3>
+    <!--<h3>Dar de Baja Usuario</h3>
     <form @onsubmit="BajaUsuario">
         <label for="emailBaja">Email:</label>
         <input type="email" id="emailBaja" @bind="emailBaja" required><br>
         <button type="submit">Dar de Baja</button>
-    </form>
+    </form>-->
 
     <!-- Modificación de Usuario -->
-    <h3>Modificar Usuario</h3>
-    <form @onsubmit="ModificarUsuario">
+    <!--<h3>Modificar Usuario</h3>
+    <form @onsubmit="ModificarUsuario">-->
         <!-- <label for="idUsuarioMod">ID Usuario:</label>
         <input type="number" id="idUsuarioMod" @bind="usuarioModificar.IdUsuario" required><br> --> <!--no se--> 
 
-        <label for="nombreMod">Nombre:</label>
+        <!--<label for="nombreMod">Nombre:</label>
         <input type="text" id="nombreMod" @bind="usuarioModificar.Nombre"><br>
 
         <label for="apellidoMod">Apellido:</label>
@@ -50,10 +50,10 @@
         <input type="password" id="passwordMod" @bind="usuarioModificar.Password"><br>
 
         <button type="submit">Modificar</button>
-    </form>
+    </form>-->
 
     <!-- Consultar Todos los Usuarios -->
-    <h3>Lista de Usuarios</h3>
+    <!--<h3>Lista de Usuarios</h3>
     <button @onclick="CargarUsuarios">Cargar Usuarios</button>
     <ul>
         @foreach (var usuario in usuarios)
@@ -61,10 +61,9 @@
             <li>@usuario.Nombre @usuario.Apellido - @usuario.Email</li>
         }
     </ul>
-</div>
-
+</div>-->
 @code {
-    private Usuario nuevoUsuario = new Usuario();
+    /*private Usuario nuevoUsuario = new Usuario();
     private Usuario usuarioModificar = new Usuario();
     private string? emailBaja;
     private List<Usuario> usuarios = new List<Usuario>();
@@ -132,5 +131,5 @@
     protected override void OnInitialized()
     {
         CargarUsuarios(); //  Cargar la lista de usuarios al inicializar el componente
-    }
+    }*/
 }

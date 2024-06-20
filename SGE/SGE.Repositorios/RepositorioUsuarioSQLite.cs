@@ -27,15 +27,12 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
         }
     }
 
-    public void UsuarioAlta(string nombre, string apellido, string email, string password){
+    public int? UsuarioAlta(string nombre, string apellido, string email, string password){
         using (var db = new RepositorioContext()){
             var usuario = new Usuario(nombre,apellido, email, password);
             db.Add(usuario);//se agregará realmente con el db.SaveChanges()
             db.SaveChanges();//actualiza la base de datos. SQlite establece el valor de usuario.Id
-            if(usuario.IdUsuario == 1){ //se obtiene el id
-                List<string> permisos = new List<string>{"ExpedienteBaja","ExpedienteAlta","ExpedienteModificacion","TramiteAlta","TramiteBaja","TramiteModificacion"};
-                this.UsuarioModicacion(usuario, permisos);
-            }
+            return usuario.IdUsuario;
         }
     }
 
@@ -62,14 +59,14 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
         }
     }
 
-    public void UsuarioModicacion(Usuario user, List<string> permisos){
+    public void UsuarioModicacion(int? idUsuario,string nombre, string apellido, string email, string password, List<string> permisos){
         using(var db = new RepositorioContext()){
-            var usuarioAModificar = db.Usuarios.FirstOrDefault(u => u.IdUsuario == user.IdUsuario);
+            var usuarioAModificar = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
             if(usuarioAModificar != null){
-                usuarioAModificar.Nombre = user.Nombre;
-                usuarioAModificar.Apellido = user.Apellido;
-                usuarioAModificar.Email = user.Email;
-                usuarioAModificar.Password = user.Password;
+                usuarioAModificar.Nombre = nombre;
+                usuarioAModificar.Apellido = apellido;
+                usuarioAModificar.Email = email;
+                usuarioAModificar.Password = password;
                 usuarioAModificar.Permisos = permisos;
 
                 db.SaveChanges();

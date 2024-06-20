@@ -238,3 +238,36 @@ body {
     height: 50vh;
 }
 
+.seccion-expedientes{
+    width: 100%;
+    background-color: grey;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    h1{
+        text-align: center;
+    }
+    .columna{
+        display: flex;
+        flex-direction: row;
+        .formulario{
+            padding-top: 60px;
+            width: 30%;
+            justify-content: center;
+            text-align: center;
+            border: solid red;
+            .elemento-input{
+                flex-direction: row;
+                input{
+                    width: 60%;
+                }
+            }
+        }
+        .contenedor-expedientes{
+            width: 70%;
+            justify-content: center;
+            text-align: center;
+            background-color: white;
+        }
+    }
+}

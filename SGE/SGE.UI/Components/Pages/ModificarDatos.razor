@@ -46,7 +46,8 @@
     private void Ejecutar (){
         RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
         UsuarioValidador validador = new UsuarioValidador(repo);
-        CasoDeUsoUsuarioAlta registro = new CasoDeUsoUsuarioAlta(repo,validador);
+        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repo);
+        CasoDeUsoUsuarioAlta registro = new CasoDeUsoUsuarioAlta(repo,validador,autorizacion);
         try{
             registro.Ejecutar(_nombre!,_apellido!,_email!,_password!);
             Navigation.NavigateTo("/");

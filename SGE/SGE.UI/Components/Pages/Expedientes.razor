@@ -2,57 +2,77 @@
 @rendermode InteractiveServer
 
 <PageTitle>Expedientes | SGE</PageTitle>
+
+
 <section class="seccion-expedientes">
-    <div class="contenedor-expedientes">
-        <h1>Expedientes</h1>
-        @if (expedientes != null){
-            @foreach (var expediente in expedientes){
-                <li>@expediente.Id - @expediente.Caratula - @expediente.FechaCreacion - @expediente.FechaModificacion - @expediente.IdUsuarioModificador - @expediente.Estado</li>
+    <h1>Expedientes</h1>
+    <div class="columna">
+        <div class="formulario">
+            @if (operacion == "Alta"){
+                <form class="form-expedientes" @onsubmit="DarDeAlta">
+                    <div class="elemento-input">
+                        <h4>ID Expediente</h4>
+                        <input type="number" @bind="_idExpediente" required>
+                    </div>
+                    <div class="elemento-input">
+                        <h4>Caratula</h4>
+                        <input type="text" @bind="_caratula" required>
+                    </div>
+                    <div>
+                        <button type="submit" class="boton-inicio">Dar de alta</button>
+                    </div>
+                </form>
             }
-        }
-        else{
-            <h3>No hay expedientes</h3>
-        }
-    </div>   
-    <div class="contenedor-formularios">
-        @if (permisoAlta){
-            <form class="form-expedientes" @onsubmit="DarDeAlta">
+            @if (operacion == "Baja"){
+            <form class="form-expedientes" @onsubmit="DarDeBaja">
                 <div class="elemento-input">
-                    <input type="text" @bind="_idExpediente" placeholder="ID Expediente" required>
+                    <h4>ID Expediente</h4>
+                    <input type="number" @bind="_idExpediente" placeholder="ID Expediente" required>
                 </div>
-                <div class="elemento-input">
-                    <input type="text" @bind="_caratula" placeholder="Caratula" required>
-                </div>
-                <div>
-                    <button type="submit" class="boton-inicio">Dar de alta</button>
-                </div>
-            </form>
-        }
-        @if (permisoBaja){
-           <form class="form-expedientes" @onsubmit="DarDeBaja">
-               <div class="elemento-input">
-                    <input type="text" @bind="_idExpediente" placeholder="ID Expediente" required>
-                </div>
-                
                 <div>
                     <button type="submit" class="boton-inicio">Dar de baja</button>
                 </div>
             </form>
-        }
-        @if (permisoModificacion){
-            <form class="form-expedientes" @onsubmit="Modificar">
-                <div class="elemento-input">
-                    <input type="text" @bind="_idExpediente" placeholder="ID Expediente" required>
-                </div>
-                <div class="elemento-input">
-                    <input type="text" @bind="_caratula" placeholder="Caratula" required>
-                </div>
-                <div>
-                    <button type="submit" class="boton-inicio">Modificar</button>
-                </div>
-            </form>
-        }
+            }
+            @if (operacion == "Modificacion"){
+                <form class="form-expedientes" @onsubmit="Modificar">
+                   <div class="elemento-input">
+                        <h4>ID Expediente</h4>
+                        <input type="number" @bind="_idExpediente" required>
+                    </div>
+                    <div class="elemento-input">
+                        <h4>Caratula</h4>
+                        <input type="text" @bind="_caratula" required>
+                    </div>
+                    <div>
+                        <button type="submit" class="boton-inicio">Modificar</button>
+                    </div>
+                </form>
+            }
+        </div>
+        <div class="contenedor-expedientes">
+            
+            <h1>AAAAAAAAAAAAAAAAAA</h1>
+            <h1>AAAAAAAAAAAAAAAAAA</h1>
+            <h1>AAAAAAAAAAAAAAAAAA</h1>
+            <h1>AAAAAAAAAAAAAAAAAA</h1>
+            <h1>AAAAAAAAAAAAAAAAAA</h1>
+            <h1>AAAAAAAAAAAAAAAAAA</h1>
+
+        </div>   
     </div>
+    <div class="contendor-botones">
+            @if (permisoAlta) {
+                <button class="boton-inicio" @onclick="setAlta">Dar de alta</button>
+            }
+            @if (permisoBaja) {
+                <button class="boton-inicio" @onclick="setBaja">Dar de baja</button>
+            }
+            @if (permisoModificacion){ 
+                <button class="boton-inicio" @onclick="setModificar">Modificar</button>
+            }
+    </div>
+    
 </section>
 
 @code{
@@ -64,7 +84,7 @@
     private int userId;
     private int _idExpediente;
     private string? _caratula;
-    private EstadoExpediente.Estados _estado;
+    private string? operacion;
 
     protected override void OnInitialized(){
         userId = int.Parse(IdUsuario);
@@ -95,5 +115,15 @@
     }
     private void Modificar(){
         
+    }
+    private void setAlta(){
+        operacion = "Alta";
+    }
+    private void setBaja(){
+        operacion = "Baja";
+    }
+
+    private void setModificar(){
+        operacion = "Modificacion";
     }
 }

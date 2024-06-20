@@ -186,7 +186,6 @@ C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\n
 C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SGE.UI.props
 C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Excepcion.razor.rz.scp.css
-C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Pages\Expedientes.razor.rz.scp.css
 C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\bundle\SGE.UI.styles.css
 C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\projectbundle\SGE.UI.bundle.scp.css
 C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.Up2Date
