@@ -238,36 +238,82 @@ body {
     height: 50vh;
 }
 
-.seccion-expedientes{
+.seccion-paginas{
     width: 100%;
-    background-color: grey;
+    background-color: rgba(74, 102, 179, 0.801);
+    border-radius: 10px;
     height: 90vh;
     display: flex;
     flex-direction: column;
     h1{
+        color: white;
         text-align: center;
     }
-    .columna{
+    .contenedor{
         display: flex;
         flex-direction: row;
-        .formulario{
+        background-color: beige;
+        margin: 15px;
+        .formularios{
+            border: solid black;
             padding-top: 60px;
             width: 30%;
             justify-content: center;
             text-align: center;
-            border: solid red;
             .elemento-input{
-                flex-direction: row;
+                h4{
+                    font-size: medium;
+                }
                 input{
                     width: 60%;
                 }
             }
+            .boton-inicio{
+                border: none;
+                border-radius: 5px;
+                font-weight: 700;
+                font-size: larger;
+                width: 30%;
+                height: 40px;
+                box-sizing: content-box;
+                background-color:rgb(105, 165, 255);
+                color: white;
+                margin-top: 15px;
+                &:hover {
+                    background-color:rgb(79, 150, 255);
+                    box-shadow: 0 0 10px grey
+                }
+            }
+            
         }
-        .contenedor-expedientes{
+        .mostrar-datos{
             width: 70%;
             justify-content: center;
             text-align: center;
-            background-color: white;
+            border: solid black;
+            color: black;
+        }
+       
+    }
+    .contenedor-botones{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .boton-inicio{
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: larger;
+            width: 15%;
+            margin: 5px;
+            height: 50px;
+            box-sizing: content-box;
+            color: white;
+            background-color:rgb(105, 165, 255);
+            &:hover {
+                background-color:rgb(79, 150, 255);
+                box-shadow: 0 0 10px grey
+            }
         }
     }
 }

@@ -5,12 +5,12 @@
 <PageTitle>Trámites | SGE</PageTitle>
 <Excepcion @ref="ventanaExcepcion"/>
 
-<section class="seccion-expedientes">
+<section class="seccion-paginas">
     <h1>Trámites</h1>
-    <div class="columna">
-        <div class="formulario">
+    <div class="contenedor">
+        <div class="formularios">
             @if (operacion == "Alta"){
-                <form class="form-expedientes" @onsubmit="DarAltaTramite">
+                <form class="form" @onsubmit="DarAltaTramite">
                     <div class="elemento-input">
                         <h4>Id de expediente a dar de alta </h4>
                         <input type="text" @bind="_expedienteId" required>
@@ -47,54 +47,49 @@
                 </form>
             } 
              @if (operacion == "Modificacion"){
-                <div class= "container-modificarTramite">
-                    <form class="form-expedientes" @onsubmit="ModificarTramite">
-                        <div class="elemento-input">
-                            <h4>ID de Trámite a modificar</h4>
-                            <input type="number" @bind="_idTramiteAModificar" required>
-                        </div>
-                        <div class="elemento-input">
-                            <h4>Contenido de tramite a modificar</h4>
-                            <input type="text" @bind="_contenidoAModificar" required>
-                        </div>
-                        <div>
-                            <label for="etiqueta">Etiqueta:</label>
-                            <select class="etiqueta" @bind="_etiquetaModificada" required>
-                                <option value="EscritoPresentado">Escrito presentado</option>
-                                <option value="Despacho">Despacho</option>
-                                <option value="Notificacion">Notificacion</option>
-                                <option value="Resolucion">Resolución</option>
-                                <option value="PaseAEstudio">Pase a Estudio</option>
-                                <option value="PaseAlArchivo">Pase al Archivo</option>
-                            </select>
-                        </div>
-                        <div>
-                            <button type="submit" class="boton-inicio">Modificar</button>
-                        </div>
-                    </form>
-                </div>    
+                <form class="form-expedientes" @onsubmit="ModificarTramite">
+                    <div class="elemento-input">
+                        <h4>ID de Trámite a modificar</h4>
+                        <input type="number" @bind="_idTramiteAModificar" required>
+                    </div>
+                    <div class="elemento-input">
+                        <h4>Contenido de tramite a modificar</h4>
+                        <input type="text" @bind="_contenidoAModificar" required>
+                    </div>
+                    <div>
+                        <label for="etiqueta">Etiqueta:</label>
+                        <select class="etiqueta" @bind="_etiquetaModificada" required>
+                            <option value="EscritoPresentado">Escrito presentado</option>
+                            <option value="Despacho">Despacho</option>
+                            <option value="Notificacion">Notificacion</option>
+                            <option value="Resolucion">Resolución</option>
+                            <option value="PaseAEstudio">Pase a Estudio</option>
+                            <option value="PaseAlArchivo">Pase al Archivo</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="boton-inicio">Modificar</button>
+                    </div>
+                </form>
             }
-        @if (operacion == "ConsultarE"){
-                <div class="container-consultaEtiqueta">
-                    <form class="form-expedientes" @onsubmit="ConsultarEtiqueta">
-                        <div>
-                            <label for="etiqueta">Etiqueta:</label>
-                            <select class="etiqueta" @bind="_etiquetaConsultada" required>
-                                <option value="EscritoPresentado">Escrito presentado</option>
-                                <option value="Despacho">Despacho</option>
-                                <option value="Notificacion">Notificacion</option>
-                                <option value="Resolucion">Resolución</option>
-                                <option value="PaseAEstudio">Pase a Estudio</option>
-                                <option value="PaseAlArchivo">Pase al Archivo</option>
-                            </select>
-                            <button type="submit" class="boton-inicio">Buscar</button>
-                        </div>
-                    </form>
-                </div>
+            @if (operacion == "ConsultarE"){
+                <form class="form-expedientes" @onsubmit="ConsultarEtiqueta">
+                    <div>
+                        <label for="etiqueta">Etiqueta:</label>
+                        <select class="etiqueta" @bind="_etiquetaConsultada" required>
+                            <option value="EscritoPresentado">Escrito presentado</option>
+                            <option value="Despacho">Despacho</option>
+                            <option value="Notificacion">Notificacion</option>
+                            <option value="Resolucion">Resolución</option>
+                            <option value="PaseAEstudio">Pase a Estudio</option>
+                            <option value="PaseAlArchivo">Pase al Archivo</option>
+                        </select>
+                        <button type="submit" class="boton-inicio">Buscar</button>
+                    </div>
+                </form>
             }
         </div> 
-        
-        <div class="contenedor-expedientes">
+        <div class="mostrar-datos">
             @foreach (var tramite in tramites)
             {
                 <div class="detalle-tramite">

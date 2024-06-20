@@ -6,12 +6,12 @@
 <Excepcion @ref="ventanaExcepcion"/>
 
 
-<section class="seccion-expedientes">
+<section class="seccion-paginas">
     <h1>Usuarios</h1>
-    <div class="columna">
-        <div class="formulario">
+    <div class="contenedor">
+        <div class="formularios">
             @if (operacion == "Alta"){
-                <form class="form-expedientes" @onsubmit="DarDeAltaUsuario">
+                <form class="form" @onsubmit="DarDeAltaUsuario">
                     <div class="elemento-input">
                         <h4>Nombre</h4>
                         <input type="number" @bind="_nombreUsuario" required>
@@ -34,10 +34,10 @@
                 </form>
             }
             @if (operacion == "Baja"){
-                <form class="form-expedientes" @onsubmit="DarDeBajaUsuario">
+                <form class="form" @onsubmit="DarDeBajaUsuario">
                     <div class="elemento-input">
                         <h4>Email de usuario a eliminar</h4>
-                        <input type="number" @bind="_emailAEliminar" required>
+                        <input type="email" @bind="_emailAEliminar" required>
                     </div>
                 </form>
                 <button type="submit" class="boton-inicio">Eliminar Usuario</button>
@@ -59,11 +59,11 @@
 [Parameter] public string? IdUsuario {get;set;}
 private int userId;
 private string? operacion;
-private string _contraseniaUsuario;
-private string _nombreUsuario;
-private string _apellidoUsuario;
-private string _emailUsuario;
-private string _emailAEliminar;
+private string? _contraseniaUsuario;
+private string? _nombreUsuario;
+private string? _apellidoUsuario;
+private string? _emailUsuario;
+private string? _emailAEliminar;
 private Excepcion ventanaExcepcion = null!;
 List<string> permisos;
 List<string> _permisosDelUsuario;
@@ -81,7 +81,7 @@ private void DarDeAltaUsuario(){
     var repo = new RepositorioUsuarioSQLite();
     var autorizacion = new ServicioAutorizacion(repo);
     var validador = new UsuarioValidador(repo);
-    var cu = new CasoDeUsoUsuarioAlta(repo,validador,autorizacion)
+    var cu = new CasoDeUsoUsuarioAlta(repo,validador,autorizacion);
     try{
         //string nombre, string apellido, string email, string password
         cu.Ejecutar(_nombreUsuario,_apellidoUsuario,_emailUsuario,_contraseniaUsuario);
@@ -104,7 +104,7 @@ private void DarDeBajaUsuario(){
         ventanaExcepcion.Mostrar(); 
     }
 }
-
+/*
 private void ModificarUsuario(){
     //CasoDeUsoUsuarioModificacion(IUsuarioRepositorio repo, UsuarioValidador validador){
     var repo = new RepositorioUsuarioSQLite();
@@ -114,11 +114,11 @@ private void ModificarUsuario(){
     try{
         //Ejecutar(int IdUsuario,string nombre, string apellido, string email, string password, List<string> permisos)
         var permi = 
-        cu.Ejecutar(userId,_nombreModificado,_apellidoModificado,_emailModificado,);
+cu.Ejecutar(userId,_nombreModificado,_apellidoModificado,_emailModificado,);
 
         // FALTA TERMINAR ESTO
     }
-}
+}*/
 
 private void SetAltaUsuario()
     {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "13fT+fMyaSPDNBtUeiXk7+rhQZqMmfM1hm2pwoUdG7s=",
+  "Hash": "aX/qKtOaJSB8Vd32n6tOYmrREJMd9ctHZQOG+ogXbt0=",
   "Source": "SGE.UI",
   "BasePath": "_content/SGE.UI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "SGE.UI\\wwwroot",
       "Source": "SGE.UI",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SGE.UI.styles.css",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SGE.UI.styles.css",
       "SourceId": "SGE.UI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "SGE.UI.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SGE.UI.styles.css"
+      "OriginalItemSpec": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SGE.UI.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGE.UI.bundle.scp.css",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGE.UI.bundle.scp.css",
       "SourceId": "SGE.UI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "SGE.UI.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGE.UI.bundle.scp.css"
+      "OriginalItemSpec": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SGE.UI.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\app.css",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\app.css",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\Images\\administrar.png",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\Images\\administrar.png",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "Images/administrar.png",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\administrar.png"
     },
     {
-      "Identity": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\Images\\carpeta.png",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\Images\\carpeta.png",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "Images/carpeta.png",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\carpeta.png"
     },
     {
-      "Identity": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\Images\\config.png",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\Images\\config.png",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "Images/config.png",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\config.png"
     },
     {
-      "Identity": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\Images\\favicon.png",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\Images\\favicon.png",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "Images/favicon.png",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\Images\\fondo.png",
+      "Identity": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\Images\\fondo.png",
       "SourceId": "SGE.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.UI\\wwwroot\\",
       "BasePath": "_content/SGE.UI",
       "RelativePath": "Images/fondo.png",
       "AssetKind": "All",

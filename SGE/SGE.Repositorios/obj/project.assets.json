@@ -1202,19 +1202,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Val\\.nuget\\packages\\": {}
+    "C:\\Users\\Julian\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+      "projectUniqueName": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
       "projectName": "SGE.Repositorios",
-      "projectPath": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
-      "packagesPath": "C:\\Users\\Val\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.Repositorios\\obj\\",
+      "projectPath": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+      "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.Repositorios\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Val\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -1226,8 +1226,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
-              "projectPath": "C:\\Users\\Val\\Desktop\\Facum\\dotnet\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+            "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+              "projectPath": "c:\\Users\\Julian\\Desktop\\NET\\Entrega\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
             }
           }
         }
@@ -1268,7 +1268,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

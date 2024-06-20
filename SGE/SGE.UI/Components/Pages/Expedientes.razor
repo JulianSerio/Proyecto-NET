@@ -4,12 +4,12 @@
 <PageTitle>Expedientes | SGE</PageTitle>
 
 
-<section class="seccion-expedientes">
+<section class="seccion-paginas">
     <h1>Expedientes</h1>
-    <div class="columna">
-        <div class="formulario">
+    <div class="contenedor">
+        <div class="formularios">
             @if (operacion == "Alta"){
-                <form class="form-expedientes" @onsubmit="DarDeAlta">
+                <form class="form" @onsubmit="DarDeAlta">
                     <div class="elemento-input">
                         <h4>ID Expediente</h4>
                         <input type="number" @bind="_idExpediente" required>
@@ -24,7 +24,7 @@
                 </form>
             }
             @if (operacion == "Baja"){
-            <form class="form-expedientes" @onsubmit="DarDeBaja">
+            <form class="form" @onsubmit="DarDeBaja">
                 <div class="elemento-input">
                     <h4>ID Expediente</h4>
                     <input type="number" @bind="_idExpediente" placeholder="ID Expediente" required>
@@ -35,7 +35,7 @@
             </form>
             }
             @if (operacion == "Modificacion"){
-                <form class="form-expedientes" @onsubmit="Modificar">
+                <form class="form" @onsubmit="Modificar">
                    <div class="elemento-input">
                         <h4>ID Expediente</h4>
                         <input type="number" @bind="_idExpediente" required>
@@ -50,7 +50,7 @@
                 </form>
             }
         </div>
-        <div class="contenedor-expedientes">
+        <div class="mostrar-datos">
             
             <h1>AAAAAAAAAAAAAAAAAA</h1>
             <h1>AAAAAAAAAAAAAAAAAA</h1>
@@ -61,7 +61,7 @@
 
         </div>   
     </div>
-    <div class="contendor-botones">
+    <div class="contenedor-botones">
             @if (permisoAlta) {
                 <button class="boton-inicio" @onclick="setAlta">Dar de alta</button>
             }
@@ -72,7 +72,6 @@
                 <button class="boton-inicio" @onclick="setModificar">Modificar</button>
             }
     </div>
-    
 </section>
 
 @code{
