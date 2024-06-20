@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SGE.Repositorios
-build_property.ProjectDir = C:\Users\Usuario\Desktop\Proyecto net GitHub\Proyecto-NET\SGE\SGE.Repositorios\
+build_property.ProjectDir = C:\Users\Val\Desktop\Facum\dotnet\Proyecto-NET\SGE\SGE.Repositorios\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

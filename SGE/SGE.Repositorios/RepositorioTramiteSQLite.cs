@@ -23,12 +23,18 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
     }
 
     public EtiquetaTramite.Etiquetas? EtiquetaUltimoTramiteDeExpediente(int idExpediente)
+{
+    using (var db = new RepositorioContext())
     {
-        using (var db = new RepositorioContext()){
-            var tramites = BusquedaPorExpediente(idExpediente);
+        var tramites = BusquedaPorExpediente(idExpediente);
+        if (tramites.Any())
+        {
             return tramites.Last().EtiquetaTramite;
         }
     }
+    return null; // Devuelve null si no hay tramites
+}
+
 
     public void TramiteAlta(int expedienteID, string contenido, int idUsuario, EtiquetaTramite.Etiquetas etiqueta, DateTime fechaCreacio)
     {

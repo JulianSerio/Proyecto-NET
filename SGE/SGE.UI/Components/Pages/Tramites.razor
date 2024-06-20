@@ -1,162 +1,159 @@
 ﻿@page "/tramites/{IdUsuario}"
-
 @rendermode InteractiveServer
-
 @inject NavigationManager Navigation
 
-<PageTitle>Tramite | SGE</PageTitle>
+<PageTitle>Trámites | SGE</PageTitle>
 <Excepcion @ref="ventanaExcepcion"/>
 
-<div class="seccion-formulario">
-    <div class="container-lista-tramites">
-        <h2>Lista de tramites</h2>
-        @if(tramites != null){
-            @foreach (var tramite in tramites){
-                <li>@tramite.Id - @tramite.EtiquetaTramite - @tramite.ExpedienteId - @tramite.Contenido - @tramite.IdUsuarioModificador</li>
+<section class="seccion-expedientes">
+    <h1>Trámites</h1>
+    <div class="columna">
+        <div class="formulario">
+            @if (operacion == "Alta"){
+                <form class="form-expedientes" @onsubmit="DarAltaTramite">
+                    <div class="elemento-input">
+                        <h4>Id de expediente a dar de alta </h4>
+                        <input type="text" @bind="_expedienteId" required>
+                    </div>
+                    <div class="elemento-input">
+                        <h4>Contenido a dar de alta </h4>
+                        <input type="text" @bind="_contenido" required>
+                    </div>
+                    <div>
+                        <label for="etiqueta">Etiqueta a dar de alta:</label>
+                        <select class="etiqueta" @bind="_etiqueta" required>
+                            <option value="EscritoPresentado">Escrito presentado</option>
+                            <option value="Despacho">Despacho</option>
+                            <option value="Notificacion">Notificacion</option>
+                            <option value="Resolucion">Resolución</option>
+                            <option value="PaseAEstudio">Pase a Estudio</option>
+                            <option value="PaseAlArchivo">Pase al Archivo</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="boton-inicio">Dar de alta</button>
+                    </div>
+                </form>
             }
-        }else{
-            <h3>No hay Tramites</h3>
-        }
+            @if (operacion == "Baja"){
+                <form class="form-expedientes" @onsubmit="DarBajaTramite">
+                    <div class="elemento-input">
+                        <h4>ID Trámite a dar de baja</h4>
+                        <input type="number" @bind="_idTramiteABajar" placeholder="ID Trámite a dar de baja" required>
+                    </div>
+                    <div>
+                        <button type="submit" class="boton-inicio">Dar de baja</button>
+                    </div>
+                </form>
+            } 
+             @if (operacion == "Modificacion"){
+                <div class= "container-modificarTramite">
+                    <form class="form-expedientes" @onsubmit="ModificarTramite">
+                        <div class="elemento-input">
+                            <h4>ID de Trámite a modificar</h4>
+                            <input type="number" @bind="_idTramiteAModificar" required>
+                        </div>
+                        <div class="elemento-input">
+                            <h4>Contenido de tramite a modificar</h4>
+                            <input type="text" @bind="_contenidoAModificar" required>
+                        </div>
+                        <div>
+                            <label for="etiqueta">Etiqueta:</label>
+                            <select class="etiqueta" @bind="_etiquetaModificada" required>
+                                <option value="EscritoPresentado">Escrito presentado</option>
+                                <option value="Despacho">Despacho</option>
+                                <option value="Notificacion">Notificacion</option>
+                                <option value="Resolucion">Resolución</option>
+                                <option value="PaseAEstudio">Pase a Estudio</option>
+                                <option value="PaseAlArchivo">Pase al Archivo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" class="boton-inicio">Modificar</button>
+                        </div>
+                    </form>
+                </div>    
+            }
+        </div> 
+        <div class="contenedor-expedientes">
+            @foreach (var tramite in tramites)
+            {
+                <div class="detalle-tramite">
+                    <span>Id del trámite: @tramite.Id</span>
+                    <span>|Id del expediente: @tramite.ExpedienteId</span>
+                    <span>|Etiqueta del trámite: @tramite.EtiquetaTramite</span>
+                    <span>|Contenido: @tramite.Contenido</span>
+                    <span>|Fecha de creación: @tramite.FechaCreacion</span>
+                    <span>|Fecha de modificación: @tramite.FechaModificacion</span>
+                    <span>|Id del usuario modificador: @tramite.IdUsuarioModificador |</span>
+                </div>
+            }
+        </div>
+
+
     </div>
-
-    <form class="altaForm" @onsubmit="DarAltaTramite">
-        <label for="expedienteID">Expediente ID:</label>
-        <input type="number" id="expedienteID" @bind="expedienteID" placeholder="Ingrese el Expediente ID" required><br>
-
-        <label for="contenido">Contenido:</label>
-        <input type="text" id="contenido" @bind="contenido" placeholder="Ingrese el Contenido" required><br>
-
-        <label for="etiqueta">Etiqueta:</label>
-        <select class="etiqueta" @bind="etiqueta" required>
-            <option value="EscritoPresentado">Escrito presentado</option>
-            <option value="Despacho">Despacho</option>
-            <option value="Notificacion">Notificacion</option>
-            <option value="Resolucion">Resolución</option>
-            <option value="PaseAEstudio">Pase a Estudio</option>
-            <option value="PaseAlArchivo">Pase al Archivo</option>
-        </select>
-        <button type="submit">Dar alta</button>
-    </form>
-
-    <div class="containerBaja">
-        <form class="bajaForm" @onsubmit="()=>DarBajaTramite(idAEliminar)">
-            <input type="text" id="idAEliminar" @bind="idAEliminar" placeholder="Ingrese id de tramite a eliminar" required><br>
-            <button type="submit">Dar de baja tramite</button>
-        </form>
-    </div>
-
-    <div class="containerModificacion">
-        <form class="modificacionForm" @onsubmit="ModificarTramite">
-            <h3>Modificar Trámite</h3>
-
-            <div class="form-group">
-                <label for="idTramite">ID del Trámite:</label>
-                <input type="number" id="idTramite" @bind="idTramite" placeholder="Ingrese el ID del trámite" required />
-            </div>
-
-            <div class="form-group">
-                <label for="contenidoModificado">Contenido:</label>
-                <input type="text" id="contenidoModificado" @bind="contenidoModificado" placeholder="Ingrese el nuevo contenido" required />
-            </div>
-
-            <div class="form-group">
-                <label for="etiquetaModificada">Etiqueta:</label>
-                <select id="etiquetaModificada" @bind="etiquetaModificada" required>
-                    <option value="EscritoPresentado">Escrito presentado</option>
-                    <option value="Despacho">Despacho</option>
-                    <option value="Notificacion">Notificación</option>
-                    <option value="Resolucion">Resolución</option>
-                    <option value="PaseAEstudio">Pase a Estudio</option>
-                    <option value="PaseAlArchivo">Pase al Archivo</option>
-                </select>
-            </div>
-
-            <button type="submit">Modificar Trámite</button>
-        </form>
-    </div>
-
-    <div class="containerBusqueda">
-        <form action="">
-            <label for="etiquetaABuscar">Buscar por etiqueta:</label>
-            <select id="etiquetaABuscar" @bind="etiquetaABuscar" required>
-                <option value="EscritoPresentado">Escrito presentado</option>
-                <option value="Despacho">Despacho</option>
-                <option value="Notificacion">Notificación</option>
-                <option value="Resolucion">Resolución</option>
-                <option value="PaseAEstudio">Pase a Estudio</option>
-                <option value="PaseAlArchivo">Pase al Archivo</option>
-            </select>
-            <button type="submit">Buscar Tramites</button>
-        </form>
-    </div>
-</div>
-
-@code {
-    [Parameter]
-    public string? IdUsuario{get; set;}
-    private int userId;
-    private int expedienteID;
-    private string? contenido;
-    private string? etiqueta;
-    private List<Tramite> tramites;
-    private Excepcion ventanaExcepcion = null!;
-    private int idAEliminar;
-    private int idTramite;
-    private string contenidoModificado;
-    private EtiquetaTramite.Etiquetas etiquetaModificada;
-    private EtiquetaTramite.Etiquetas etiquetaABuscar;
-
-    public List<Tramite>? BuscarEtiqueta(){
-    RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
-    CasoDeUsoTramiteConsultaPorEtiqueta busquedaEtiqueta = new CasoDeUsoTramiteConsultaPorEtiqueta(repotramite);
     
-    try{
-        var resultadoBusqueda = busquedaEtiqueta.Ejecutar(etiquetaABuscar); 
-        Navigation.NavigateTo($"/home/{IdUsuario}");
-        return resultadoBusqueda; 
+    <div class="contendor-botones">
+        @if (permisoAltaTramite) {
+            <button class="boton-inicio" @onclick="SetAltaTramite">Dar de alta</button>
+        }
+        @if (permisoBajaTramite) {
+            <button class="boton-inicio" @onclick="SetBajaTramite">Dar de baja</button>
+        }
+        @if (permisoModificacionTramite) {
+            <button class="boton-inicio" @onclick="SetModificarTramite">Modificar</button>
+        }
+    </div>
+
+</section>
+
+@code{
+    private List<Tramite> tramites;
+    private bool permisoAltaTramite = false;
+    private bool permisoBajaTramite = false;
+    private bool permisoModificacionTramite = false;
+    [Parameter] public string? IdUsuario { get; set; }
+    private int userId;
+    private int _idTramite;
+    private int _expedienteId;
+    private string? operacion;
+    private string? _contenido;
+    private EtiquetaTramite.Etiquetas _etiqueta;
+    private Excepcion ventanaExcepcion = null!;
+    private int _idTramiteABajar;
+    private EtiquetaTramite.Etiquetas _etiquetaModificada;
+    private int _idTramiteAModificar;
+    private string? _contenidoAModificar;
+
+    private void SetOperacion(string nuevaOperacion) {
+        operacion = nuevaOperacion;
     }
-    catch(RepositorioException ex){
-        ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
-        ventanaExcepcion.Mostrar();  //muestra
-    }
-    catch (ValidacionException ex){
-        ventanaExcepcion.Mensaje = $"{ex.Message}";
-        ventanaExcepcion.Mostrar();
-    }
-    catch (AutorizacionException ex){
-        ventanaExcepcion.Mensaje = $"{ex.Message}";
-        ventanaExcepcion.Mostrar();
+    protected override void OnInitialized()
+    {
+        userId = int.Parse(IdUsuario);
+        RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
+        CasoDeUsoUsuarioConsultaPorId cu = new CasoDeUsoUsuarioConsultaPorId(repo);
+        Usuario user = cu.Ejecutar(userId);
+        if (user.Permisos.Contains("TramiteAlta")) permisoAltaTramite = true;
+        if (user.Permisos.Contains("TramiteBaja")) permisoBajaTramite = true;
+        if (user.Permisos.Contains("TramiteModificacion")) permisoModificacionTramite = true;
+        CargarTramites();
     }
 
-    return null; 
-}
-
-    public void ModificarTramite(){
-        RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
-        RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
-        RepositorioExpedienteSQLite repoexpediente = new RepositorioExpedienteSQLite();
-        
-        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repouser);
-        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repoexpediente,repotramite);
-        CasoDeUsoTramiteModificacion tramiteModificacion = new CasoDeUsoTramiteModificacion(repotramite,autorizacion,actualizacion);
-        
-        try{
-            tramiteModificacion.Ejecutar(idTramite,contenidoModificado,etiquetaModificada,userId);
-        }
-        catch(RepositorioException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
-            ventanaExcepcion.Mostrar();  //muestra
-        }
-        catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
-            ventanaExcepcion.Mostrar();  //muestra
-        }
-        catch(AutorizacionException ex){ // Valida que tengas autorizacion para crear tramites
-            ventanaExcepcion.Mensaje = $"{ex.Message}";
-            ventanaExcepcion.Mostrar();
-        }
+    private void CargarTramites()
+    {
+        RepositorioTramiteSQLite repo = new RepositorioTramiteSQLite();
+        CasoDeUsoTramiteConsultaTodos tramitesTodos = new CasoDeUsoTramiteConsultaTodos(repo);
+        tramites = tramitesTodos.Ejecutar();
     }
-   private void DarAltaTramite(){
+
+    private void ResetearDatos()
+    {
+        _idTramite = 0;
+        _contenido = null;
+    }
+
+    private void DarAltaTramite(){
         RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
         RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
         RepositorioExpedienteSQLite repoexpediente = new RepositorioExpedienteSQLite();
@@ -166,23 +163,18 @@
 
         CasoDeUsoTramiteAlta tramiteAlta = new CasoDeUsoTramiteAlta(repotramite,autorizacion,actualizacion);
         try{
-            tramiteAlta.Ejecutar(expedienteID,contenido,etiqueta,userId);
+            string etiquetaString = _etiqueta.ToString();
+            tramiteAlta.Ejecutar(_expedienteId,_contenido,etiquetaString,userId);
+            
+            ResetearDatos();
+        }catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar(); 
         }
-        catch(RepositorioException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
-            ventanaExcepcion.Mostrar();  //muestra
-        }
-        catch(ValidacionException ex){  // Valida que los campos esten con +1 elementos
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; //Modificar el mensaje para que envie lo que le mandamos en los trhows 
-            ventanaExcepcion.Mostrar();  //muestra
-        }
-        catch(AutorizacionException ex){ // Valida que tengas autorizacion para crear tramites
-            ventanaExcepcion.Mensaje = $"{ex.Message}";
-            ventanaExcepcion.Mostrar();
-        }
+        RefreshPage();
     }
 
-    private void DarBajaTramite(int xtramitebaja){
+    private void DarBajaTramite(){
         //CasoDeUsoTramiteBaja(ITramiteRepositorio repo,ServicioAutorizacion autorizacion, ServicioActualizacionEstado actualizacion)
         RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
         RepositorioUsuarioSQLite repouser = new RepositorioUsuarioSQLite();
@@ -192,29 +184,53 @@
         ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repoexpediente,repotramite);
         
         CasoDeUsoTramiteBaja tramiteBaja = new CasoDeUsoTramiteBaja(repotramite,autorizacion,actualizacion);
-
         try{
-            tramiteBaja.Ejecutar(xtramitebaja,userId);
-        }
-        catch(RepositorioException ex){  
+            tramiteBaja.Ejecutar(_idTramiteABajar,userId);
+            ResetearDatos();
+            RefreshPage();
+        }catch(RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar();  
-        }
-        catch(AutorizacionException ex){ 
-            ventanaExcepcion.Mensaje = $"{ex.Message}";
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.Mostrar(); 
         }
     }
 
-   protected override async Task OnInitializedAsync(){
-        
+     public void ModificarTramite(){
+        RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
         RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
+        RepositorioExpedienteSQLite repoexpediente = new RepositorioExpedienteSQLite();
+        
+        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repouser);
+        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repoexpediente,repotramite);
+        CasoDeUsoTramiteModificacion tramiteModificacion = new CasoDeUsoTramiteModificacion(repotramite,autorizacion,actualizacion);
+        
+        try{
+            tramiteModificacion.Ejecutar(_idTramiteAModificar,_contenidoAModificar,_etiquetaModificada,userId);
+            ResetearDatos();
+        }
+        catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar(); 
+        }
+        RefreshPage();
+    }
 
-        CasoDeUsoTramiteConsultaTodos listatodoslostramites = new CasoDeUsoTramiteConsultaTodos(repotramite);
+    private void SetAltaTramite()
+    {
+        operacion = "Alta";
+    }
 
-        userId = int.Parse(IdUsuario); // esto castea de string a integer la variable IdUsuario
+    private void SetBajaTramite()
+    {
+        operacion = "Baja";
+    }
 
-        tramites = listatodoslostramites.Ejecutar(); 
+    private void SetModificarTramite()
+    {
+        operacion = "Modificacion";
+    }
 
+    private void RefreshPage()
+    {
+        Navigation.NavigateTo($"/tramites/{IdUsuario}", forceLoad: true);
     }
 }
