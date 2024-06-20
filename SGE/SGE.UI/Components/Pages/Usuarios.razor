@@ -6,10 +6,130 @@
 <Excepcion @ref="ventanaExcepcion"/>
 
 
-@code
+<section class="seccion-expedientes">
+    <h1>Usuarios</h1>
+    <div class="columna">
+        <div class="formulario">
+            @if (operacion == "Alta"){
+                <form class="form-expedientes" @onsubmit="DarDeAltaUsuario">
+                    <div class="elemento-input">
+                        <h4>Nombre</h4>
+                        <input type="number" @bind="_nombreUsuario" required>
+                    </div>
+                    <div class="elemento-input">
+                        <h4>Apellido</h4>
+                        <input type="text" @bind="_apellidoUsuario" required>
+                    </div>
+                    <div class="elemento-input">
+                        <h4>Email</h4>
+                        <input type="text" @bind="_emailUsuario" required>
+                    </div>
+                    <div class="form-group">
+                        <h4>Contraseña</h4>
+                        <InputText type="password" @bind-Value="_contraseniaUsuario" class="form-control" required />
+                    </div>
+                    <div>
+                        <button type="submit" class="boton-inicio">Dar de alta usuario</button>
+                    </div>
+                </form>
+            }
+            @if (operacion == "Baja"){
+                <form class="form-expedientes" @onsubmit="DarDeBajaUsuario">
+                    <div class="elemento-input">
+                        <h4>Email de usuario a eliminar</h4>
+                        <input type="number" @bind="_emailAEliminar" required>
+                    </div>
+                </form>
+                <button type="submit" class="boton-inicio">Eliminar Usuario</button>
+            }
+            @if (operacion == "Modificacion"){
+                
+            }
+        </div>
+    </div>
+    <div class="contendor-botones">
+        <button class="boton-inicio" @onclick="SetAltaUsuario">Dar de alta</button>
+        <button class="boton-inicio" @onclick="SetBajaUsuario">Dar de baja</button>
+        <button class="boton-inicio" @onclick="SetModificacion">Modificar Usuario</button>
+    </div>
 
-    protected override void OnInitialized()
-    {
-        CargarUsuarios(); //  Cargar la lista de usuarios al inicializar el componente
+</section>
+
+@code{ 
+[Parameter] public string? IdUsuario {get;set;}
+private int userId;
+private string? operacion;
+private string _contraseniaUsuario;
+private string _nombreUsuario;
+private string _apellidoUsuario;
+private string _emailUsuario;
+private string _emailAEliminar;
+private Excepcion ventanaExcepcion = null!;
+List<string> permisos;
+List<string> _permisosDelUsuario;
+    
+protected override void OnInitialized(){ //CHECKEAR SI ESTA BIEN ESTO (FALTARIA QUE SE MUESTREN TODOS LOS USUARIOS)
+    userId = int.Parse(IdUsuario);
+    RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
+    CasoDeUsoUsuarioConsultaPorId cu = new CasoDeUsoUsuarioConsultaPorId(repo);
+    Usuario user = cu.Ejecutar(userId);
+    List<string> _permisosDelUsuario = cu.Ejecutar(userId).Permisos;
+}
+
+private void DarDeAltaUsuario(){
+    //IUsuarioRepositorio repo, UsuarioValidador validador, ServicioAutorizacion autorizacion
+    var repo = new RepositorioUsuarioSQLite();
+    var autorizacion = new ServicioAutorizacion(repo);
+    var validador = new UsuarioValidador(repo);
+    var cu = new CasoDeUsoUsuarioAlta(repo,validador,autorizacion)
+    try{
+        //string nombre, string apellido, string email, string password
+        cu.Ejecutar(_nombreUsuario,_apellidoUsuario,_emailUsuario,_contraseniaUsuario);
+    }
+    catch(RepositorioException ex){
+        ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+        ventanaExcepcion.Mostrar(); 
     }
 }
+
+private void DarDeBajaUsuario(){
+    var repo = new RepositorioUsuarioSQLite();
+    var cu = new CasoDeUsoUsuarioBaja(repo);
+    
+    try{
+        cu.Ejecutar(_emailAEliminar);
+    }
+    catch(RepositorioException ex){
+        ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+        ventanaExcepcion.Mostrar(); 
+    }
+}
+
+private void ModificarUsuario(){
+    //CasoDeUsoUsuarioModificacion(IUsuarioRepositorio repo, UsuarioValidador validador){
+    var repo = new RepositorioUsuarioSQLite();
+    var validador = new UsuarioValidador(repo);
+    var cu = new CasoDeUsoUsuarioModificacion(repo,validador);
+
+    try{
+        //Ejecutar(int IdUsuario,string nombre, string apellido, string email, string password, List<string> permisos)
+        var permi = 
+        cu.Ejecutar(userId,_nombreModificado,_apellidoModificado,_emailModificado,);
+
+        // FALTA TERMINAR ESTO
+    }
+}
+
+private void SetAltaUsuario()
+    {
+        operacion = "Alta";
+    }
+private void SetBajaUsuario()
+    {
+        operacion = "Baja";
+    }
+private void SetModificacion()
+    {
+        operacion = "Modificacion";
+    }
+} 
