@@ -17,7 +17,7 @@
     <Excepcion @ref="ventanaExcepcion"/>
     <h1>Trámites</h1>
     <div class="contenedor">
-        <div class="formularios">
+        <div class="formularios"> 
             @if (operacion == "Alta"){
                 <form @onsubmit="DarAltaTramite">
                     <div class="elemento-input">
@@ -92,6 +92,7 @@
                             <option value="Resolucion">Resolución</option>
                             <option value="PaseAEstudio">Pase a Estudio</option>
                             <option value="PaseAlArchivo">Pase al Archivo</option>
+                            <hr style="border: 1px solid black;">
                         </select>
                         
                     </div>
@@ -110,6 +111,7 @@
                         <span>| CREACION: @tramite.FechaCreacion</span>
                         <span>| ULTIMA MODIFICACION: @tramite.FechaModificacion</span>
                         <span>| ID USUARIO MODIFICADOR: @tramite.IdUsuarioModificador</span>
+                        <hr style="border: 1px solid black;">
                     </div>
                 }
             }
@@ -124,6 +126,7 @@
                             <span>|Fecha de creación: @x.FechaCreacion</span>
                             <span>|Fecha de modificación: @x.FechaModificacion</span>
                             <span>|Id del usuario modificador: @x.IdUsuarioModificador |</span>
+                            <hr style="border: 1px solid black;">
                         </div>
                     }
                 }

@@ -6,20 +6,21 @@
 @inject CasoDeUsoUsuarioBaja usuarioBaja
 @inject CasoDeUsoUsuarioModificacion usuarioModificacion
 @inject CasoDeUsoUsuarioConsultaPermisos usuarioConsultaPermisos
+@inject CasoDeUsoUsuarioConsultaTodos usuarioConsultaTodos // Inyecta el caso de uso para consultar todos los usuarios
 
 <PageTitle>Usuario | SGE</PageTitle>
 <Excepcion @ref="ventanaExcepcion"/>
-
 
 <section class="seccion-paginas">
     <h1>Usuarios</h1>
     <div class="contenedor">
         <div class="formularios">
-            @if (operacion == "Alta"){
+            @if (operacion == "Alta")
+            {
                 <form class="form" @onsubmit="DarDeAltaUsuario">
                     <div class="elemento-input">
                         <h4>Nombre</h4>
-                        <input type="number" @bind="_nombreUsuario" required>
+                        <input type="text" @bind="_nombreUsuario" required>
                     </div>
                     <div class="elemento-input">
                         <h4>Apellido</h4>
@@ -29,39 +30,86 @@
                         <h4>Email</h4>
                         <input type="text" @bind="_emailUsuario" required>
                     </div>
-                    <div class="form-group">
+                    <div class="elemento-input">
                         <h4>Contraseña</h4>
-                        <InputText type="password" @bind-Value="_contraseniaUsuario" class="form-control" required />
+                        <InputText type="password" @bind-Value="_contraseniaUsuario" required />
                     </div>
                     <div>
-                        <button type="submit" class="boton-inicio">Dar de alta usuario</button>
+                        <button type="submit" class="boton-inicio">Confirmar</button>
                     </div>
                 </form>
             }
-            @if (operacion == "Baja"){
+            @if (operacion == "Baja")
+            {
                 <form class="form" @onsubmit="DarDeBajaUsuario">
                     <div class="elemento-input">
                         <h4>Email de usuario a eliminar</h4>
                         <input type="email" @bind="_emailAEliminar" required>
                     </div>
+                    <button type="submit" class="boton-inicio">Eliminar Usuario</button>
                 </form>
-                <button type="submit" class="boton-inicio">Eliminar Usuario</button>
             }
-            @if (operacion == "Modificacion"){
-                
+            @if (operacion == "Modificacion")
+            {
+                <form class="form" @onsubmit="ModificarUsuario">
+                    <div class="elemento-input">
+                        <h4>Nombre a modificar</h4>
+                        <input type="text" @bind="_nombreModificado" required>
+                    </div>
+                    <div class="elemento-input">
+                        <h4>Apellido a modificar</h4>
+                        <input type="text" @bind="_apellidoModificado" required>
+                    </div>
+                    <div class="elemento-input">
+                        <h4>Email a modificar</h4>
+                        <input type="text" @bind="_emailModificado" required>
+                    </div>
+                    <div class="elemento-input">
+                        <h4>Contraseña a modificar</h4>
+                        <InputText type="password" @bind-Value="_contraseniaModificada" required />
+                    </div>
+                    <div class="permisos">
+                        <h4>Permisos</h4>
+                        @foreach (var permiso in Enum.GetValues<Permiso.Permisos>())
+                        {
+                            <div>
+                                <input type="checkbox" @bind="@seleccionados[permiso]" /> @permiso
+                            </div>
+                        }
+                    </div>
+                    <div>
+                        <button type="submit" class="boton-inicio">Confirmar</button>
+                    </div>
+                </form>
             }
         </div>
+        <div class="mostrar-datitos">
+            <h2>Lista de Usuarios</h2>
+            <ul>
+                @foreach (var usuario in usuarios)
+                {
+                    <li>
+                        ID: @usuario.IdUsuario  Nombre: @usuario.Nombre  Apellido: @usuario.Apellido Email: @usuario.Email
+                        <ul>
+                            @foreach (var permiso in usuario.Permisos)
+                            {
+                                <li>@permiso</li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
-    <div class="contendor-botones">
+    <div class="contenedor-botones">
         <button class="boton-inicio" @onclick="SetAltaUsuario">Dar de alta</button>
         <button class="boton-inicio" @onclick="SetBajaUsuario">Dar de baja</button>
         <button class="boton-inicio" @onclick="SetModificacion">Modificar Usuario</button>
     </div>
-
 </section>
 
-@code{ 
-    [Parameter] public string? IdUsuario {get;set;}
+@code{
+    [Parameter] public string? IdUsuario { get; set; }
     private int userId;
     private string? operacion;
     private string? _contraseniaUsuario;
@@ -69,54 +117,92 @@
     private string? _apellidoUsuario;
     private string? _emailUsuario;
     private string? _emailAEliminar;
+    private string? _nombreModificado;
+    private string? _apellidoModificado;
+    private string? _emailModificado;
+    private string? _contraseniaModificada;
     private Excepcion ventanaExcepcion = null!;
-    List<string> permisos;
-    List<string> _permisosDelUsuario;
-        
-    protected override void OnInitialized(){ //CHECKEAR SI ESTA BIEN ESTO (FALTARIA QUE SE MUESTREN TODOS LOS USUARIOS)
+    private Dictionary<Permiso.Permisos, bool> seleccionados = new Dictionary<Permiso.Permisos, bool>();
+    private List<Usuario> usuarios;
+
+    protected override void OnInitialized()
+    {
         userId = int.Parse(IdUsuario);
         Usuario user = usuarioConsultaId.Ejecutar(userId);
         List<string> _permisosDelUsuario = usuarioConsultaPermisos.Ejecutar(userId);
+
+        // Inicializar el diccionario con los permisos
+        foreach (Permiso.Permisos permiso in Enum.GetValues(typeof(Permiso.Permisos)))
+        {
+            seleccionados[permiso] = _permisosDelUsuario.Contains(permiso.ToString());
+        }
+        usuarios = usuarioConsultaTodos.Ejecutar();
     }
 
-    private void DarDeAltaUsuario(){
-        try{
-            usuarioAlta.Ejecutar(_nombreUsuario,_apellidoUsuario,_emailUsuario,_contraseniaUsuario);
+    private void DarDeAltaUsuario()
+    {
+        try
+        {
+            usuarioAlta.Ejecutar(_nombreUsuario, _apellidoUsuario, _emailUsuario,_contraseniaUsuario);
         }
-        catch(ValidacionException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar(); 
+        catch (ValidacionException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
         }
+        RefreshPage();
     }
 
-    private void DarDeBajaUsuario(){
-        try{
+    private void DarDeBajaUsuario()
+    {
+        try
+        {
             usuarioBaja.Ejecutar(_emailAEliminar);
         }
-        catch(RepositorioException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar(); 
+        catch (RepositorioException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
         }
+        RefreshPage();
     }
 
-    private void ModificarUsuario(){
-        /*
-        try{
-            usuarioModificacion.Ejecutar(int IdUsuario,string nombre, string apellido, string email, string password, List<string> permisos)
-            var permi = 
-            cu.Ejecutar(userId,_nombreModificado,_apellidoModificado,_emailModificado,);
+    private void ModificarUsuario()
+    {
+        try
+        {
+            List<Permiso.Permisos> permisosSeleccionados = seleccionados
+                .Where(p => p.Value)
+                .Select(p => p.Key)
+                .ToList();
 
-            // FALTA TERMINAR ESTO
+            usuarioModificacion.Ejecutar(userId,_nombreModificado,_apellidoModificado,_emailModificado,_contraseniaModificada,permisosSeleccionados);
         }
-        */
+        catch (ValidacionException ex)
+        {
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+        RefreshPage();
     }
-    private void SetAltaUsuario(){
-            operacion = "Alta";
+
+    private void SetAltaUsuario()
+    {
+        operacion = "Alta";
     }
-    private void SetBajaUsuario(){
-            operacion = "Baja";
+
+    private void SetBajaUsuario()
+    {
+        operacion = "Baja";
     }
-    private void SetModificacion(){
-            operacion = "Modificacion";
+
+    private void SetModificacion()
+    {
+        operacion = "Modificacion";
+    }
+
+    private void RefreshPage()
+    {
+        Navigation.NavigateTo($"/usuarios/{IdUsuario}", forceLoad: true);
     }
 }

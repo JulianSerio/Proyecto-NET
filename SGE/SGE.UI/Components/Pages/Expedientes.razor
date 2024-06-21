@@ -74,6 +74,7 @@
                         <span>| ULTIMA MODIFICACION: @ex.FechaModificacion</span>
                         <span>| ID USUARIO MODIFICADOR: @ex.IdUsuarioModificador</span>
                         <span>| ESTADO: @ex.Estado</span>
+                        <hr style="border: 1px solid black;">
                     </div>
                 }
             }
@@ -86,6 +87,7 @@
                         <span>| ULTIMA MODIFICACION: @consultaID.Expediente.FechaModificacion</span>
                         <span>| ID USUARIO MODIFICADOR: @consultaID.Expediente.IdUsuarioModificador</span>
                         <span>| ESTADO: @consultaID.Expediente.Estado</span>
+                        <hr style="border: 1px solid black;">
                         @foreach (var x in consultaID.ListaTramites){
                             <div class="detalle-tramite">
                                 <span>Id del trámite: @x.Id</span>
@@ -95,6 +97,7 @@
                                 <span>|Fecha de creación: @x.FechaCreacion</span>
                                 <span>|Fecha de modificación: @x.FechaModificacion</span>
                                 <span>|Id del usuario modificador: @x.IdUsuarioModificador |</span>
+                                <hr style="border: 1px solid black;">
                             </div>
                         }
                     </div>

@@ -239,10 +239,10 @@ body {
 }
 
 .seccion-paginas{
-    width: 100%;
+    width: 100%;  
     background-color: rgba(74, 102, 179, 0.801);
-    border-radius: 10px;
-    height: 60vh;
+    border-radius: 15px;
+    height: 78vh;
     display: flex;
     flex-direction: column;
     h1{
@@ -254,15 +254,21 @@ body {
         flex-direction: row;
         background-color: beige;
         margin: 15px;
-        height: 30vh;
+        height: 60vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border: solid black;
+        color: black;
         .formularios{
             border: solid black;
-            padding-top: 60px;
+            color: black;
+            padding-top: 0.5%;
             padding-bottom: 60px;
             width: 30%;
             justify-content: center;
             text-align: center;
-
+            overflow-x: hidden;
+            overflow-y: auto;
             .elemento-input{
                 h4{
                     font-size: medium;
@@ -285,7 +291,7 @@ body {
                 margin-top: 15px;
                 &:hover {
                     background-color:rgb(79, 150, 255);
-                    box-shadow: 0 0 10px grey
+                    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
                 }
             }        
         }
@@ -295,6 +301,8 @@ body {
             text-align: center;
             border: solid black;
             color: black;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
        
     }
@@ -318,5 +326,12 @@ body {
                 box-shadow: 0 0 10px grey
             }
         }
+        
+    }
+    .mostrar-datitos{
+        margin-top: 8px;
+        font-size: larger;
+        margin-left: 2%;
+        
     }
 }
