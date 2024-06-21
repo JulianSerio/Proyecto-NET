@@ -11,24 +11,25 @@
 
 
 <PageTitle>Trámites | SGE</PageTitle>
-<Excepcion @ref="ventanaExcepcion"/>
+
 
 <section class="seccion-paginas">
+    <Excepcion @ref="ventanaExcepcion"/>
     <h1>Trámites</h1>
     <div class="contenedor">
         <div class="formularios">
             @if (operacion == "Alta"){
-                <form class="form" @onsubmit="DarAltaTramite">
+                <form @onsubmit="DarAltaTramite">
                     <div class="elemento-input">
-                        <h4>Id de expediente a dar de alta </h4>
-                        <input type="text" @bind="_expedienteId" required>
+                        <h4>ID Expediente</h4>
+                        <input type="number" @bind="_expedienteId" required>
                     </div>
                     <div class="elemento-input">
-                        <h4>Contenido a dar de alta </h4>
+                        <h4>Contenido</h4>
                         <input type="text" @bind="_contenido" required>
                     </div>
                     <div>
-                        <label for="etiqueta">Etiqueta a dar de alta:</label>
+                        <label for="etiqueta">Etiqueta</label>
                         <select class="etiqueta" @bind="_etiqueta" required>
                             <option value="EscritoPresentado">Escrito presentado</option>
                             <option value="Despacho">Despacho</option>
@@ -39,33 +40,33 @@
                         </select>
                     </div>
                     <div>
-                        <button type="submit" class="boton-inicio">Dar de alta</button>
+                        <button type="submit" class="boton-inicio">Confirmar</button>
                     </div>
                 </form>
             }
             @if (operacion == "Baja"){
-                <form class="form-expedientes" @onsubmit="DarBajaTramite">
+                <form @onsubmit="DarBajaTramite">
                     <div class="elemento-input">
-                        <h4>ID Trámite a dar de baja</h4>
+                        <h4>ID Tramite</h4>
                         <input type="number" @bind="_idTramiteABajar" placeholder="ID Trámite a dar de baja" required>
                     </div>
                     <div>
-                        <button type="submit" class="boton-inicio">Dar de baja</button>
+                        <button type="submit" class="boton-inicio">Confirmar</button>
                     </div>
                 </form>
             } 
              @if (operacion == "Modificacion"){
-                <form class="form-expedientes" @onsubmit="ModificarTramite">
+                <form @onsubmit="ModificarTramite">
                     <div class="elemento-input">
-                        <h4>ID de Trámite a modificar</h4>
+                        <h4>ID Tramite</h4>
                         <input type="number" @bind="_idTramiteAModificar" required>
                     </div>
                     <div class="elemento-input">
-                        <h4>Contenido de tramite a modificar</h4>
-                        <input type="text" @bind="_contenidoAModificar" required>
+                        <h4>Contenido</h4>
+                        <input type="textbox" @bind="_contenidoAModificar" required>
                     </div>
                     <div>
-                        <label for="etiqueta">Etiqueta:</label>
+                        <label for="etiqueta">Etiqueta</label>
                         <select class="etiqueta" @bind="_etiquetaModificada" required>
                             <option value="EscritoPresentado">Escrito presentado</option>
                             <option value="Despacho">Despacho</option>
@@ -76,12 +77,12 @@
                         </select>
                     </div>
                     <div>
-                        <button type="submit" class="boton-inicio">Modificar</button>
+                        <button type="submit" class="boton-inicio">Confirmar</button>
                     </div>
                 </form>
             }
             @if (operacion == "ConsultarE"){
-                <form class="form-expedientes" @onsubmit="ConsultarEtiqueta">
+                <form @onsubmit="ConsultarEtiqueta">
                     <div>
                         <label for="etiqueta">Etiqueta:</label>
                         <select class="etiqueta" @bind="_etiquetaConsultada" required>
@@ -92,28 +93,45 @@
                             <option value="PaseAEstudio">Pase a Estudio</option>
                             <option value="PaseAlArchivo">Pase al Archivo</option>
                         </select>
-                        <button type="submit" class="boton-inicio">Buscar</button>
+                        
                     </div>
+                    <button type="submit" class="boton-inicio">Buscar</button>
                 </form>
             }
         </div> 
         <div class="mostrar-datos">
-            @foreach (var tramite in tramites)
-            {
-                <div class="detalle-tramite">
-                    <span>Id del trámite: @tramite.Id</span>
-                    <span>|Id del expediente: @tramite.ExpedienteId</span>
-                    <span>|Etiqueta del trámite: @tramite.EtiquetaTramite</span>
-                    <span>|Contenido: @tramite.Contenido</span>
-                    <span>|Fecha de creación: @tramite.FechaCreacion</span>
-                    <span>|Fecha de modificación: @tramite.FechaModificacion</span>
-                    <span>|Id del usuario modificador: @tramite.IdUsuarioModificador |</span>
-                </div>
+            @if (TramitesConsultados == null){
+                @foreach (var tramite in tramites){
+                    <div class="detalle-tramite">
+                        <span>| ID: @tramite.Id</span>
+                        <span>| ID EXPEDIENTE: @tramite.ExpedienteId</span>
+                        <span>| ETIQUETA: @tramite.EtiquetaTramite</span>
+                        <span>| CONTENIDO: @tramite.Contenido</span>
+                        <span>| CREACION: @tramite.FechaCreacion</span>
+                        <span>| ULTIMA MODIFICACION: @tramite.FechaModificacion</span>
+                        <span>| ID USUARIO MODIFICADOR: @tramite.IdUsuarioModificador</span>
+                    </div>
+                }
+            }
+            @if (TramitesConsultados != null){
+                @if(operacion == "ConsultarE"){
+                    @foreach (var x in TramitesConsultados){
+                        <div class="detalle-tramite">
+                            <span>Id del trámite: @x.Id</span>
+                            <span>|Id del expediente: @x.ExpedienteId</span>
+                            <span>|Etiqueta del trámite: @x.EtiquetaTramite</span>
+                            <span>|Contenido: @x.Contenido</span>
+                            <span>|Fecha de creación: @x.FechaCreacion</span>
+                            <span>|Fecha de modificación: @x.FechaModificacion</span>
+                            <span>|Id del usuario modificador: @x.IdUsuarioModificador |</span>
+                        </div>
+                    }
+                }
             }
         </div>
     </div>
     
-    <div class="contendor-botones">
+    <div class="contenedor-botones">
         @if (permisoAltaTramite) {
             <button class="boton-inicio" @onclick="SetAltaTramite">Dar de alta</button>
         }
@@ -124,24 +142,10 @@
             <button class="boton-inicio" @onclick="SetModificarTramite">Modificar</button>
         }
         <button class="boton-inicio" @onclick="SetConsultarE">Consultar por etiqueta</button>
+        <button class="boton-inicio" @onclick="RefreshPage">Recargar Tramites</button>
     </div>
     
-    @if((operacion == "ConsultarE") && (TramitesConsultados != null)){
-        <div>
-            @foreach (var x in TramitesConsultados){
-                <div class="detalle-tramite">
-                    <span>Id del trámite: @x.Id</span>
-                    <span>|Id del expediente: @x.ExpedienteId</span>
-                    <span>|Etiqueta del trámite: @x.EtiquetaTramite</span>
-                    <span>|Contenido: @x.Contenido</span>
-                    <span>|Fecha de creación: @x.FechaCreacion</span>
-                    <span>|Fecha de modificación: @x.FechaModificacion</span>
-                    <span>|Id del usuario modificador: @x.IdUsuarioModificador |</span>
-                </div>
-            }
-        </div>
-    }
-
+    
 </section>
 
 @code{
@@ -181,17 +185,10 @@
     private void CargarTramites(){
         tramites = tramiteConsultaTodos.Ejecutar();
     }
-
-    private void ResetearDatos(){
-        _idTramite = 0;
-        _contenido = null;
-    }
-
+    
     public void ConsultarEtiqueta(){
         try{
-            List<Tramite>? aux = tramiteConsultaEtiqueta.Ejecutar(_etiquetaConsultada);
-            TramitesConsultados = aux;
-            
+            TramitesConsultados = tramiteConsultaEtiqueta.Ejecutar(_etiquetaConsultada);
         }catch(RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
             ventanaExcepcion.Mostrar(); 
@@ -202,18 +199,16 @@
         try{
             string etiquetaString = _etiqueta.ToString();
             tramiteAlta.Ejecutar(_expedienteId,_contenido,etiquetaString,userId);
-            ResetearDatos();
+            RefreshPage();
         }catch(ValidacionException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
             ventanaExcepcion.Mostrar(); 
         }
-        RefreshPage();
     }
 
     private void DarBajaTramite(){
         try{
             tramiteBaja.Ejecutar(_idTramiteABajar,userId);
-            ResetearDatos();
             RefreshPage();
         }catch(RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
@@ -224,37 +219,31 @@
      public void ModificarTramite(){     
         try{
             tramiteModificacion.Ejecutar(_idTramiteAModificar,_contenidoAModificar,_etiquetaModificada,userId);
-            ResetearDatos();
+            RefreshPage();
         }
         catch(RepositorioException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
             ventanaExcepcion.Mostrar(); 
         }
-        RefreshPage();
     }
 
-    private void SetAltaTramite()
-    {
+    private void SetAltaTramite(){
         operacion = "Alta";
     }
 
-    private void SetBajaTramite()
-    {
+    private void SetBajaTramite(){
         operacion = "Baja";
     }
 
-    private void SetModificarTramite()
-    {
+    private void SetModificarTramite(){
         operacion = "Modificacion";
     }
 
-    private void SetConsultarE()
-    {
+    private void SetConsultarE(){
         operacion = "ConsultarE";
     }
 
-    private void RefreshPage()
-    {
+    private void RefreshPage(){
         Navigation.NavigateTo($"/tramites/{IdUsuario}", forceLoad: true);
     }
 }

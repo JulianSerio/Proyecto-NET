@@ -242,7 +242,7 @@ body {
     width: 100%;
     background-color: rgba(74, 102, 179, 0.801);
     border-radius: 10px;
-    height: 90vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     h1{
@@ -254,18 +254,22 @@ body {
         flex-direction: row;
         background-color: beige;
         margin: 15px;
+        height: 30vh;
         .formularios{
             border: solid black;
             padding-top: 60px;
+            padding-bottom: 60px;
             width: 30%;
             justify-content: center;
             text-align: center;
+
             .elemento-input{
                 h4{
                     font-size: medium;
                 }
                 input{
                     width: 60%;
+                    border-radius: 10px;
                 }
             }
             .boton-inicio{
@@ -283,8 +287,7 @@ body {
                     background-color:rgb(79, 150, 255);
                     box-shadow: 0 0 10px grey
                 }
-            }
-            
+            }        
         }
         .mostrar-datos{
             width: 70%;

@@ -38,14 +38,13 @@ public class RepositorioContext: DbContext{
         modelBuilder.Entity<Expediente>().HasKey(e => e.Id);
         modelBuilder.Entity<Expediente>().Property(e=>e.IdUsuarioModificador).IsRequired();
         modelBuilder.Entity<Expediente>().Property(e => e.Estado).IsRequired().HasConversion(
-            v => v.ToString(),
-            v => v != null ? (EstadoExpediente.Estados?)Enum.Parse(typeof(EstadoExpediente.Estados?), v) : default
+            v => v.ToString(), // Convert Enum to string
+            v => string.IsNullOrEmpty(v) ? default(EstadoExpediente.Estados?) : Enum.Parse<EstadoExpediente.Estados>(v)
         );
 
         modelBuilder.Entity<Tramite>().ToTable("Tramites");
         modelBuilder.Entity<Tramite>().Property(e=>e.IdUsuarioModificador).IsRequired();
         modelBuilder.Entity<Tramite>().Property(e=>e.Contenido).HasMaxLength(1000).IsRequired();
-        modelBuilder.Entity<Tramite>().Property(e=>e.ExpedienteId).IsRequired();
         modelBuilder.Entity<Tramite>().Property(e=>e.FechaCreacion).IsRequired();
         modelBuilder.Entity<Tramite>().Property(e=>e.FechaModificacion).IsRequired();
         modelBuilder.Entity<Tramite>().HasKey(e=>e.Id);
@@ -53,6 +52,12 @@ public class RepositorioContext: DbContext{
             v => v.ToString(),
             v => (EtiquetaTramite.Etiquetas)Enum.Parse(typeof(EtiquetaTramite.Etiquetas), v)
         );
-    }
+        // Configuración de la relación entre Expediente y Tramite usando solo la clave externa
+        modelBuilder.Entity<Tramite>()
+            .HasOne<Expediente>()
+            .WithMany()
+            .HasForeignKey(t => t.ExpedienteId)
+            .OnDelete(DeleteBehavior.Cascade);
+        }
 }
 

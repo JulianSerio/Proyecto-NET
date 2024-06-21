@@ -3,8 +3,7 @@ namespace SGE.Repositorios;
 using Microsoft.EntityFrameworkCore;
 public class RepositorioExpedienteSQLite : IExpedienteRepositorio
 {
-    public void ActualizarEstado(int idExpediente, EstadoExpediente.Estados? estado, DateTime fechaModificacion, int idUsuario)
-    {
+    public void ActualizarEstado(int idExpediente, EstadoExpediente.Estados? estado, DateTime fechaModificacion, int idUsuario){
         using (var db = new RepositorioContext()){
             var expedienteAActualizar = db.Expedientes.FirstOrDefault(e => e.Id == idExpediente);
             if (expedienteAActualizar != null){
@@ -14,13 +13,11 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
                 db.SaveChanges();
             }else{
                 throw new RepositorioException("El expediente no se encontro en el repositorio"); //este trhow es imposible que se lance
-            }
-            
+            } 
         }
     }
 
-    public void ExpedienteAlta(String caratula, int idUsuario, DateTime fecha)
-    {
+    public void ExpedienteAlta(String caratula, int idUsuario, DateTime fecha){
         using (var db = new RepositorioContext()){
             var expediente = new Expediente(caratula,fecha,idUsuario);
             db.Add(expediente);//se agregará realmente con el db.SaveChanges()
@@ -43,8 +40,7 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
         }
     }
 
-    public ConsultaExpediente ExpedienteBusquedaID(int idExpediente)
-    {
+    public ConsultaExpediente ExpedienteBusquedaID(int idExpediente){
         using (var db = new RepositorioContext()){
             var consultaExpediente = new ConsultaExpediente();
             consultaExpediente.Expediente = db.Expedientes.FirstOrDefault(e => e.Id == idExpediente);
@@ -65,8 +61,7 @@ public class RepositorioExpedienteSQLite : IExpedienteRepositorio
         }
     }
 
-    public void ExpedienteModificacion(int idExpediente, string caratula, DateTime fechaModificacion, int idUsuario)
-    {
+    public void ExpedienteModificacion(int idExpediente, string caratula, DateTime fechaModificacion, int idUsuario){
         using (var db = new RepositorioContext()){
             var expedienteAModificar = db.Expedientes.FirstOrDefault(e => e.Id == idExpediente);
             if(expedienteAModificar != null){

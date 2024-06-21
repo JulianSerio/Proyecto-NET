@@ -1,5 +1,6 @@
 ﻿@page "/expedientes/{IdUsuario}"
 @rendermode InteractiveServer
+@inject NavigationManager Navigation;
 @inject CasoDeUsoUsuarioConsultaPorId usuarioConsultaId
 @inject CasoDeUsoUsuarioConsultaPermisos usuarioConsultaPermisos
 @inject CasoDeUsoExpedienteConsultaTodos expedienteConsultaTodos
@@ -9,40 +10,35 @@
 @inject CasoDeUsoExpedienteModificacion expedienteModificacion
 
 <PageTitle>Expedientes | SGE</PageTitle>
-
 <section class="seccion-paginas">
     <Excepcion @ref="ventanaExcepcion"/>
     <h1>Expedientes</h1>
     <div class="contenedor">
         <div class="formularios">
             @if (operacion == "Alta"){
-                <form class="form" @onsubmit="DarDeAlta">
-                    <div class="elemento-input">
-                        <h4>ID Expediente</h4>
-                        <input type="number" @bind="_idExpediente" required>
-                    </div>
+                <form @onsubmit="DarDeAlta">
                     <div class="elemento-input">
                         <h4>Caratula</h4>
                         <input type="text" @bind="_caratula" required>
                     </div>
                     <div>
-                        <button type="submit" class="boton-inicio">Dar de alta</button>
+                        <button type="submit" class="boton-inicio">Confirmar</button>
                     </div>
                 </form>
             }
             @if (operacion == "Baja"){
-            <form class="form" @onsubmit="DarDeBaja">
+            <form @onsubmit="DarDeBaja">
                 <div class="elemento-input">
                     <h4>ID Expediente</h4>
                     <input type="number" @bind="_idExpediente" placeholder="ID Expediente" required>
                 </div>
                 <div>
-                    <button type="submit" class="boton-inicio">Dar de baja</button>
+                    <button type="submit" class="boton-inicio">Confirmar</button>
                 </div>
             </form>
             }
             @if (operacion == "Modificacion"){
-                <form class="form" @onsubmit="Modificar">
+                <form @onsubmit="Modificar">
                    <div class="elemento-input">
                         <h4>ID Expediente</h4>
                         <input type="number" @bind="_idExpediente" required>
@@ -52,36 +48,77 @@
                         <input type="text" @bind="_caratula" required>
                     </div>
                     <div>
-                        <button type="submit" class="boton-inicio">Modificar</button>
+                        <button type="submit" class="boton-inicio">Confirmar</button>
+                    </div>
+                </form>
+            }
+            @if (operacion == "BusquedaID"){
+                <form @onsubmit="BuscarPorID">
+                   <div class="elemento-input">
+                        <h4>ID Expediente</h4>
+                        <input type="number" @bind="_idExpediente" required>
+                    </div>
+                    <div>
+                        <button type="submit" class="boton-inicio">Confirmar</button>
                     </div>
                 </form>
             }
         </div>
         <div class="mostrar-datos">
-            
-            <h1>AAAAAAAAAAAAAAAAAA</h1>
-            <h1>AAAAAAAAAAAAAAAAAA</h1>
-            <h1>AAAAAAAAAAAAAAAAAA</h1>
-            <h1>AAAAAAAAAAAAAAAAAA</h1>
-            <h1>AAAAAAAAAAAAAAAAAA</h1>
-            <h1>AAAAAAAAAAAAAAAAAA</h1>
-
+            @if (consultaID == null){
+                @foreach (var ex in expedientes){
+                    <div class="detalle">
+                        <span>| ID: @ex.Id</span>
+                        <span>| CARATULA: @ex.Caratula</span>
+                        <span>| CREACION: @ex.FechaCreacion</span>
+                        <span>| ULTIMA MODIFICACION: @ex.FechaModificacion</span>
+                        <span>| ID USUARIO MODIFICADOR: @ex.IdUsuarioModificador</span>
+                        <span>| ESTADO: @ex.Estado</span>
+                    </div>
+                }
+            }
+            @if (consultaID != null){
+                @if (operacion == "BusquedaID"){
+                    <div class="detalle">
+                        <span>| ID: @consultaID.Expediente.Id</span>
+                        <span>| CARATULA: @consultaID.Expediente.Caratula</span>
+                        <span>| CREACION: @consultaID.Expediente.FechaCreacion</span>
+                        <span>| ULTIMA MODIFICACION: @consultaID.Expediente.FechaModificacion</span>
+                        <span>| ID USUARIO MODIFICADOR: @consultaID.Expediente.IdUsuarioModificador</span>
+                        <span>| ESTADO: @consultaID.Expediente.Estado</span>
+                        @foreach (var x in consultaID.ListaTramites){
+                            <div class="detalle-tramite">
+                                <span>Id del trámite: @x.Id</span>
+                                <span>|Id del expediente: @x.ExpedienteId</span>
+                                <span>|Etiqueta del trámite: @x.EtiquetaTramite</span>
+                                <span>|Contenido: @x.Contenido</span>
+                                <span>|Fecha de creación: @x.FechaCreacion</span>
+                                <span>|Fecha de modificación: @x.FechaModificacion</span>
+                                <span>|Id del usuario modificador: @x.IdUsuarioModificador |</span>
+                            </div>
+                        }
+                    </div>
+                }
+            }
         </div>   
     </div>
     <div class="contenedor-botones">
-            @if (permisoAlta) {
-                <button class="boton-inicio" @onclick="setAlta">Dar de alta</button>
-            }
-            @if (permisoBaja) {
-                <button class="boton-inicio" @onclick="setBaja">Dar de baja</button>
-            }
-            @if (permisoModificacion){ 
-                <button class="boton-inicio" @onclick="setModificar">Modificar</button>
-            }
+        @if (permisoAlta) {
+            <button class="boton-inicio" @onclick="setAlta">Dar de alta</button>
+        }
+        @if (permisoBaja) {
+            <button class="boton-inicio" @onclick="setBaja">Dar de baja</button>
+        }
+        @if (permisoModificacion){ 
+            <button class="boton-inicio" @onclick="setModificar">Modificar</button>
+        }
+        <button class="boton-inicio" @onclick="setBusquedaId">Consulta Expediente y Tramites</button>
+        <button class="boton-inicio" @onclick="RefreshPage">Recargar Expedientes</button>
     </div>
 </section>
 @code{
     private List<Expediente> expedientes;
+    private ConsultaExpediente consultaID;
     private bool permisoAlta = false;
     private bool permisoBaja = false;
     private bool permisoModificacion = false;
@@ -92,7 +129,6 @@
     private string? operacion;
     private Excepcion ventanaExcepcion = null!;
 
-//FALTA METODO PARA IMPRIMIR UN EXPEDIENTE CON TODOS SUS TRAMITES
 
     protected override void OnInitialized(){
         userId = int.Parse(IdUsuario);
@@ -101,29 +137,31 @@
         if (permisos.Contains("ExpedienteAlta")) permisoAlta = true;
         if (permisos.Contains("ExpedienteBaja")) permisoBaja = true;
         if (permisos.Contains("ExpedienteModificacion"))permisoModificacion = true;
-        cargarExpedientes();
-    }
-
-    private void cargarExpedientes(){ 
         expedientes = expedienteConsultaTodos.Ejecutar();
     }
 
-    private void ResetearDatos(){
-
-    }
     private void DarDeAlta(){
         try{
             expedienteAlta.Ejecutar(_caratula!,userId);
-        }catch(ValidacionException ex){
+            RefreshPage();
+        }catch(ValidacionException ex){ // en caso que la caratula sea invalida
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar();
+        }
+        catch(AutorizacionException ex){// en caso de que tenga permisos (caso imposible de que pase)
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
             ventanaExcepcion.Mostrar();
         }
     }
-
     private void DarDeBaja(){
         try{
             expedienteBaja.Ejecutar(_idExpediente, userId);
-        }catch(RepositorioException ex){
+            RefreshPage();
+        }catch(RepositorioException ex){ // en caso de que no exista en el repo
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar();
+        }
+        catch(AutorizacionException ex){// en caso de que tenga permisos (caso imposible de que pase)
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
             ventanaExcepcion.Mostrar();
         }
@@ -131,22 +169,43 @@
     private void Modificar(){
         try{
             expedienteModificacion.Ejecutar(_idExpediente, _caratula, userId);
-        }catch(RepositorioException ex){
+            RefreshPage();
+         }catch(ValidacionException ex){ // en caso que la caratula sea invalida
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
             ventanaExcepcion.Mostrar();
-        }catch(ValidacionException ex){
+        }
+        catch(AutorizacionException ex){// en caso de que tenga permisos (caso imposible de que pase)
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar();
+        }
+        catch(RepositorioException ex){ // en caso de que no exista en el repo
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
             ventanaExcepcion.Mostrar();
         }
     }
+    private void BuscarPorID(){
+        try{
+            consultaID = expedienteConsultaId.Ejecutar(_idExpediente);
+        }
+        catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}";
+            ventanaExcepcion.Mostrar();
+        }
+    }
+
     private void setAlta(){
         operacion = "Alta";
     }
     private void setBaja(){
         operacion = "Baja";
     }
-
     private void setModificar(){
         operacion = "Modificacion";
+    }
+    private void setBusquedaId(){
+        operacion = "BusquedaID";
+    }
+    private void RefreshPage(){
+        Navigation.NavigateTo($"/expedientes/{IdUsuario}", forceLoad: true);
     }
 }
