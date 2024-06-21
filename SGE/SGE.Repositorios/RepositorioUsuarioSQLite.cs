@@ -59,7 +59,7 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
         }
     }
 
-    public void UsuarioModicacion(int? idUsuario,string nombre, string apellido, string email, string password, List<Permiso.Permisos> permisos){
+    public void UsuarioModicacion(int? idUsuario,string nombre, string apellido, string email, string password, List<Permiso.Permisos>? permisos){
         using(var db = new RepositorioContext()){
             var usuarioAModificar = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
             if(usuarioAModificar != null){

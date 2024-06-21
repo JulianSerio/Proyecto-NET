@@ -66,39 +66,45 @@
         </div>
         <div class="mostrar-datos">
             @if (consultaID == null){
-                @foreach (var ex in expedientes){
-                    <div class="detalle">
-                        <span>| ID: @ex.Id</span>
-                        <span>| CARATULA: @ex.Caratula</span>
-                        <span>| CREACION: @ex.FechaCreacion</span>
-                        <span>| ULTIMA MODIFICACION: @ex.FechaModificacion</span>
-                        <span>| ID USUARIO MODIFICADOR: @ex.IdUsuarioModificador</span>
-                        <span>| ESTADO: @ex.Estado</span>
-                        <hr style="border: 1px solid black;">
-                    </div>
+                @if (expedientes != null){
+                    @foreach (var ex in expedientes){
+                        <div class="detalle">
+                            <span>| ID: @ex.Id</span>
+                            <span>| CARATULA: @ex.Caratula</span>
+                            <span>| CREACION: @ex.FechaCreacion</span>
+                            <span>| ULTIMA MODIFICACION: @ex.FechaModificacion</span>
+                            <span>| ID USUARIO MODIFICADOR: @ex.IdUsuarioModificador</span>
+                            <span>| ESTADO: @ex.Estado</span>
+                            <hr style="border: 1px solid black;">
+                        </div>
+                    }
                 }
             }
             @if (consultaID != null){
                 @if (operacion == "BusquedaID"){
                     <div class="detalle">
-                        <span>| ID: @consultaID.Expediente.Id</span>
-                        <span>| CARATULA: @consultaID.Expediente.Caratula</span>
-                        <span>| CREACION: @consultaID.Expediente.FechaCreacion</span>
-                        <span>| ULTIMA MODIFICACION: @consultaID.Expediente.FechaModificacion</span>
-                        <span>| ID USUARIO MODIFICADOR: @consultaID.Expediente.IdUsuarioModificador</span>
-                        <span>| ESTADO: @consultaID.Expediente.Estado</span>
-                        <hr style="border: 1px solid black;">
-                        @foreach (var x in consultaID.ListaTramites){
-                            <div class="detalle-tramite">
-                                <span>Id del trámite: @x.Id</span>
-                                <span>|Id del expediente: @x.ExpedienteId</span>
-                                <span>|Etiqueta del trámite: @x.EtiquetaTramite</span>
-                                <span>|Contenido: @x.Contenido</span>
-                                <span>|Fecha de creación: @x.FechaCreacion</span>
-                                <span>|Fecha de modificación: @x.FechaModificacion</span>
-                                <span>|Id del usuario modificador: @x.IdUsuarioModificador |</span>
-                                <hr style="border: 1px solid black;">
-                            </div>
+                        @if (consultaID.Expediente != null){
+                            <span>| ID: @consultaID.Expediente.Id</span>
+                            <span>| CARATULA: @consultaID.Expediente.Caratula</span>
+                            <span>| CREACION: @consultaID.Expediente.FechaCreacion</span>
+                            <span>| ULTIMA MODIFICACION: @consultaID.Expediente.FechaModificacion</span>
+                            <span>| ID USUARIO MODIFICADOR: @consultaID.Expediente.IdUsuarioModificador</span>
+                            <span>| ESTADO: @consultaID.Expediente.Estado</span>
+                            <hr style="border: 1px solid black;">
+                        }
+                        @if (consultaID.ListaTramites != null){
+                            @foreach (var x in consultaID.ListaTramites){
+                                <div class="detalle-tramite">
+                                    <span>Id del trámite: @x.Id</span>
+                                    <span>|Id del expediente: @x.ExpedienteId</span>
+                                    <span>|Etiqueta del trámite: @x.EtiquetaTramite</span>
+                                    <span>|Contenido: @x.Contenido</span>
+                                    <span>|Fecha de creación: @x.FechaCreacion</span>
+                                    <span>|Fecha de modificación: @x.FechaModificacion</span>
+                                    <span>|Id del usuario modificador: @x.IdUsuarioModificador |</span>
+                                    <hr style="border: 1px solid black;">
+                                </div>
+                            }
                         }
                     </div>
                 }
@@ -120,7 +126,7 @@
     </div>
 </section>
 @code{
-    private List<Expediente> expedientes;
+    private List<Expediente>? expedientes;
     private ConsultaExpediente consultaID;
     private bool permisoAlta = false;
     private bool permisoBaja = false;
@@ -132,11 +138,10 @@
     private string? operacion;
     private Excepcion ventanaExcepcion = null!;
 
-
     protected override void OnInitialized(){
-        userId = int.Parse(IdUsuario);
-        Usuario user = usuarioConsultaId.Ejecutar(userId);
-        List<string> permisos = usuarioConsultaPermisos.Ejecutar(userId);
+        userId = int.Parse(IdUsuario!);
+        Usuario user = usuarioConsultaId.Ejecutar(userId!);
+        List<string> permisos = usuarioConsultaPermisos.Ejecutar(userId!);
         if (permisos.Contains("ExpedienteAlta")) permisoAlta = true;
         if (permisos.Contains("ExpedienteBaja")) permisoBaja = true;
         if (permisos.Contains("ExpedienteModificacion"))permisoModificacion = true;
@@ -145,7 +150,7 @@
 
     private void DarDeAlta(){
         try{
-            expedienteAlta.Ejecutar(_caratula!,userId);
+            expedienteAlta.Ejecutar(_caratula!,userId!);
             RefreshPage();
         }catch(ValidacionException ex){ // en caso que la caratula sea invalida
             ventanaExcepcion.CargarYMostrar(ex.Message);
@@ -156,7 +161,7 @@
     }
     private void DarDeBaja(){
         try{
-            expedienteBaja.Ejecutar(_idExpediente, userId);
+            expedienteBaja.Ejecutar(_idExpediente!, userId!);
             RefreshPage();
         }catch(RepositorioException ex){ // en caso de que no exista en el repo
             ventanaExcepcion.CargarYMostrar(ex.Message);
@@ -167,7 +172,7 @@
     }
     private void Modificar(){
         try{
-            expedienteModificacion.Ejecutar(_idExpediente, _caratula, userId);
+            expedienteModificacion.Ejecutar(_idExpediente!, _caratula!, userId!);
             RefreshPage();
          }catch(ValidacionException ex){ // en caso que la caratula sea invalida
             ventanaExcepcion.CargarYMostrar(ex.Message);
@@ -181,7 +186,7 @@
     }
     private void BuscarPorID(){
         try{
-            consultaID = expedienteConsultaId.Ejecutar(_idExpediente);
+            consultaID = expedienteConsultaId.Ejecutar(_idExpediente!);
         }
         catch(RepositorioException ex){
             ventanaExcepcion.CargarYMostrar(ex.Message);

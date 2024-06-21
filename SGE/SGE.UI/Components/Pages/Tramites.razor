@@ -102,17 +102,19 @@
         </div> 
         <div class="mostrar-datos">
             @if (TramitesConsultados == null){
-                @foreach (var tramite in tramites){
-                    <div class="detalle-tramite">
-                        <span>| ID: @tramite.Id</span>
-                        <span>| ID EXPEDIENTE: @tramite.ExpedienteId</span>
-                        <span>| ETIQUETA: @tramite.EtiquetaTramite</span>
-                        <span>| CONTENIDO: @tramite.Contenido</span>
-                        <span>| CREACION: @tramite.FechaCreacion</span>
-                        <span>| ULTIMA MODIFICACION: @tramite.FechaModificacion</span>
-                        <span>| ID USUARIO MODIFICADOR: @tramite.IdUsuarioModificador</span>
-                        <hr style="border: 1px solid black;">
-                    </div>
+                @if (tramites != null){
+                    @foreach (var tramite in tramites){
+                        <div class="detalle-tramite">
+                            <span>| ID: @tramite.Id</span>
+                            <span>| ID EXPEDIENTE: @tramite.ExpedienteId</span>
+                            <span>| ETIQUETA: @tramite.EtiquetaTramite</span>
+                            <span>| CONTENIDO: @tramite.Contenido</span>
+                            <span>| CREACION: @tramite.FechaCreacion</span>
+                            <span>| ULTIMA MODIFICACION: @tramite.FechaModificacion</span>
+                            <span>| ID USUARIO MODIFICADOR: @tramite.IdUsuarioModificador</span>
+                            <hr style="border: 1px solid black;">
+                        </div>
+                    }
                 }
             }
             @if (TramitesConsultados != null){
@@ -152,13 +154,12 @@
 </section>
 
 @code{
-    private List<Tramite> tramites;
+    private List<Tramite>? tramites;
     private bool permisoAltaTramite = false;
     private bool permisoBajaTramite = false;
     private bool permisoModificacionTramite = false;
     [Parameter] public string? IdUsuario { get; set; }
     private int userId;
-    private int _idTramite;
     private int _expedienteId;
     private string? operacion;
     private string? _contenido;
@@ -176,9 +177,9 @@
 
     protected override void OnInitialized()
     {
-        userId = int.Parse(IdUsuario);
-        Usuario user = usuarioConsultaId.Ejecutar(userId);
-        List<string> permisos = usuarioConsultaPermisos.Ejecutar(userId);
+        userId = int.Parse(IdUsuario!);
+        Usuario user = usuarioConsultaId.Ejecutar(userId!);
+        List<string> permisos = usuarioConsultaPermisos.Ejecutar(userId!);
         if (permisos.Contains("TramiteAlta")) permisoAltaTramite = true;
         if (permisos.Contains("TramiteBaja")) permisoBajaTramite = true;
         if (permisos.Contains("TramiteModificacion")) permisoModificacionTramite = true;
@@ -191,7 +192,7 @@
     
     public void ConsultarEtiqueta(){
         try{
-            TramitesConsultados = tramiteConsultaEtiqueta.Ejecutar(_etiquetaConsultada);
+            TramitesConsultados = tramiteConsultaEtiqueta.Ejecutar(_etiquetaConsultada!);
         }catch(RepositorioException ex){
             ventanaExcepcion.CargarYMostrar(ex.Message); 
         }
@@ -200,7 +201,7 @@
     private void DarAltaTramite(){
         try{
             string etiquetaString = _etiqueta.ToString();
-            tramiteAlta.Ejecutar(_expedienteId,_contenido,etiquetaString,userId);
+            tramiteAlta.Ejecutar(_expedienteId!,_contenido!,etiquetaString!,userId!);
             RefreshPage();
         }catch(ValidacionException ex){
             ventanaExcepcion.CargarYMostrar(ex.Message); 
@@ -212,7 +213,7 @@
 
     private void DarBajaTramite(){
         try{
-            tramiteBaja.Ejecutar(_idTramiteABajar,userId);
+            tramiteBaja.Ejecutar(_idTramiteABajar!,userId!);
             RefreshPage();
         }catch(RepositorioException ex){
             ventanaExcepcion.CargarYMostrar(ex.Message); 
@@ -224,7 +225,7 @@
 
      public void ModificarTramite(){     
         try{
-            tramiteModificacion.Ejecutar(_idTramiteAModificar,_contenidoAModificar,_etiquetaModificada,userId);
+            tramiteModificacion.Ejecutar(_idTramiteAModificar!,_contenidoAModificar!,_etiquetaModificada!,userId!);
             RefreshPage();
         }
         catch(RepositorioException ex){

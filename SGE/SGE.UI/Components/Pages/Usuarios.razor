@@ -90,17 +90,22 @@
         <div class="mostrar-datitos">
             <h2>Lista de Usuarios</h2>
             <ul>
-                @foreach (var usuario in usuarios)
-                {
-                    <li>
-                        ID: @usuario.IdUsuario  Nombre: @usuario.Nombre  Apellido: @usuario.Apellido Email: @usuario.Email
-                        <ul>
-                            @foreach (var permiso in usuario.Permisos)
+                @if (usuarios != null){
+                    @foreach (var usuario in usuarios)
+                    {
+                        <li>
+                            ID: @usuario.IdUsuario  Nombre: @usuario.Nombre  Apellido: @usuario.Apellido Email: @usuario.Email
+                            @if (usuario.Permisos != null)
                             {
-                                <li>@permiso</li>
+                                <ul>
+                                    @foreach (var permiso in usuario.Permisos)
+                                    {
+                                        <li>@permiso</li>
+                                    }
+                                </ul>
                             }
-                        </ul>
-                    </li>
+                        </li>
+                    }
                 }
             </ul>
         </div>
@@ -113,7 +118,7 @@
 </section>
 
 @code{
-    [Parameter] public string? IdUsuario { get; set; }
+    [Parameter] public string IdUsuario { get; set; } = string.Empty;
     private int userId;
     private string? operacion;
     private int _idUsuarioModificado;
@@ -128,13 +133,13 @@
     private string? _contraseniaModificada;
     private Excepcion ventanaExcepcion = null!;
     private Dictionary<Permiso.Permisos, bool> seleccionados = new Dictionary<Permiso.Permisos, bool>();
-    private List<Usuario> usuarios;
+    private List<Usuario>? usuarios;
 
     protected override void OnInitialized()
     {
-        userId = int.Parse(IdUsuario);
-        Usuario user = usuarioConsultaId.Ejecutar(userId);
-        List<string> _permisosDelUsuario = usuarioConsultaPermisos.Ejecutar(userId);
+        userId = int.Parse(IdUsuario!);
+        Usuario user = usuarioConsultaId.Ejecutar(userId!);
+        List<string> _permisosDelUsuario = usuarioConsultaPermisos.Ejecutar(userId!);
 
         // Inicializar el diccionario con los permisos
         foreach (Permiso.Permisos permiso in Enum.GetValues(typeof(Permiso.Permisos)))
@@ -148,7 +153,7 @@
     {
         try
         {
-            usuarioAlta.Ejecutar(_nombreUsuario, _apellidoUsuario, _emailUsuario,_contraseniaUsuario);
+            usuarioAlta.Ejecutar(_nombreUsuario!, _apellidoUsuario!, _emailUsuario!,_contraseniaUsuario!);
             RefreshPage();
         }
         catch (ValidacionException ex)
@@ -162,7 +167,7 @@
     {
         try
         {
-            usuarioBaja.Ejecutar(_emailAEliminar);
+            usuarioBaja.Ejecutar(_emailAEliminar!);
             RefreshPage();
         }
         catch (RepositorioException ex)
@@ -176,12 +181,12 @@
     {
         try
         {
-            List<Permiso.Permisos> permisosSeleccionados = seleccionados
+            List<Permiso.Permisos>? permisosSeleccionados = seleccionados
                 .Where(p => p.Value)
                 .Select(p => p.Key)
                 .ToList();
 
-            usuarioModificacion.Ejecutar(_idUsuarioModificado,_nombreModificado,_apellidoModificado,_emailModificado,_contraseniaModificada,permisosSeleccionados);
+            usuarioModificacion.Ejecutar(_idUsuarioModificado!,_nombreModificado!,_apellidoModificado!,_emailModificado!,_contraseniaModificada!,permisosSeleccionados);
             RefreshPage();
         }
         catch (ValidacionException ex)
