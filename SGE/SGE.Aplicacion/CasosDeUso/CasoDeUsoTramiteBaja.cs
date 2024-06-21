@@ -3,7 +3,7 @@
 public class CasoDeUsoTramiteBaja(ITramiteRepositorio repo,ServicioAutorizacion autorizacion, ServicioActualizacionEstado actualizacion)
 {
     public void Ejecutar(int idTramite, int idUsuario){
-        string permiso = "TramiteBaja";
+        Permiso.Permisos permiso = Permiso.Permisos.TramiteBaja;
         if (autorizacion.PoseeElPermiso(permiso, idUsuario)) {//Verifico si el usuario tiene permisos
             int idExpediente = repo.TramiteBaja(idTramite);
             actualizacion.ModificarExpediente(idExpediente, idUsuario, DateTime.Now);

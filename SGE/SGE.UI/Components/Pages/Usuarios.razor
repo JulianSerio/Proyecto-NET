@@ -1,6 +1,11 @@
 ﻿@page "/usuarios/{IdUsuario}"
 @rendermode InteractiveServer
 @inject NavigationManager Navigation
+@inject CasoDeUsoUsuarioConsultaPorId usuarioConsultaId
+@inject CasoDeUsoUsuarioAlta usuarioAlta
+@inject CasoDeUsoUsuarioBaja usuarioBaja
+@inject CasoDeUsoUsuarioModificacion usuarioModificacion
+@inject CasoDeUsoUsuarioConsultaPermisos usuarioConsultaPermisos
 
 <PageTitle>Usuario | SGE</PageTitle>
 <Excepcion @ref="ventanaExcepcion"/>
@@ -56,80 +61,62 @@
 </section>
 
 @code{ 
-[Parameter] public string? IdUsuario {get;set;}
-private int userId;
-private string? operacion;
-private string? _contraseniaUsuario;
-private string? _nombreUsuario;
-private string? _apellidoUsuario;
-private string? _emailUsuario;
-private string? _emailAEliminar;
-private Excepcion ventanaExcepcion = null!;
-List<string> permisos;
-List<string> _permisosDelUsuario;
-    
-protected override void OnInitialized(){ //CHECKEAR SI ESTA BIEN ESTO (FALTARIA QUE SE MUESTREN TODOS LOS USUARIOS)
-    userId = int.Parse(IdUsuario);
-    RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
-    CasoDeUsoUsuarioConsultaPorId cu = new CasoDeUsoUsuarioConsultaPorId(repo);
-    Usuario user = cu.Ejecutar(userId);
-    List<string> _permisosDelUsuario = cu.Ejecutar(userId).Permisos;
+    [Parameter] public string? IdUsuario {get;set;}
+    private int userId;
+    private string? operacion;
+    private string? _contraseniaUsuario;
+    private string? _nombreUsuario;
+    private string? _apellidoUsuario;
+    private string? _emailUsuario;
+    private string? _emailAEliminar;
+    private Excepcion ventanaExcepcion = null!;
+    List<string> permisos;
+    List<string> _permisosDelUsuario;
+        
+    protected override void OnInitialized(){ //CHECKEAR SI ESTA BIEN ESTO (FALTARIA QUE SE MUESTREN TODOS LOS USUARIOS)
+        userId = int.Parse(IdUsuario);
+        Usuario user = usuarioConsultaId.Ejecutar(userId);
+        List<string> _permisosDelUsuario = usuarioConsultaPermisos.Ejecutar(userId);
+    }
+
+    private void DarDeAltaUsuario(){
+        try{
+            usuarioAlta.Ejecutar(_nombreUsuario,_apellidoUsuario,_emailUsuario,_contraseniaUsuario);
+        }
+        catch(ValidacionException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar(); 
+        }
+    }
+
+    private void DarDeBajaUsuario(){
+        try{
+            usuarioBaja.Ejecutar(_emailAEliminar);
+        }
+        catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar(); 
+        }
+    }
+
+    private void ModificarUsuario(){
+        /*
+        try{
+            usuarioModificacion.Ejecutar(int IdUsuario,string nombre, string apellido, string email, string password, List<string> permisos)
+            var permi = 
+            cu.Ejecutar(userId,_nombreModificado,_apellidoModificado,_emailModificado,);
+
+            // FALTA TERMINAR ESTO
+        }
+        */
+    }
+    private void SetAltaUsuario(){
+            operacion = "Alta";
+    }
+    private void SetBajaUsuario(){
+            operacion = "Baja";
+    }
+    private void SetModificacion(){
+            operacion = "Modificacion";
+    }
 }
-
-private void DarDeAltaUsuario(){
-    //IUsuarioRepositorio repo, UsuarioValidador validador, ServicioAutorizacion autorizacion
-    var repo = new RepositorioUsuarioSQLite();
-    var autorizacion = new ServicioAutorizacion(repo);
-    var validador = new UsuarioValidador(repo);
-    var cu = new CasoDeUsoUsuarioAlta(repo,validador,autorizacion);
-    try{
-        //string nombre, string apellido, string email, string password
-        cu.Ejecutar(_nombreUsuario,_apellidoUsuario,_emailUsuario,_contraseniaUsuario);
-    }
-    catch(RepositorioException ex){
-        ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-        ventanaExcepcion.Mostrar(); 
-    }
-}
-
-private void DarDeBajaUsuario(){
-    var repo = new RepositorioUsuarioSQLite();
-    var cu = new CasoDeUsoUsuarioBaja(repo);
-    
-    try{
-        cu.Ejecutar(_emailAEliminar);
-    }
-    catch(RepositorioException ex){
-        ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-        ventanaExcepcion.Mostrar(); 
-    }
-}
-/*
-private void ModificarUsuario(){
-    //CasoDeUsoUsuarioModificacion(IUsuarioRepositorio repo, UsuarioValidador validador){
-    var repo = new RepositorioUsuarioSQLite();
-    var validador = new UsuarioValidador(repo);
-    var cu = new CasoDeUsoUsuarioModificacion(repo,validador);
-
-    try{
-        //Ejecutar(int IdUsuario,string nombre, string apellido, string email, string password, List<string> permisos)
-        var permi = 
-cu.Ejecutar(userId,_nombreModificado,_apellidoModificado,_emailModificado,);
-
-        // FALTA TERMINAR ESTO
-    }
-}*/
-
-private void SetAltaUsuario()
-    {
-        operacion = "Alta";
-    }
-private void SetBajaUsuario()
-    {
-        operacion = "Baja";
-    }
-private void SetModificacion()
-    {
-        operacion = "Modificacion";
-    }
-} 

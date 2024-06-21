@@ -1,10 +1,17 @@
 ﻿@page "/expedientes/{IdUsuario}"
 @rendermode InteractiveServer
+@inject CasoDeUsoUsuarioConsultaPorId usuarioConsultaId
+@inject CasoDeUsoUsuarioConsultaPermisos usuarioConsultaPermisos
+@inject CasoDeUsoExpedienteConsultaTodos expedienteConsultaTodos
+@inject CasoDeUsoExpedienteConsultaPorId expedienteConsultaId
+@inject CasoDeUsoExpedienteAlta expedienteAlta
+@inject CasoDeUsoExpedienteBaja expedienteBaja
+@inject CasoDeUsoExpedienteModificacion expedienteModificacion
 
 <PageTitle>Expedientes | SGE</PageTitle>
 
-
 <section class="seccion-paginas">
+    <Excepcion @ref="ventanaExcepcion"/>
     <h1>Expedientes</h1>
     <div class="contenedor">
         <div class="formularios">
@@ -73,7 +80,6 @@
             }
     </div>
 </section>
-
 @code{
     private List<Expediente> expedientes;
     private bool permisoAlta = false;
@@ -84,36 +90,54 @@
     private int _idExpediente;
     private string? _caratula;
     private string? operacion;
+    private Excepcion ventanaExcepcion = null!;
+
+//FALTA METODO PARA IMPRIMIR UN EXPEDIENTE CON TODOS SUS TRAMITES
 
     protected override void OnInitialized(){
         userId = int.Parse(IdUsuario);
-        RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
-        CasoDeUsoUsuarioConsultaPorId cu = new CasoDeUsoUsuarioConsultaPorId(repo);
-        Usuario user = cu.Ejecutar(userId);
-        if (user.Permisos.Contains("ExpedienteAlta")) permisoAlta = true;
-        if (user.Permisos.Contains("ExpedienteBaja")) permisoBaja = true;
-        if (user.Permisos.Contains("ExpedienteModificacion"))permisoModificacion = true;
+        Usuario user = usuarioConsultaId.Ejecutar(userId);
+        List<string> permisos = usuarioConsultaPermisos.Ejecutar(userId);
+        if (permisos.Contains("ExpedienteAlta")) permisoAlta = true;
+        if (permisos.Contains("ExpedienteBaja")) permisoBaja = true;
+        if (permisos.Contains("ExpedienteModificacion"))permisoModificacion = true;
         cargarExpedientes();
     }
 
     private void cargarExpedientes(){ 
-        RepositorioExpedienteSQLite repo = new RepositorioExpedienteSQLite();
-        CasoDeUsoExpedienteConsultaTodos expedientesTodos = new CasoDeUsoExpedienteConsultaTodos(repo);
-        expedientes = expedientesTodos.Ejecutar();
+        expedientes = expedienteConsultaTodos.Ejecutar();
     }
 
     private void ResetearDatos(){
 
     }
     private void DarDeAlta(){
-        //expedienteAlta.Ejecutar(_caratula!,userId);
+        try{
+            expedienteAlta.Ejecutar(_caratula!,userId);
+        }catch(ValidacionException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar();
+        }
     }
 
     private void DarDeBaja(){
-        
+        try{
+            expedienteBaja.Ejecutar(_idExpediente, userId);
+        }catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar();
+        }
     }
     private void Modificar(){
-        
+        try{
+            expedienteModificacion.Ejecutar(_idExpediente, _caratula, userId);
+        }catch(RepositorioException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar();
+        }catch(ValidacionException ex){
+            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
+            ventanaExcepcion.Mostrar();
+        }
     }
     private void setAlta(){
         operacion = "Alta";

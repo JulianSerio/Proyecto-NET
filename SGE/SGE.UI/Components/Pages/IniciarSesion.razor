@@ -1,6 +1,7 @@
 ﻿@page "/"
 @rendermode InteractiveServer
 @inject NavigationManager Navigation
+@inject CasoDeUsoUsuarioIniciarSesion iniciarSesion
 
 <PageTitle>Iniciar Sesion | SGE</PageTitle>
 
@@ -36,8 +37,6 @@
     private Excepcion ventanaExcepcion = null!;
 
     private void Ejecutar(){
-        RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
-        CasoDeUsoUsuarioIniciarSesion iniciarSesion = new CasoDeUsoUsuarioIniciarSesion(repo);
         try{
             usuarioAct = iniciarSesion.Ejecutar(_email!,_password!);
             Navigation.NavigateTo($"/home/{usuarioAct.IdUsuario}");

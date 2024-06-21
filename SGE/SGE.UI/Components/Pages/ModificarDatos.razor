@@ -1,31 +1,32 @@
 ﻿@page "/modificar-perfil/{IdUsuario}"
 @rendermode InteractiveServer
 @inject NavigationManager Navigation
+@inject CasoDeUsoUsuarioModificacion usuarioModificacion
+@inject CasoDeUsoUsuarioConsultaPorId usuarioConsultaId
 
 
 <PageTitle>Modificar Perfil | SGE</PageTitle>
 
 <section class="seccion-modificar-datos">
-    <div class="contenedor-formulario">
-        <h1 class="titulo">Modificar datos</h1>
-        <form class="form" @onsubmit="Ejecutar">
-            <div class="elemento-input">
-                <input type="text" @bind="_nombre" id="input-nombre" placeholder=" Nombre" required>
-            </div>
-            <div class="elemento-input">
-                <input type="text" @bind="_apellido" id="input-apellido" placeholder=" Apellido" required>
-            </div>
-            <div class="elemento-input">
-                <input type="email" @bind="_email" id="input-email" placeholder=" Email" required>
-            </div>
-            <div class="elemento-input">
-                <input type="password" @bind="_password" id="input-password" placeholder=" Contraseña" required>
-            </div>
-            <div>
-                <button type="submit" class="boton-inicio">Modificar</button>
-            </div>
-        </form>
-    </div>
+    <Excepcion @ref="ventanaExcepcion"/>
+    <h1 class="titulo">Modificar datos</h1>
+    <form class="form" @onsubmit="Ejecutar">
+        <div class="elemento-input">
+            <input type="text" @bind="_nombre" id="input-nombre" placeholder=" Nombre" required>
+        </div>
+        <div class="elemento-input">
+            <input type="text" @bind="_apellido" id="input-apellido" placeholder=" Apellido" required>
+        </div>
+        <div class="elemento-input">
+            <input type="email" @bind="_email" id="input-email" placeholder=" Email" required>
+        </div>
+        <div class="elemento-input">
+            <input type="password" @bind="_password" id="input-password" placeholder=" Contraseña" required>
+        </div>
+        <div>
+            <button type="submit" class="boton-inicio">Modificar</button>
+        </div>
+    </form>
 
 </section>
 
@@ -37,6 +38,7 @@
     private string? _email;
     private string? _password;
     Excepcion ventanaExcepcion = null!;
+    private List<Permiso.Permisos> permisos;
 
     protected override void OnParametersSet(){
         int.TryParse(IdUsuario, out userId);
@@ -44,12 +46,9 @@
     //Faltaria verificar que cuando se cargue la persona que se modifique 
     //su campo y no se cree otro usuario
     private void Ejecutar (){
-        RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
-        UsuarioValidador validador = new UsuarioValidador(repo);
-        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repo);
-        CasoDeUsoUsuarioAlta registro = new CasoDeUsoUsuarioAlta(repo,validador,autorizacion);
         try{
-            registro.Ejecutar(_nombre!,_apellido!,_email!,_password!);
+            permisos = usuarioConsultaId.Ejecutar(userId).Permisos;
+            usuarioModificacion.Ejecutar(userId, _nombre!,_apellido!,_email!,_password!,permisos);
             Navigation.NavigateTo("/");
         }
         catch(RepositorioException ex){

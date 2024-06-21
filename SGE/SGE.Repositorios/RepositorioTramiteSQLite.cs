@@ -22,19 +22,15 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
         }
     }
 
-    public EtiquetaTramite.Etiquetas? EtiquetaUltimoTramiteDeExpediente(int idExpediente)
-{
-    using (var db = new RepositorioContext())
-    {
-        var tramites = BusquedaPorExpediente(idExpediente);
-        if (tramites.Any())
-        {
-            return tramites.Last().EtiquetaTramite;
+    public EtiquetaTramite.Etiquetas? EtiquetaUltimoTramiteDeExpediente(int idExpediente){
+        using (var db = new RepositorioContext()){
+            var tramites = BusquedaPorExpediente(idExpediente);
+            if (tramites.Any()){
+                return tramites.Last().EtiquetaTramite;
+            }
         }
+        return null; // Devuelve null si no hay tramites
     }
-    return null; // Devuelve null si no hay tramites
-}
-
 
     public void TramiteAlta(int expedienteID, string contenido, int idUsuario, EtiquetaTramite.Etiquetas etiqueta, DateTime fechaCreacio)
     {
@@ -60,20 +56,6 @@ public class RepositorioTramiteSQLite : ITramiteRepositorio
             }
         }
     }
-    
-    /*
-    ESTO TIRA ERROR 
-    public void TramiteBajaPorExpediente(int idExpediente){
-        using (var db = new RepositorioContext()){
-            var tramitesABorrar = db.Tramites.Where(t => t.ExpedienteId == idExpediente).ToList;
-            foreach(var tramite in tramitesABorrar){
-                db.Remove(tramite);
-            }
-            if (tramitesABorrar.Count > 0){
-                db.SaveChanges();
-            }
-        }
-    }*/
 
     public int TramiteModificacion(int idTramite, string contenido, EtiquetaTramite.Etiquetas etiqueta, int idUsuario, DateTime fechaModificacion){
         using (var db = new RepositorioContext()){

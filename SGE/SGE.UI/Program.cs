@@ -90,13 +90,17 @@ builder.Services.AddTransient<CasoDeUsoUsuarioConsultaTodos>(sp =>{
     var repoUsuarios = sp.GetRequiredService<IUsuarioRepositorio>();
     return new CasoDeUsoUsuarioConsultaTodos(repoUsuarios);
 });
+builder.Services.AddTransient<CasoDeUsoUsuarioConsultaPermisos>(sp =>{
+    var repoUsuarios = sp.GetRequiredService<IUsuarioRepositorio>();
+    return new CasoDeUsoUsuarioConsultaPermisos(repoUsuarios);
+});
 builder.Services.AddTransient<CasoDeUsoUsuarioIniciarSesion>(sp =>{
     var repoUsuarios = sp.GetRequiredService<IUsuarioRepositorio>();
     return new CasoDeUsoUsuarioIniciarSesion(repoUsuarios);
 });
 
 //Servicios
-builder.Services.AddTransient<IServicioAutorizacion>(servi =>{
+builder.Services.AddTransient<ServicioAutorizacion>(servi =>{
     var repoUsuarios = servi.GetRequiredService<IUsuarioRepositorio>();
     return new ServicioAutorizacion(repoUsuarios);
 });

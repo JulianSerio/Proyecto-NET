@@ -12,7 +12,7 @@ public class CasoDeUsoUsuarioAlta (IUsuarioRepositorio repo, UsuarioValidador va
             string passwordPasadaPorHash = ServicioFuncionHash.FuncionHashSHA256(password);
             int? idUsuario = repo.UsuarioAlta(nombre, apellido, email, passwordPasadaPorHash); 
             if(autorizacion.EsAdmin(idUsuario)){
-                List<string> permisos = new List<string>{"ExpedienteBaja","ExpedienteAlta","ExpedienteModificacion","TramiteAlta","TramiteBaja","TramiteModificacion"};
+                List<Permiso.Permisos> permisos = new List<Permiso.Permisos>{Permiso.Permisos.ExpedienteBaja,Permiso.Permisos.ExpedienteAlta,Permiso.Permisos.ExpedienteModificacion,Permiso.Permisos.TramiteAlta,Permiso.Permisos.TramiteBaja,Permiso.Permisos.TramiteModificacion};
                 repo.UsuarioModicacion(idUsuario,nombre, apellido, email, passwordPasadaPorHash, permisos);
             }
         }else{

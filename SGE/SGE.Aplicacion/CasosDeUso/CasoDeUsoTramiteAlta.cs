@@ -2,7 +2,7 @@
 
 public class CasoDeUsoTramiteAlta(ITramiteRepositorio repo, ServicioAutorizacion autorizacion, ServicioActualizacionEstado actualizacion) {
     public void Ejecutar(int expedienteID, string contenido, string etiquetaTramite, int idUsuario){
-        string permiso = "TramiteAlta";
+        Permiso.Permisos permiso = Permiso.Permisos.TramiteAlta;
         EtiquetaTramite.Etiquetas etiqueta = (EtiquetaTramite.Etiquetas)Enum.Parse(typeof(EtiquetaTramite.Etiquetas), etiquetaTramite); //casteo de string a etiqueta
         if (autorizacion.PoseeElPermiso(permiso, idUsuario)) {//Verifico si el usuario tiene permisos
             TramiteValidador.validar(contenido);

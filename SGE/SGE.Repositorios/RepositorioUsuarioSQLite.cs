@@ -19,7 +19,7 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
     public bool EmailRepetido(string? email){
         bool repetido=false;
         using (var db = new RepositorioContext()){
-            var usuario = db.Usuarios.FirstOrDefault(u => u.Email == email); 
+            var usuario = db.Usuarios.FirstOrDefault(u => u.Email!.ToLower() == email!.ToLower()); 
             if (usuario == null){
                 repetido=true;
             }
@@ -38,7 +38,7 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
 
     public void UsuarioBaja(string email){
         using (var db = new RepositorioContext()){
-            var usuarioABorrar = db.Usuarios.FirstOrDefault(u => u.Email == email); 
+            var usuarioABorrar = db.Usuarios.FirstOrDefault(u => u.Email!.ToLower() == email.ToLower()); 
             if (usuarioABorrar != null){
                 db.Remove(usuarioABorrar); //se borra realmente con el db.SaveChanges()
                 db.SaveChanges();//actualiza la base de datos. SQlite establece el valor de usuario.Id
@@ -59,7 +59,7 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
         }
     }
 
-    public void UsuarioModicacion(int? idUsuario,string nombre, string apellido, string email, string password, List<string> permisos){
+    public void UsuarioModicacion(int? idUsuario,string nombre, string apellido, string email, string password, List<Permiso.Permisos> permisos){
         using(var db = new RepositorioContext()){
             var usuarioAModificar = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
             if(usuarioAModificar != null){
@@ -78,7 +78,7 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
 
     public Usuario UsuarioInicioDeSesion(string email, string password){ //si no lo encuentra envia una excepcion
         using(var db = new RepositorioContext()){
-            var usuario = db.Usuarios.FirstOrDefault(u => u.Email == email);
+            var usuario = db.Usuarios.FirstOrDefault(u => u.Email!.ToLower() == email.ToLower());
             if(usuario != null){
                 if (usuario.Password == password){
                     return usuario;
@@ -92,7 +92,7 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
         }
     }
 
-    public bool UsuarioValidarPermiso(string permiso, int idUsuario){
+    public bool UsuarioValidarPermiso(Permiso.Permisos permiso, int idUsuario){
         using(var db = new RepositorioContext()){
             var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario); //no puede enviar null, ya que es la id del usuario utilizando el sistema
             if(usuario != null){
@@ -111,6 +111,17 @@ public class RepositorioUsuarioSQLite : IUsuarioRepositorio
             var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
             if(usuario != null){
                 return usuario;
+            }else{
+                throw new RepositorioException("El id ingresado no corresponde a un usuario registrado");
+            }
+        }
+    }
+
+    public List<Permiso.Permisos>? BusquedaPermisos(int idUsuario){
+        using (var db = new RepositorioContext()){
+            var usuario = db.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+            if(usuario != null){
+                return usuario.Permisos;
             }else{
                 throw new RepositorioException("El id ingresado no corresponde a un usuario registrado");
             }

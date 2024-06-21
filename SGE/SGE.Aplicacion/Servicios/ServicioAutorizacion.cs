@@ -2,7 +2,7 @@
 
 public class ServicioAutorizacion(IUsuarioRepositorio repo) : IServicioAutorizacion
 {
-    public bool PoseeElPermiso(string permiso, int idUsuario){
+    public bool PoseeElPermiso(Permiso.Permisos permiso, int idUsuario){
         return repo.UsuarioValidarPermiso(permiso, idUsuario); //si el usuario posee X permiso devuelve true, sino false
     }
 

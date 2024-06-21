@@ -2,7 +2,7 @@
 
 public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, ServicioAutorizacion servicio) {
     public void Ejecutar(string caratula, int idUsuario){
-        string permiso = "ExpedienteAlta";
+        Permiso.Permisos permiso = Permiso.Permisos.ExpedienteAlta;
         if(servicio.PoseeElPermiso(permiso, idUsuario)){ //Verifico si el usuario tiene permisos
             ExpedienteValidador.validar(caratula); //si es valido no tira excepcion
             repo.ExpedienteAlta(caratula, idUsuario, DateTime.Now); //envio los datos al repo

@@ -1,6 +1,7 @@
 @page "/home/{IdUsuario}"
 @rendermode InteractiveServer
 @inject NavigationManager Navigation
+@inject ServicioAutorizacion autorizacion
 
 <PageTitle>Home | SGE</PageTitle>
 
@@ -25,8 +26,6 @@
 
     protected override void OnParametersSet(){
         int.TryParse(IdUsuario, out userId);
-        RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
-        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repo);
         EsAdmin = autorizacion.EsAdmin(userId);
     }
 

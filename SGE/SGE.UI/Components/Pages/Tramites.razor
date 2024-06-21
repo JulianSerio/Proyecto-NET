@@ -1,6 +1,14 @@
 ﻿@page "/tramites/{IdUsuario}"
 @rendermode InteractiveServer
 @inject NavigationManager Navigation
+@inject CasoDeUsoUsuarioConsultaPorId usuarioConsultaId
+@inject CasoDeUsoUsuarioConsultaPermisos usuarioConsultaPermisos
+@inject CasoDeUsoTramiteConsultaTodos tramiteConsultaTodos
+@inject CasoDeUsoTramiteConsultaPorEtiqueta tramiteConsultaEtiqueta
+@inject CasoDeUsoTramiteAlta tramiteAlta
+@inject CasoDeUsoTramiteBaja tramiteBaja
+@inject CasoDeUsoTramiteModificacion tramiteModificacion
+
 
 <PageTitle>Trámites | SGE</PageTitle>
 <Excepcion @ref="ventanaExcepcion"/>
@@ -162,33 +170,26 @@
     protected override void OnInitialized()
     {
         userId = int.Parse(IdUsuario);
-        RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
-        CasoDeUsoUsuarioConsultaPorId cu = new CasoDeUsoUsuarioConsultaPorId(repo);
-        Usuario user = cu.Ejecutar(userId);
-        if (user.Permisos.Contains("TramiteAlta")) permisoAltaTramite = true;
-        if (user.Permisos.Contains("TramiteBaja")) permisoBajaTramite = true;
-        if (user.Permisos.Contains("TramiteModificacion")) permisoModificacionTramite = true;
+        Usuario user = usuarioConsultaId.Ejecutar(userId);
+        List<string> permisos = usuarioConsultaPermisos.Ejecutar(userId);
+        if (permisos.Contains("TramiteAlta")) permisoAltaTramite = true;
+        if (permisos.Contains("TramiteBaja")) permisoBajaTramite = true;
+        if (permisos.Contains("TramiteModificacion")) permisoModificacionTramite = true;
         CargarTramites();
     }
 
-    private void CargarTramites()
-    {
-        RepositorioTramiteSQLite repo = new RepositorioTramiteSQLite();
-        CasoDeUsoTramiteConsultaTodos tramitesTodos = new CasoDeUsoTramiteConsultaTodos(repo);
-        tramites = tramitesTodos.Ejecutar();
+    private void CargarTramites(){
+        tramites = tramiteConsultaTodos.Ejecutar();
     }
 
-    private void ResetearDatos()
-    {
+    private void ResetearDatos(){
         _idTramite = 0;
         _contenido = null;
     }
 
     public void ConsultarEtiqueta(){
-        RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
-        CasoDeUsoTramiteConsultaPorEtiqueta busquedaEtiqueta = new CasoDeUsoTramiteConsultaPorEtiqueta(repotramite);
         try{
-            List<Tramite>? aux = busquedaEtiqueta.Ejecutar(_etiquetaConsultada);
+            List<Tramite>? aux = tramiteConsultaEtiqueta.Ejecutar(_etiquetaConsultada);
             TramitesConsultados = aux;
             
         }catch(RepositorioException ex){
@@ -198,20 +199,11 @@
      }
 
     private void DarAltaTramite(){
-        RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
-        RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
-        RepositorioExpedienteSQLite repoexpediente = new RepositorioExpedienteSQLite();
-        
-        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repouser);
-        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repoexpediente,repotramite);
-
-        CasoDeUsoTramiteAlta tramiteAlta = new CasoDeUsoTramiteAlta(repotramite,autorizacion,actualizacion);
         try{
             string etiquetaString = _etiqueta.ToString();
             tramiteAlta.Ejecutar(_expedienteId,_contenido,etiquetaString,userId);
-            
             ResetearDatos();
-        }catch(RepositorioException ex){
+        }catch(ValidacionException ex){
             ventanaExcepcion.Mensaje = $"{ex.Message}"; 
             ventanaExcepcion.Mostrar(); 
         }
@@ -219,15 +211,6 @@
     }
 
     private void DarBajaTramite(){
-        //CasoDeUsoTramiteBaja(ITramiteRepositorio repo,ServicioAutorizacion autorizacion, ServicioActualizacionEstado actualizacion)
-        RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
-        RepositorioUsuarioSQLite repouser = new RepositorioUsuarioSQLite();
-        RepositorioExpedienteSQLite repoexpediente = new RepositorioExpedienteSQLite();
-
-        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repouser);
-        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repoexpediente,repotramite);
-        
-        CasoDeUsoTramiteBaja tramiteBaja = new CasoDeUsoTramiteBaja(repotramite,autorizacion,actualizacion);
         try{
             tramiteBaja.Ejecutar(_idTramiteABajar,userId);
             ResetearDatos();
@@ -238,15 +221,7 @@
         }
     }
 
-     public void ModificarTramite(){
-        RepositorioUsuarioSQLite repouser= new RepositorioUsuarioSQLite();
-        RepositorioTramiteSQLite repotramite = new RepositorioTramiteSQLite();
-        RepositorioExpedienteSQLite repoexpediente = new RepositorioExpedienteSQLite();
-        
-        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repouser);
-        ServicioActualizacionEstado actualizacion = new ServicioActualizacionEstado(repoexpediente,repotramite);
-        CasoDeUsoTramiteModificacion tramiteModificacion = new CasoDeUsoTramiteModificacion(repotramite,autorizacion,actualizacion);
-        
+     public void ModificarTramite(){     
         try{
             tramiteModificacion.Ejecutar(_idTramiteAModificar,_contenidoAModificar,_etiquetaModificada,userId);
             ResetearDatos();

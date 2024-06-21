@@ -1,6 +1,7 @@
 @page "/registrarusuario"
 @rendermode InteractiveServer
 @inject NavigationManager Navigation
+@inject CasoDeUsoUsuarioAlta usuarioAlta
 
 
 <PageTitle>Registrar Usuario | SGE</PageTitle>
@@ -40,12 +41,8 @@
 
 
     private void Ejecutar (){
-        RepositorioUsuarioSQLite repo = new RepositorioUsuarioSQLite();
-        UsuarioValidador validador = new UsuarioValidador(repo);
-        ServicioAutorizacion autorizacion = new ServicioAutorizacion(repo);
-        CasoDeUsoUsuarioAlta registro = new CasoDeUsoUsuarioAlta(repo,validador, autorizacion);
         try{
-            registro.Ejecutar(_nombre!,_apellido!,_email!,_password!);
+            usuarioAlta.Ejecutar(_nombre!,_apellido!,_email!,_password!);
             Navigation.NavigateTo("/");
         }
         catch(RepositorioException ex){

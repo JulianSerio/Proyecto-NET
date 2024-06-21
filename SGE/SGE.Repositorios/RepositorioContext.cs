@@ -21,12 +21,14 @@ public class RepositorioContext: DbContext{
         modelBuilder.Entity<Usuario>().Property(u => u.Apellido).HasMaxLength(100).IsRequired(true);
         modelBuilder.Entity<Usuario>().Property(u => u.Email).HasMaxLength(100).IsRequired();
         modelBuilder.Entity<Usuario>().Property(u => u.Password).HasMaxLength(100).IsRequired();
-        modelBuilder.Entity<Usuario>(entity => {
-            entity.Property(e => e.Permisos)
-            .HasConversion( //Configura la conversión de valor para la propiedad Permisos
-                v=> string.Join(',', v ?? new List<string>()), //Convierte la lista de cadenas en una sola cadena delimitada por comas para almacenar en la base de datos.
-                v=> v.Split(',',StringSplitOptions.RemoveEmptyEntries).ToList()); // Convierte la cadena delimitada por comas de nuevo en una lista de cadenas cuando se recupera de la base de datos.
-        });
+        modelBuilder.Entity<Usuario>()
+        .Property(u => u.Permisos)
+        .HasConversion(
+            permisos => permisos != null ? string.Join(",", permisos.Select(p => p.ToString())) : "", // Convert List<Permiso.Permisos> to string
+            permisosString => permisosString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                                            .Select(p => Enum.Parse<Permiso.Permisos>(p))
+                                            .ToList()                         // Convert string to List<Permiso.Permisos>
+        );
 
         //Expedientes
         modelBuilder.Entity<Expediente>().ToTable("Expedientes");
