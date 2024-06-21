@@ -10,19 +10,31 @@
 }
 
 @code{
-   private bool visible = false;
-   [Parameter] public string Mensaje {get;set;}="";
+    private bool visible = false;
+    private string mensaje = "";
 
-    public void CargarContenido(string mensaje){
-        Mensaje = mensaje;
+    public void CargarContenido(string mensaje)
+    {
+        this.mensaje = mensaje;
     }
 
-    public void Mostrar(){
-        visible=true;
+    public void Mostrar()
+    {
+        visible = true;
         StateHasChanged();
     }
-    private void CerrarVentana(){
-        visible=false;
+
+    public void CargarYMostrar(string mensaje)
+    {
+        CargarContenido(mensaje);
+        Mostrar();
+    }
+
+    private void CerrarVentana()
+    {
+        visible = false;
         StateHasChanged();
     }
+
+    public string Mensaje => mensaje;
 }

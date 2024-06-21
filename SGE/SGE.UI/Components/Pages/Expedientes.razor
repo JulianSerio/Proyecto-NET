@@ -148,12 +148,10 @@
             expedienteAlta.Ejecutar(_caratula!,userId);
             RefreshPage();
         }catch(ValidacionException ex){ // en caso que la caratula sea invalida
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
         catch(AutorizacionException ex){// en caso de que tenga permisos (caso imposible de que pase)
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
     }
     private void DarDeBaja(){
@@ -161,12 +159,10 @@
             expedienteBaja.Ejecutar(_idExpediente, userId);
             RefreshPage();
         }catch(RepositorioException ex){ // en caso de que no exista en el repo
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
         catch(AutorizacionException ex){// en caso de que tenga permisos (caso imposible de que pase)
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
     }
     private void Modificar(){
@@ -174,16 +170,13 @@
             expedienteModificacion.Ejecutar(_idExpediente, _caratula, userId);
             RefreshPage();
          }catch(ValidacionException ex){ // en caso que la caratula sea invalida
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
         catch(AutorizacionException ex){// en caso de que tenga permisos (caso imposible de que pase)
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
         catch(RepositorioException ex){ // en caso de que no exista en el repo
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
     }
     private void BuscarPorID(){
@@ -191,8 +184,7 @@
             consultaID = expedienteConsultaId.Ejecutar(_idExpediente);
         }
         catch(RepositorioException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}";
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
     }
 

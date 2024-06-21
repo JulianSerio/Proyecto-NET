@@ -38,13 +38,11 @@
     private string? _email;
     private string? _password;
     Excepcion ventanaExcepcion = null!;
-    private List<Permiso.Permisos> permisos;
+    private List<Permiso.Permisos>? permisos;
 
     protected override void OnParametersSet(){
         int.TryParse(IdUsuario, out userId);
     }
-    //Faltaria verificar que cuando se cargue la persona que se modifique 
-    //su campo y no se cree otro usuario
     private void Ejecutar (){
         try{
             permisos = usuarioConsultaId.Ejecutar(userId).Permisos;
@@ -52,8 +50,10 @@
             Navigation.NavigateTo("/");
         }
         catch(RepositorioException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}";
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
+        }
+        catch(ValidacionException ex){
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
     }
 }

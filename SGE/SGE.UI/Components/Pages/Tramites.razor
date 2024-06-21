@@ -193,8 +193,7 @@
         try{
             TramitesConsultados = tramiteConsultaEtiqueta.Ejecutar(_etiquetaConsultada);
         }catch(RepositorioException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar(); 
+            ventanaExcepcion.CargarYMostrar(ex.Message); 
         }
      }
 
@@ -204,8 +203,10 @@
             tramiteAlta.Ejecutar(_expedienteId,_contenido,etiquetaString,userId);
             RefreshPage();
         }catch(ValidacionException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar(); 
+            ventanaExcepcion.CargarYMostrar(ex.Message); 
+        }
+        catch(AutorizacionException ex){
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
     }
 
@@ -214,8 +215,10 @@
             tramiteBaja.Ejecutar(_idTramiteABajar,userId);
             RefreshPage();
         }catch(RepositorioException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar(); 
+            ventanaExcepcion.CargarYMostrar(ex.Message); 
+        }
+        catch(AutorizacionException ex){
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
     }
 
@@ -225,8 +228,13 @@
             RefreshPage();
         }
         catch(RepositorioException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}"; 
-            ventanaExcepcion.Mostrar(); 
+            ventanaExcepcion.CargarYMostrar(ex.Message); 
+        }
+        catch(AutorizacionException ex){
+            ventanaExcepcion.CargarYMostrar(ex.Message);
+        }
+        catch(ValidacionException ex){
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
     }
 

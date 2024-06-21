@@ -42,13 +42,11 @@
             Navigation.NavigateTo($"/home/{usuarioAct.IdUsuario}");
         }
         catch(RepositorioException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}";
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
     }
 
     private void OlvidarConstraseña(){
-        ventanaExcepcion.Mensaje = "Contacta con el administrador.";
-        ventanaExcepcion.Mostrar();
+        ventanaExcepcion.CargarYMostrar("Contactar con el administrador");
     }
 }

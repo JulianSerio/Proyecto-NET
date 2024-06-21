@@ -46,8 +46,10 @@
             Navigation.NavigateTo("/");
         }
         catch(RepositorioException ex){
-            ventanaExcepcion.Mensaje = $"{ex.Message}";
-            ventanaExcepcion.Mostrar();
+            ventanaExcepcion.CargarYMostrar(ex.Message);
+        }
+        catch(ValidacionException ex){
+            ventanaExcepcion.CargarYMostrar(ex.Message);
         }
     }
 }

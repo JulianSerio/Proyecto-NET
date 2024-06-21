@@ -236,6 +236,50 @@ body {
     border-radius: 5px;
     padding: 40px 20px;
     height: 50vh;
+    .titulo{
+        font-size:2.5rem;
+        text-align:left;
+        font-weight: 700;
+        padding: 1rem;
+        color: white;
+    }
+    .form{
+        width: 100%;
+        .elemento-input{
+            text-align: center;
+            input{
+                width: 100%;
+                margin-bottom: 10px;
+                height: 40px;
+                padding: 0px 15px;
+                font-size: 1.2rem;
+                border-radius: 20px;
+                border: 2px solid rgb(82, 82, 82);
+                background-color: white;
+                outline: none;   
+                color: rgb(0, 0, 0);
+            }
+            ::placeholder {
+                color: #787b7e;
+            }
+        }
+        .boton-inicio{
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: larger;
+            width: 100%;
+            height: 50px;
+            box-sizing: content-box;
+            background-color:rgb(105, 165, 255);
+            color: white;
+            margin-bottom: 1rem; 
+            &:hover {
+                background-color:rgb(79, 150, 255);
+                box-shadow: 0 0 10px grey
+            }
+        }
+    }
 }
 
 .seccion-paginas{
