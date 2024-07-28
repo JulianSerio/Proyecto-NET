@@ -5,30 +5,53 @@
 
 <PageTitle>Home | SGE</PageTitle>
 
-<section class="seccion-home">
-    <div class="modificar">
-        <button class="boton-mod" @onclick="RedirigirModificar"><img src="images/config.png" alt="">Modificar perfil</button>
-    </div>
-    <h1>¿Que operacion queres realizar?</h1>
-    <div class="operaciones">
-        <button class="boton-op" @onclick="RedirigirExpedientes">Ver Expedientes</button>
-        <button class="boton-op" @onclick="RedirigirTramites">Ver Tramites</button>
-        @if (EsAdmin){
-            <button class="boton-op" @onclick="RedirigirUsuarios">Ver Usuarios</button>
-        }
-    </div>
-</section>
+<div class="container">
+    <section class="seccion-home">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <h3>Bienvenido {nombre}</h3>
+            </div>
+            <div class="col-6 text-end">
+                <div class="modificar">
+                    <button class="btn btn-primary boton-mod" @onclick="RedirigirModificar">
+                        <img src="images/config.png" alt="" class="img-config"> Modificar perfil
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h3>¿Qué operación quieres realizar?</h3>
+            </div>
+        </div>
+
+        <div class="operaciones">
+            <div class="operacion">
+                <button class="btn btn-primary btn-lg boton-op" @onclick="RedirigirExpedientes">Ver Expedientes</button>
+            </div>
+            <div class="operacion">
+                <button class="btn btn-primary btn-lg boton-op" @onclick="RedirigirTramites">Ver Trámites</button>
+            </div>
+            @if (EsAdmin)
+            {
+                <div class="operacion">
+                    <button class="btn btn-primary btn-lg boton-op" @onclick="RedirigirUsuarios">Ver Usuarios</button>
+                </div>
+            }
+        </div>
+    </section>
+</div>
+
 
 @code{
     [Parameter] public string? IdUsuario { get; set; }
     private bool EsAdmin = false;
     private int userId;
-
     protected override void OnParametersSet(){
         int.TryParse(IdUsuario, out userId);
         EsAdmin = autorizacion.EsAdmin(userId);
     }
-
     private void RedirigirExpedientes(){
         Navigation.NavigateTo($"/expedientes/{IdUsuario}");
     }

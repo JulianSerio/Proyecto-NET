@@ -96,3 +96,27 @@ C:\Users\Val\Desktop\Facum\dotnet\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8
 C:\Users\Val\Desktop\Facum\dotnet\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\refint\SGE.Aplicacion.dll
 C:\Users\Val\Desktop\Facum\dotnet\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.pdb
 C:\Users\Val\Desktop\Facum\dotnet\Proyecto-NET\SGE\SGE.Aplicacion\obj\Debug\net8.0\ref\SGE.Aplicacion.dll
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.deps.json
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.dll
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.pdb
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.AssemblyInfoInputs.cache
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.AssemblyInfo.cs
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.sourcelink.json
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.dll
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\obj\Debug\net8.0\refint\SGE.Aplicacion.dll
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.pdb
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Aplicacion\obj\Debug\net8.0\ref\SGE.Aplicacion.dll
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.deps.json
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.dll
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.pdb
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.AssemblyInfoInputs.cache
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.AssemblyInfo.cs
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.csproj.CoreCompileInputs.cache
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.sourcelink.json
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.dll
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\obj\Debug\net8.0\refint\SGE.Aplicacion.dll
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.pdb
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Aplicacion\obj\Debug\net8.0\ref\SGE.Aplicacion.dll

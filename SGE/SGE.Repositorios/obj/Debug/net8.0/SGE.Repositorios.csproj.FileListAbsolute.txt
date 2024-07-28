@@ -128,3 +128,35 @@ C:\Users\Val\Desktop\Facum\dotnet\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\ne
 C:\Users\Val\Desktop\Facum\dotnet\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\refint\SGE.Repositorios.dll
 C:\Users\Val\Desktop\Facum\dotnet\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.pdb
 C:\Users\Val\Desktop\Facum\dotnet\Proyecto-NET\SGE\SGE.Repositorios\obj\Debug\net8.0\ref\SGE.Repositorios.dll
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.deps.json
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.dll
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.pdb
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Aplicacion.dll
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Aplicacion.pdb
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.csproj.AssemblyReference.cache
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.AssemblyInfoInputs.cache
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.AssemblyInfo.cs
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.sourcelink.json
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repo.5B6658F4.Up2Date
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.dll
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\refint\SGE.Repositorios.dll
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.pdb
+C:\Users\Julian\Desktop\Proyecto-Net\SGE\SGE.Repositorios\obj\Debug\net8.0\ref\SGE.Repositorios.dll
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.deps.json
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.dll
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.pdb
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Aplicacion.dll
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Aplicacion.pdb
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.csproj.AssemblyReference.cache
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.AssemblyInfoInputs.cache
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.AssemblyInfo.cs
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.csproj.CoreCompileInputs.cache
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.sourcelink.json
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repo.5B6658F4.Up2Date
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.dll
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\refint\SGE.Repositorios.dll
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.pdb
+c:\Users\Julian\Desktop\Sistema de Gestion de Tramites Y expedientes (SGE)\SGE\SGE.Repositorios\obj\Debug\net8.0\ref\SGE.Repositorios.dll

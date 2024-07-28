@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj": {}
+    "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+    "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+        "projectUniqueName": "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
         "projectName": "SGE.Aplicacion",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Aplicacion\\obj\\",
+        "projectPath": "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+        "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Aplicacion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -62,17 +62,17 @@
         }
       }
     },
-    "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj": {
+    "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+        "projectUniqueName": "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
         "projectName": "SGE.Repositorios",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Repositorios\\obj\\",
+        "projectPath": "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Repositorios\\SGE.Repositorios.csproj",
+        "packagesPath": "C:\\Users\\Julian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Repositorios\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Julian\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -84,8 +84,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Desktop\\Proyecto net GitHub\\Proyecto-NET\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
+              "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
+                "projectPath": "C:\\Users\\Julian\\Desktop\\Sistema de Gestion de Tramites Y expedientes (SGE)\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj"
               }
             }
           }

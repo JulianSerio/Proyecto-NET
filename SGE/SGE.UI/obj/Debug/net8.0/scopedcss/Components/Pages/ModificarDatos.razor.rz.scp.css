@@ -1,0 +1,93 @@
+/*ESTILO FORMULARIO*/
+.body-form[b-2m5ucrgrtx]{
+    width: 100%;
+    height: 92vh;
+    background: linear-gradient(#0000006a, #0000006a),url('./Images/fondo.png') no-repeat center center fixed;
+    .seccion-formulario{
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        text-align: center;
+        background-color:rgb(82, 82, 82);
+        width: 35%;
+        margin:0 auto;
+        border-radius: 5px;
+        padding: 40px 20px;
+        height: 50vh;
+        .contenedor-formulario{
+            width: 100%;
+            .titulo{
+                font-size:2.5rem;
+                text-align:left;
+                font-weight: 700;
+                padding: 1rem;
+                color: white;
+            }
+            .form[b-2m5ucrgrtx]{
+                width: 100%;
+                .elemento-input{
+                    text-align: center;
+                    input{
+                        width: 100%;
+                        margin-bottom: 10px;
+                        height: 40px;
+                        padding: 0px 15px;
+                        font-size: 1.2rem;
+                        border-radius: 20px;
+                        border: 2px solid rgb(82, 82, 82);
+                        background-color: white;
+                        outline: none;   
+                        color: rgb(0, 0, 0);
+                    }
+                    [b-2m5ucrgrtx]::placeholder {
+                        color: #787b7e;
+                    }
+                }
+                .boton-inicio[b-2m5ucrgrtx]{
+                    border: none;
+                    border-radius: 5px;
+                    font-weight: 700;
+                    font-size: larger;
+                    width: 100%;
+                    height: 50px;
+                    box-sizing: content-box;
+                    background-color:rgb(105, 165, 255);
+                    color: white;
+                    margin-bottom: 1rem; 
+                    &:hover {
+                        background-color:rgb(79, 150, 255);
+                        box-shadow: 0 0 10px grey
+                    }
+                }
+                a[b-2m5ucrgrtx]{
+                    margin-top:40px;
+                    font-size: 1rem;
+                    text-decoration: none;
+                    color: white;
+                    font-weight:400;       
+                }
+                :hover[b-2m5ucrgrtx]{
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1200px){
+    .seccion-inicio[b-2m5ucrgrtx] {
+        width: 95%;
+        padding: 10px 10px;
+        .contenedor-inicio{
+            .titulo-inicio {
+                font-size: 2rem;
+                text-align: center;
+            }
+            form[b-2m5ucrgrtx] {
+                width: 100%;
+                text-align:center;
+            }
+        }
+    }
+}

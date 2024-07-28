@@ -4,31 +4,31 @@
 @inject CasoDeUsoUsuarioIniciarSesion iniciarSesion
 
 <PageTitle>Iniciar Sesion | SGE</PageTitle>
-
-<section class="seccion-formulario">
-    <Excepcion @ref="ventanaExcepcion"/>
-    <div class="contenedor-formulario">
-        <h1 class="titulo">Iniciar Sesion</h1>
-        <form class="form" @onsubmit="Ejecutar">
-            <div class="elemento-input">
-                <input type="email" @bind="_email" id="input-email" placeholder="Email" required>
-            </div>
-            <div class="elemento-input">
-                <input type="password" @bind="_password" id="input-password" placeholder="Contraseña" required>
-            </div>
-            <div>
-                <button type="submit" class="boton-inicio">Iniciar Sesion</button>
-            </div>
-            <div>
-                <a @onclick="OlvidarConstraseña">¿Olvidaste la contraseña?</a>
-            </div>
-            <div>
-                <a href="registrarusuario">Registrarse</a>
-            </div>
-        </form>
-    </div>
-</section>
-
+<Excepcion @ref="ventanaExcepcion"/>
+<div class="body-form">
+    <section class="seccion-formulario">
+        <div class="contenedor-formulario">
+            <h1 class="titulo">Iniciar Sesion</h1>
+            <form class="form" @onsubmit="Ejecutar">
+                <div class="elemento-input">
+                    <input type="email" @bind="_email" id="input-email" placeholder="Email" required>
+                </div>
+                <div class="elemento-input">
+                    <input type="password" @bind="_password" id="input-password" placeholder="Contraseña" required>
+                </div>
+                <div>
+                    <button type="submit" class="boton-inicio">Iniciar Sesion</button>
+                </div>
+                <div>
+                    <a @onclick="OlvidarConstraseña">¿Olvidaste la contraseña?</a>
+                </div>
+                <div>
+                    <a href="registrarusuario">Registrarse</a>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
 
 @code{
     private string? _email;
